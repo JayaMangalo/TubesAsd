@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+//NOTE: ini masi prototype, kalo perlu bakal diganti.
+
 typedef struct { 
 	float CurrentTime;    //Waktu sekarang
     int Weight;         //Banyak barang. Kalo gaada -> 0 
