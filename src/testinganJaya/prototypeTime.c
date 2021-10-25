@@ -12,14 +12,18 @@ typedef struct {
 #define Weight(P) (P).Weight
 #define SpeedBoost(P) (P).SpeedBoost
 
+//Create empty time.
+void CreateTime(Time *T){
+    CurrentTime(*T) = 0;
+    Weight(*T) = 0;
+    SpeedBoost(*T) = 0;
+}
+
 //fungsi untuk menambahkan waktu ketika moving 
 //(+1 jika normal, +0.5 jika speedboost +2,3,4 jika ada weight)
 // Juga mengurangi speedboost setiap kali gerak
 // Juga mengupdate time remaining on perishable items (Not implemented yet)
-void CreateTime(Time *T){
-    Time *T = {0,0,0};
-}
-
+// Maybe update perishable item
 void AddTimeByMove(Time *T){          
     if (SpeedBoost(*T) > 0){
         CurrentTime(*T) = CurrentTime(*T) + 0.5;
@@ -31,32 +35,33 @@ void AddTimeByMove(Time *T){
     //TODO : change the number of time remaining on perishable items.
 }
 
+//fungsi menambahkan time melalui ability speedboost (constant +10 )
+void AddSpeedBoost(Time *T){
+    SpeedBoost(*T) = SpeedBoost(*T) +10;
+}
+
+//fungsi meremove time (jika pickup heavy item)
+void RemoveSpeedBoost(Time *T){
+    SpeedBoost(*T) = 0;
+}
+
+//fungsi sama seperti CurrentTime(T), tetapi hasilnya int dibulatkan kebawah, bukan float.
+int GetCurrentTime(Time T){
+    return (int)CurrentTime(T);
+}
+
 //untuk testing.
 int main(){
-    Time x = {0,3,0};
-    printf("%.1f\n", x.CurrentTime);
+    Time x = {0,0,0};
+    AddSpeedBoost(&x);
     AddTimeByMove(&x);
     printf("%.1f\n", x.CurrentTime);
     AddTimeByMove(&x);
     printf("%.1f\n", x.CurrentTime);
     AddTimeByMove(&x);
     printf("%.1f\n", x.CurrentTime);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
+
+    printf("%d\n",(int)x.CurrentTime);
+    printf("%d\n",GetCurrentTime(x));
+    
 }
