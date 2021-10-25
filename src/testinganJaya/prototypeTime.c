@@ -16,6 +16,10 @@ typedef struct {
 //(+1 jika normal, +0.5 jika speedboost +2,3,4 jika ada weight)
 // Juga mengurangi speedboost setiap kali gerak
 // Juga mengupdate time remaining on perishable items (Not implemented yet)
+void CreateTime(Time *T){
+    Time *T = {0,0,0};
+}
+
 void AddTimeByMove(Time *T){          
     if (SpeedBoost(*T) > 0){
         CurrentTime(*T) = CurrentTime(*T) + 0.5;
