@@ -1,0 +1,22 @@
+NOTES
+- insertBangunan harus diawali dengan memasukkan headquarters dengan char name '8'
+agar headquarters berada di indeks 0 dan bangunan lain dimulai dari indeks 1
+- ADT list dinamis dan matriks yang digunakan untuk map telah dimodifikasi, jadi jangan diganti ya hehe
+
+listdin_driver: gcc listdin.c listdin_driver.c point.c
+map_driver: gcc map.c map_driver.c matrix.c listdin.c point.c
+
+matriks 6x6
+0 0 0 1 0 1
+0 0 1 0 0 0
+0 0 0 0 1 0
+1 0 0 0 1 0
+0 0 1 1 0 0
+1 0 0 0 0 0
+
+headquarters: C, E
+A: B
+B: D
+C: headquarters, D
+D: B, C
+E: headquarters
