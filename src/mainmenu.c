@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "../src/ADT Mesin Kata/wordmachine.h"
 
-void mainmenu() {
-    boolean new_game = false;
+void mainmenu() { 
+    boolean new_game = false;  
     boolean load_game = false;
     boolean exit = false;
 
@@ -32,7 +32,9 @@ void mainmenu() {
 
     printf("MAIN MENU\n");
     printf("ENTER COMMAND: ");
+
     startWord();
+
     while(!endWord){
         if(isEqual(currentWord,NEW)) {
             new_game = true;
@@ -40,11 +42,17 @@ void mainmenu() {
             load_game = true;
         } else if(isEqual(currentWord,EXIT)){
             exit = true;
-        } else {
-            advWord();
-        }
+        } 
+        advWord();
     }
+
+    if (new_game) {
+        printf("Masukkan nama file: ");
+    }
+    
 }
+
 int main () {
     mainmenu();
+    return 0;
 }
