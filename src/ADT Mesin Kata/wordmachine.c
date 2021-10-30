@@ -79,3 +79,20 @@ void copyWord() {
     }
     currentWord.length =i;
 };
+
+boolean isEqual(Word a, Word b) {
+    boolean equal = true;
+    if(a.length != b.length) {
+        equal = false;
+    } else {
+        int i = 0;
+        while ((i < a.length) && equal) {
+            if(a.contents[i] != b.contents[i]) {
+                equal = false;
+            } else {
+                i++;
+            }
+        }
+    }
+    return equal;
+};
