@@ -97,18 +97,21 @@ int main() {
     Order ord6 = (Order){3,'F','E','N',0};
     Order ord7 = (Order){10,'P','Q','P',20};
     Order ord8 = (Order){5,'G','N','P',10};
+    // Nanti bakal implementasi jadi pake mesin kata
     /* ALGORITMA */
-    CreateList(&toDo);
-    insertLast(&toDo,ord1);
-    insertLast(&toDo,ord2);
-    insertLast(&toDo,ord3);
-    insertLast(&toDo,ord4);
-    insertLast(&toDo,ord5);
-    insertLast(&toDo,ord6);
-    insertLast(&toDo,ord7);
-    insertLast(&toDo,ord8);
+    CreateList(&TempList);
+    insertLast(&TempList,ord1);
+    insertLast(&TempList,ord2);
+    insertLast(&TempList,ord3);
+    insertLast(&TempList,ord4);
+    insertLast(&TempList,ord5);
+    insertLast(&TempList,ord6);
+    insertLast(&TempList,ord7);
+    insertLast(&TempList,ord8);
+    // Buat list sementara untuk semua pesanan (tidak berurut berdasarkan Time-in gapapa)
 
-    Daftar daftar = createDaftar(toDo,10);
+    Daftar daftar = createDaftar(TempList,10);
+    // Mengubah dan Mengurutkan list sebelumnya menjadi queue
     displayDaftar(daftar);
 
     return 0;

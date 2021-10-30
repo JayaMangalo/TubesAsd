@@ -31,7 +31,20 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="main.c">
+		<Unit filename="ADT Linked List/list_linked.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ADT Linked List/list_linked.h" />
+		<Unit filename="ADT Linked List/node.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ADT Linked List/node.h" />
+		<Unit filename="ADT Queue/queue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ADT Queue/queue.h" />
+		<Unit filename="boolean.h" />
+		<Unit filename="tesdaftar.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
