@@ -28,6 +28,12 @@ boolean isQEmpty(Queue q) {
     /* Algoritma */
     return IDX_HEAD(q)==IDX_UNDEF && IDX_TAIL(q)==IDX_UNDEF;
 };
+boolean isDEmpty(Daftar q) {
+/* Mengirim true jika q kosong: lihat definisi di atas */
+    /* Kamus Lokal */
+    /* Algoritma */
+    return IDX_HEAD(q)==IDX_UNDEF && IDX_TAIL(q)==IDX_UNDEF;
+};
 boolean isQFull(Queue q) {
 /* Mengirim true jika tabel penampung elemen q sudah penuh */
 /* yaitu jika index head bernilai 0 dan index tail bernilai CAPACITY-1 */
@@ -35,17 +41,17 @@ boolean isQFull(Queue q) {
     /* Algoritma */
     return IDX_HEAD(q)==0 && IDX_TAIL(q)==CAPACITY-1;
 };
-int length(Queue q) {
+/*int length(Queue q) {
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika q kosong. */
     /* Kamus Lokal */
     /* Algoritma */
-    if(isEmpty(q)) {
+/*    if(isQEmpty(q)) {
         return 0;
     } else {
         return IDX_TAIL(q)-IDX_HEAD(q)+1;
     }
 };
-
+*/
 /* *** Primitif Add/Delete *** */
 void enqueue(Queue *q, ElType val) {
 /* Proses: Menambahkan val pada q dengan aturan FIFO */
@@ -63,7 +69,7 @@ void enqueue(Queue *q, ElType val) {
         IDX_TAIL(*q) = IDX_TAIL(*q) - IDX_HEAD(*q);
         IDX_HEAD(*q) = 0;
     }
-    if(isEmpty(*q)) {
+    if(isQEmpty(*q)) {
         IDX_HEAD(*q) = 0;
         IDX_TAIL(*q) = 0;
         TAIL(*q) = val;
@@ -102,10 +108,10 @@ void displayQueue(Queue q) {
     ElType val;
     /* Algoritma */
     printf("[");
-    if(!isEmpty(q)) {
+    if(!isQEmpty(q)) {
         dequeue(&q,&val);
         printf("%d", val);
-        while(!isEmpty(q)) {
+        while(!isQEmpty(q)) {
             dequeue(&q,&val);
             printf(",%d",val);
         }

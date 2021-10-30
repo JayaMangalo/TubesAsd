@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1635577800 source:c:\users\davin\desktop\tubesasd\src\testingandavin\tesdavin\tesdaftar.c
+	"ADT Linked List/list_linked.h"
+	<stdio.h>
+	"ADT Queue/queue.h"
+
+1635572618 c:\users\davin\desktop\tubesasd\src\testingandavin\tesdavin\adt linked list\list_linked.h
+	"../boolean.h"
+	"node.h"
+
+1635572618 c:\users\davin\desktop\tubesasd\src\testingandavin\tesdavin\boolean.h
+
+1635572618 c:\users\davin\desktop\tubesasd\src\testingandavin\tesdavin\adt linked list\node.h
+	<stdlib.h>
+	"../order.h"
+
+1635572618 c:\users\davin\desktop\tubesasd\src\testingandavin\tesdavin\order.h
+
+1635576161 c:\users\davin\desktop\tubesasd\src\testingandavin\tesdavin\adt queue\queue.h
+	"../boolean.h"
+	"../order.h"
+
+1635576518 source:c:\users\davin\desktop\tubesasd\src\testingandavin\tesdavin\adt queue\queue.c
+	"queue.h"
+	<stdio.h>
+
+1635572618 source:c:\users\davin\desktop\tubesasd\src\testingandavin\tesdavin\adt linked list\list_linked.c
+	"list_linked.h"
+	<stdlib.h>
+	<stdio.h>
+
+1635572618 source:c:\users\davin\desktop\tubesasd\src\testingandavin\tesdavin\adt linked list\node.c
+	"node.h"
+	<stdlib.h>
+
