@@ -47,6 +47,7 @@ void removeGadget(Inventory *g, char *Gadget)
   }
 }
 
+
 int main()
 {
     Inventory g;

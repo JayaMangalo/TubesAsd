@@ -4,7 +4,7 @@
 #ifndef CHAR_ENGINE_H
 #define CHAR_ENGINE_H
 
-#include "boolean.h"
+#include "../boolean.h"
 
 #define MARK '.'
 /* Char Engine State */
@@ -20,9 +20,9 @@ void start();
           Jika currentChar = MARK maka EOP akan menyala (true) */
 
 void adv();
-/* Pita dimajukan satu karakter. 
+/* Pita dimajukan satu karakter.
    I.S. : Karakter pada jendela = currentChar, currentChar != MARK
-   F.S. : currentChar adalah karakter berikutnya dari currentChar yang lama, 
+   F.S. : currentChar adalah karakter berikutnya dari currentChar yang lama,
           currentChar mungkin = MARK
           Jika  currentChar = MARK maka EOP akan menyala (true) */
 

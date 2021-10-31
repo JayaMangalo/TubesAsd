@@ -39,6 +39,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="ADT Linked List/node.h" />
+		<Unit filename="ADT Mesin Kata/charmachine.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ADT Mesin Kata/charmachine.h" />
 		<Unit filename="ADT Mesin Kata/wordmachine.c">
 			<Option compilerVar="CC" />
 		</Unit>
