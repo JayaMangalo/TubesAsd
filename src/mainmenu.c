@@ -32,24 +32,40 @@ void mainmenu() {
 
     printf("MAIN MENU\n");
     printf("ENTER COMMAND: ");
-
+    
     startWord();
-
     while(!endWord){
         if(isEqual(currentWord,NEW)) {
             new_game = true;
+            endWord = true;
         } else if(isEqual(currentWord,LOAD)) {
             load_game = true;
+            endWord = true;
         } else if(isEqual(currentWord,EXIT)){
             exit = true;
+            endWord = true;
         } 
-        advWord();
     }
 
     if (new_game) {
         printf("Masukkan nama file: ");
+        /* read file */
+        startWord();
+        while (!endWord) {
+            /* this area's function will be able to read file" */
+            advWord();
+        }
+    } else if (load_game) {
+        printf("Masukkan nama file: ");
+        /* read file */
+        startWord();
+        while (!endWord) {
+            /* this area's function will be able to read file" */
+            advWord();
+        } 
+    } else if (exit) {
+        printf("Game mobilita selesai.");
     }
-    
 }
 
 int main () {
