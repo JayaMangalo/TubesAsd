@@ -49,5 +49,6 @@ void pop(Stack *s, ElType *val);
 /* F.S. val adalah nilai elemen TOP yang lama, IDX_TOP berkurang 1 */
 
 void IncreaseCapacity(Stack *s);
+//Meningkatkan Capacity dengan 1 asalkan blom 100
 
 #endif
