@@ -1,6 +1,8 @@
 #include "ADT Linked List/list_linked.h"
 #include <stdio.h>
 #include "ADT Queue/queue.h"
+#include "ADT Mesin Kata/wordmachine.h"
+#include <string.h>
 
 Daftar createDaftar(List td, int time)
 {
@@ -86,6 +88,38 @@ void displayDaftar(Daftar q)
     }
 }
 
+List readOrder(int val)
+// Mesin kata membaca file konfigurasi
+// masih belom yakin cara membaca kata diubah menjadi integer
+{
+    List TempList;
+    CreateList(&TempList);
+    ignoreBlank();
+    for (int i=0;i<val;i++)
+    {
+        Order newOrder;
+        copyWord();
+        char *tes = currentWord.contents;
+        TimeIn(newOrder) = tes;
+        advWord();
+        PickUp(newOrder) = currentChar;
+        advWord();
+        DropOff(newOrder) = currentChar;
+        advWord();
+        TYPE(newOrder) = currentChar;
+        if (currentChar == 'P')
+        {
+            advWord();
+            tes = currentWord.contents;
+            TimePerish(newOrder) = tes;
+        } else {
+            TimePerish(newOrder) = 0;
+        }
+        insertLast(&TempList,newOrder);
+        advWord();
+    }
+}
+
 int main() {
     /* KAMUS */
     List toDo;
@@ -99,6 +133,7 @@ int main() {
     Order ord8 = (Order){5,'G','N','P',10};
     // Nanti bakal implementasi jadi pake mesin kata
     /* ALGORITMA */
+    List TempList;
     CreateList(&TempList);
     insertLast(&TempList,ord1);
     insertLast(&TempList,ord2);
