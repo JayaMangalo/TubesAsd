@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 #include "../src/ADT Mesin Kata/wordmachine.h"
 
 void mainmenu() { 
     boolean new_game = false;  
     boolean load_game = false;
-    boolean exit = false;
+    boolean exit_game = false;
 
     /* kata NEW */
     Word NEW;
@@ -42,18 +43,36 @@ void mainmenu() {
             load_game = true;
             endWord = true;
         } else if(isEqual(currentWord,EXIT)){
-            exit = true;
             endWord = true;
-        } 
+            exit_game = true;
+        }
     }
 
     if (new_game) {
+
+        Word file;
+        file.contents[0] = 'f';
+        file.contents[1] = 'i';
+        file.contents[2] = 'l';
+        file.contents[3] = 'e';
+        file.length = 4;
+
+        boolean file_valid = false;
         printf("Masukkan nama file: ");
-        /* read file */
         startWord();
-        while (!endWord) {
-            /* this area's function will be able to read file" */
-            advWord();
+
+        while(!endWord) {
+            if(isEqual(currentWord, file)) {
+                file_valid = true;
+            } else {
+                while(!file_valid) {
+                    printf("Masukkan nama file: ");
+                    startWord();
+                    if(isEqual(currentWord, file)) {
+                        file_valid = true;
+                    }
+                }
+            }
         }
     } else if (load_game) {
         printf("Masukkan nama file: ");
@@ -63,7 +82,7 @@ void mainmenu() {
             /* this area's function will be able to read file" */
             advWord();
         } 
-    } else if (exit) {
+    } else if (exit_game) {
         printf("Game mobilita selesai.");
     }
 }
