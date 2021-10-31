@@ -49,31 +49,19 @@ void mainmenu() {
     }
 
     if (new_game) {
-
-        Word file;
-        file.contents[0] = 'f';
-        file.contents[1] = 'i';
-        file.contents[2] = 'l';
-        file.contents[3] = 'e';
-        file.length = 4;
-
-        boolean file_valid = false;
-        printf("Masukkan nama file: ");
-        startWord();
-
-        while(!endWord) {
-            if(isEqual(currentWord, file)) {
-                file_valid = true;
-            } else {
-                while(!file_valid) {
-                    printf("Masukkan nama file: ");
-                    startWord();
-                    if(isEqual(currentWord, file)) {
-                        file_valid = true;
-                    }
-                }
-            }
+        /* I cannot make a read file using charmachine, maybe it'll be revised anytime */
+        FILE *fp;
+        fp = fopen("file.txt","r");
+        int c = getc(fp);
+        int i = 0;
+        while (c != EOF) {
+            putchar(c);
+            printf("%d",i);
+            i++;
+            c = getc(fp);
         }
+        fclose(fp);  
+        getchar();  
     } else if (load_game) {
         printf("Masukkan nama file: ");
         /* read file */
