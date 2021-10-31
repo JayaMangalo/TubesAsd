@@ -50,16 +50,14 @@ void mainmenu() {
 
     if (new_game) {
         /* I cannot make a read file using charmachine, maybe it'll be revised anytime */
-        FILE *fp;
-        fp = fopen("file.txt","r");
-        int c = getc(fp);
-        int i = 0;
-        while (c != EOF) {
-            putchar(c);
-            c = getc(fp);
+        startWord();
+        while(!endWord) {
+            for(int i=0;i<currentWord.length;i++) {
+                printf("%c",currentWord.contents[i]);
+            }
+            printf("\n");
+            advWord();
         }
-        fclose(fp);  
-        getchar();  
     } else if (load_game) {
         printf("Masukkan nama file: ");
         /* read file */
