@@ -2,9 +2,9 @@
 /* *** Body ABSTRACT DATA TYPE CHARACTER DYNAMIC LIST *** */
 
 #include <stdio.h>
-#include "listdin.h"
 #include <stdbool.h>
 #include <stdlib.h>
+#include "listdin.h"
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create list kosong  */

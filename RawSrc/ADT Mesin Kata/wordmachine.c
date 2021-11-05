@@ -5,7 +5,6 @@
 /* File : wordmachine.c */
 /* Berisi implementasi word engine */
 
-#include <stdio.h>
 #include "wordmachine.h"
 
 boolean endWord;
@@ -97,23 +96,3 @@ boolean isEqual(Word a, Word b) {
     }
     return equal;
 };
-
-
-int WordToInt(Word K) {
-/* Mengakuisisi Token dan menyimpan hasilnya dalam currentToken
-   I.S. : currentChar adalah karakter pertama dari Token
-   F.S. : currentToken berisi Token yang sudah diakuisisi; 
-          currentChar = BLANK atau currentChar = MARK; 
-          currentChar adalah karakter sesudah karakter terakhir yang diakuisisi.
-          Jika panjang kata melebihi CAPACITY, maka sisa kata "dipotong" */
-    /* Algoritma */
-    int i = 0;
-    int val = 0;
-    for (int i = 0; i < K.length; i++)
-    {
-        val = 10*val+((int)currentWord.contents[i]-48);
-    }
-    return val;
-    }
-
-
