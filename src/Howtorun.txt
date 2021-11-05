@@ -1,0 +1,4 @@
+compile : gcc setup_driver.c matrix//matrix.c point//point.c wordmachine//wordmachine.c charmachine//charmachine.c listdin//listdin.c setup//setup.c  -o  setup_driver
+run 	: ./setup_driver
+compile and run: cd "e:\Tugas Itb\Sem 3\Alstrukdat\PrakAsdWindows\TubesAsd\src\" ; if ($?) { gcc setup_driver.c matrix//matrix.c point//point.c wordmachine//wordmachine.c charmachine//charmachine.c listdin//listdin.c setup//setup.c  -o  setup_driver } ; if ($?) { .\setup_driver }
+

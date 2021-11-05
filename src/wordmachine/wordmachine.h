@@ -48,4 +48,7 @@ void copyWord();
 
 boolean isEqual();
 /* Membandingkan dua kata */
+
+int WordToInt(Word K);
+// convert word K into an integer
 #endif
