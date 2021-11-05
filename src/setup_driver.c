@@ -10,7 +10,6 @@
 #include "setup/setup.h"
 
 int main(){
-    printgay();
     setup(); 
 
     return 0;

@@ -4,7 +4,6 @@
 #include "setup.h"
 
 void setup(){
-    printf("gaygay");
     startWord();
     
     //GET BANYAK ROW&COLUMN
@@ -97,9 +96,6 @@ void setup(){
     }
 }
 
-void printgay(){
-    printf("gay\n");
-}
 // int main(){
 //     setup();
 // }
