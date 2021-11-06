@@ -2,17 +2,18 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "setup.h"
+#include "../queue/prioqueue.h"
 
 void setup(){
     startWord();
-    
+
     //GET BANYAK ROW&COLUMN
     int Row = WordToInt(currentWord);
     printf("Row: %d\n",Row);
     advWord();
     int Column = WordToInt(currentWord);
     printf("Column: %d\n",Column);
-    
+
     //GET HQ COORDINATES
     int Absis, Ordinat;
     advWord();
@@ -38,7 +39,7 @@ void setup(){
     //MAKE POINT OF BANGUNAN AND INSERT TO LISTDIN BANGUNAN (FOR LOOP BANYAK BANGUNAN)
     char bangunan_nama;
     for (int i = 0; i < Bangunan_amount; i++)
-    {   
+    {
         //GET POINT FOR BANGUNAN
         advWord();
         bangunan_nama =  currentWord.contents[0];
@@ -73,6 +74,7 @@ void setup(){
     //WORK IN PROGRESS
     //TODO: REMAKE ADT QUEUE
     Order ord;
+    Daftar D;
     for (int i = 0; i < Order_amount; i++)
     {
         advWord();
@@ -91,7 +93,7 @@ void setup(){
         else{
             TimePerish(ord) = 0;
         }
-        
+        enqueue(&D, ord);
         //TODO: MASUKIN KE QUEUE DAFTAR PESANAN
     }
 }

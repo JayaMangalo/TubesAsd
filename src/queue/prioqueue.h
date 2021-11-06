@@ -5,8 +5,8 @@
 #ifndef PRIOQUEUE_H
 #define PRIOQUEUE_H
 
-#include "../boolean.h"
-#include "../order.h"
+#include "../boolean/boolean.h"
+#include "../order/order.h"
 #include <stdlib.h>
 
 /* Konstanta */

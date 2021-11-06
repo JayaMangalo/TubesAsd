@@ -11,6 +11,7 @@
 
 #include "../boolean/boolean.h"
 #include "../point/point.h"
+#include "../order/order.h"
 
 
 /*  Kamus Umum */
@@ -29,6 +30,12 @@ typedef struct
     int nEff;       /* >=0, banyaknya elemen efektif */
     int capacity;   /* ukuran elemen */
 } ListDin;
+typedef struct
+{
+    ElTypeO *Order;
+    int nEff;
+    int capacity;
+} ListOrder;
 /* Indeks yang digunakan [0..capacity-1] */
 /* Jika l adalah : ListDin, cara deklarasi dan akses: */
 /* Deklarasi : l : ListDin */
@@ -106,7 +113,7 @@ void displayList(ListDin l);
 /* ***  Perhatian : list boleh kosong!! *** */
 IdxType indexOf(ListDin l, char name);
 /* Search apakah ada elemen List l yang memiliki komponen name berupa name */
-/* Jika ada, menghasilkan indeks i terkecil, dengan komponen name pada 
+/* Jika ada, menghasilkan indeks i terkecil, dengan komponen name pada
    elemen ke-i = name */
 /* Jika tidak ada, mengirimkan IDX_UNDEF */
 /* Menghasilkan indeks tak terdefinisi (IDX_UNDEF) jika List l kosong */
