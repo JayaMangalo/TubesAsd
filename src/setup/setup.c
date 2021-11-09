@@ -88,10 +88,12 @@ void setup(){
         if (currentWord.contents[0] == 'P')
         {
             advWord();
-            TimePerish(ord) = WordToInt(currentWord);
+            TimePerishDefault(ord) = WordToInt(currentWord);
+            TimePerish(ord) = TimePerishDefault(ord);
         }
         else{
             TimePerish(ord) = 0;
+            TimePerish(ord) = TimePerishDefault(ord);
         }
         enqueue(&D, ord);
         //TODO: MASUKIN KE QUEUE DAFTAR PESANAN
