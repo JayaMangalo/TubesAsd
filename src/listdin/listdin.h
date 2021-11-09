@@ -32,7 +32,7 @@ typedef struct
 } ListDin;
 typedef struct
 {
-    ElTypeO *Order;
+    ElTypel *Order;
     int nEff;
     int capacity;
 } ListOrder;
@@ -52,7 +52,7 @@ typedef struct
 #define NEFF(l) (l).nEff
 #define BUFFER(l) (l).buffer
 #define ELMTl(l, i) (l).buffer[i]
-#define CAPACITY(l) (l).capacity
+#define LISTDINCAPACITY(l) (l).capacity
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create list kosong  */
@@ -62,7 +62,7 @@ void CreateListDin(ListDin *l, int capacity);
 
 void dealocate(ListDin *l);
 /* I.S. l terdefinisi; */
-/* F.S. (l) dikembalikan ke system, CAPACITY(l)=0; NEFF(l)=0 */
+/* F.S. (l) dikembalikan ke system, LISTDINCAPACITY(l)=0; NEFF(l)=0 */
 
 /* ********** SELEKTOR (TAMBAHAN) ********** */
 /* *** Banyaknya elemen *** */

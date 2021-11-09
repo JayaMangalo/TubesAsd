@@ -10,6 +10,9 @@
 #include "setup/setup.h"
 
 int main(){
+    int a;
+    scanf("%d",&a);
+    printf("%d\n\n\n\n\n\n",a);
     setup(); 
 
     return 0;

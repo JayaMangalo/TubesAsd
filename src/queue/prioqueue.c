@@ -7,6 +7,7 @@
 /* Queue terurut mengecil berdasarkan elemen score (nilai Daspro) */
 /* Jika score sama, diurutkan membesar berdasarkan tKedatangan (waktu kedatangan) */
 
+#include<stdio.h>
 #include "prioqueue.h"
 
 /* *** Kreator *** */

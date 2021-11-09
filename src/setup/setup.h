@@ -8,7 +8,7 @@
 #include "../point/point.h"
 #include "../matrix/matrix.h"
 #include "../order/order.h"
-
+#include "../queue/prioqueue.h"
 void setup();
-void printgay();
+
 #endif

@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "setup.h"
-#include "../queue/prioqueue.h"
+
 
 void setup(){
     startWord();

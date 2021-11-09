@@ -15,13 +15,13 @@ void CreateListDin(ListDin *l, int capacity)
     /* Kamus Lokal */
     /* Algoritma */
     BUFFER(*l) = (ElTypel*) malloc((capacity)*sizeof(int));
-    CAPACITY(*l) = capacity;
+    LISTDINCAPACITY(*l) = capacity;
     (*l).nEff = 0;
 }
 
 void dealocate(ListDin *l)
 /* I.S. l terdefinisi; */
-/* F.S. (l) dikembalikan ke system, CAPACITY(l)=0; NEFF(l)=0 */
+/* F.S. (l) dikembalikan ke system, LISTDINCAPACITY(l)=0; NEFF(l)=0 */
 {
     /* Kamus Lokal */
     /* Algoritma */
@@ -47,7 +47,7 @@ IdxType getLastIdx(ListDin l)
 {
     /* Kamus Lokal */
     /* Algoritma */
-    return CAPACITY(l) - 1;
+    return LISTDINCAPACITY(l) - 1;
 }
 
 /* *** Selektor Bangunan *** */
@@ -68,7 +68,7 @@ boolean isIdxValidl(ListDin l, int i)
     /* Kamus Lokal */
 
     /* Algoritma */
-    return (i>=0 && i<CAPACITY(l));
+    return (i>=0 && i<LISTDINCAPACITY(l));
 }
 boolean isIdxEffl(ListDin l, IdxType i)
 /* Mengirimkan true jika i adalah indeks yang terdefinisi utk list */
@@ -94,7 +94,7 @@ boolean isFull(ListDin l)
     /* Kamus Lokal */
 
     /* Algoritma */
-    return (NEFF(l) == CAPACITY(l));
+    return (NEFF(l) == LISTDINCAPACITY(l));
 }
 
 void displayList(ListDin l)
