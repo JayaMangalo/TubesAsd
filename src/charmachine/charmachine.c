@@ -19,7 +19,7 @@ void start() {
           Jika currentChar = MARK maka EOP akan menyala (true) */
 
 	/* Algoritma */
-       tape = fopen("configuration.txt","r");
+       tape = fopen(currentCommand.contents,"r");
 	adv();
 }
 
