@@ -33,7 +33,8 @@ void advCommandChar() {
 	/* Algoritma */
 	command_retval = fscanf(command,"%c",&currentCommandChar);
 	command_eot = (currentCommandChar == MARKCOMMAND);
-	if (command_eot) {
+	/*if (command_eot) {
        fclose(command);
  	}
+       */
 }

@@ -50,6 +50,7 @@ int main(){
         setup();
     } else if(isEqualCommand(currentCommand,LOAD_GAMES)) {
         printf("INPUT NAMA FILE: ");
+        startCommand();
         setup();        
     } else if(isEqualCommand(currentCommand,EXIT)) {
         printf("YOU'VE ENDED THIS GAME");
