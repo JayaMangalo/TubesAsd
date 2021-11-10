@@ -10,7 +10,7 @@
 #include "setup/setup.h"
 
 int main(){
-    
+                                
     Command NEW_GAMES;
     NEW_GAMES.contents[0] = 'N';
     NEW_GAMES.contents[1] = 'E';
@@ -44,15 +44,24 @@ int main(){
     printf("MAIN MENU\n");
     printf("ENTER COMMAND: ");
     startCommand();
+
+    int BarisMap,KolomMap;
+    POINT HQ;
+    ListDin List_bangunan;
+    Matrix m;
+    Daftar DaftarOrder;
+
     if (isEqualCommand(currentCommand,NEW_GAMES)) {
         printf("INPUT NAMA FILE: ");
         startCommand();
-        setup();
-    } else if(isEqualCommand(currentCommand,LOAD_GAMES)) {
-        printf("INPUT NAMA FILE: ");
-        startCommand();
-        setup();        
-    } else if(isEqualCommand(currentCommand,EXIT)) {
+        setup(&BarisMap, &KolomMap, &HQ,  &List_bangunan, &m, &DaftarOrder);
+    } 
+    // else if(isEqualCommand(currentCommand,LOAD_GAMES)) {         //apakah kita akan implementasi ini hehe.
+    //     printf("INPUT NAMA FILE: ");
+    //     startCommand();
+    //     setup(&BarisMap, &KolomMap, &HQ,  &List_bangunan, &m, &DaftarOrder);        
+    // } 
+    else if(isEqualCommand(currentCommand,EXIT)) {
         printf("YOU'VE ENDED THIS GAME");
     } else {
         printf("INVALID COMMAND, PLEASE TRY AGAIN");

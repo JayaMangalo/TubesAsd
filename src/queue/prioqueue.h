@@ -20,14 +20,6 @@ typedef struct {
 	int idxTail;
 } Daftar;
 
-/* Definisi PrioQueue */
-typedef int ElType;
-typedef struct {
-	ElType buffer[CAPACITY];
-	int idxHead;
-	int idxTail;
-} PrioQueue;
-
 /* ********* AKSES (Selektor) ********* */
 /* Jika pq adalah PrioQueue, maka akses elemen : */
 #define IDX_HEAD(pq) (pq).idxHead

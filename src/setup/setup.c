@@ -4,22 +4,22 @@
 #include "setup.h"
 
 
-void setup(){
+void setup(int *Row,int *Column, POINT *HQ, ListDin *List_bangunan, Matrix *m ,Daftar *DaftarOrder){
     startWord();
 
-    //GET BANYAK ROW&COLUMN
-    int Row = WordToInt(currentWord);
-    printf("Row: %d\n",Row);
+    //GET BANYAK ROW&COLUMN AND CHANGE IT
+    *Row = WordToInt(currentWord);
     advWord();
-    int Column = WordToInt(currentWord);
-    printf("Column: %d\n",Column);
+    *Column = WordToInt(currentWord);
 
-    //GET HQ COORDINATES
+
+    //GET HQ COORDINATES AND CHANGE IT
     int Absis, Ordinat;
     advWord();
     Absis = WordToInt(currentWord);
     advWord();
     Ordinat = WordToInt(currentWord);
+    *HQ = MakePOINT(Absis,Ordinat);
 
     //GET BANYAK BANGUNAN
     int Bangunan_amount;
@@ -27,14 +27,13 @@ void setup(){
     Bangunan_amount = WordToInt(currentWord);
 
     //MAKE LISTDIN BANGUNAN
-    ListDin List_bangunan;
-    CreateListDin(&List_bangunan,Bangunan_amount);
+    CreateListDin(List_bangunan,Bangunan_amount);
 
 
     //MAKE POINT OF HQ AND INSERT TO LISTDIN BANGUNAN
     POINT p;
     p = MakePOINT(Absis,Ordinat);
-    insertBangunan(&List_bangunan, '8' ,p);
+    insertBangunan(List_bangunan, '8' ,p);
 
     //MAKE POINT OF BANGUNAN AND INSERT TO LISTDIN BANGUNAN (FOR LOOP BANYAK BANGUNAN)
     char bangunan_nama;
@@ -50,31 +49,24 @@ void setup(){
 
         //MAKE POINT OF BANGUNAN AND INSERT TO LISTDIN BANGUNAN
         p = MakePOINT(Absis,Ordinat);
-        insertBangunan(&List_bangunan, bangunan_nama ,p);
+        insertBangunan(List_bangunan, bangunan_nama ,p);
     }
-    displayList(List_bangunan);
 
     //GET AND MAKE ADJANCENCY MATRIX
-    Matrix m;
-    CreateMatrix(Bangunan_amount+1,Bangunan_amount+1,&m);
-    for(int i=0;i<ROWS(m);i++) {
-        for(int j=0;j<COLS(m);j++) {
+    CreateMatrix(Bangunan_amount+1,Bangunan_amount+1,m);
+    for(int i=0;i<ROWS(*m);i++) {
+        for(int j=0;j<COLS(*m);j++) {
             advWord();
-            ELMT(m,i,j) = WordToInt(currentWord);
+            ELMT(*m,i,j) = WordToInt(currentWord);
         }
     }
-    displayMatrix(m);
 
     //GET BANYAK ORDER
     int Order_amount;
     advWord();
     Order_amount = WordToInt(currentWord);
 
-    //MAKE ORDER AND INSERT TO QUEUE BANGUNAN (FOR LOOP BANYAK BANGUNAN)
-    //WORK IN PROGRESS
-    //TODO: REMAKE ADT QUEUE
     Order ord;
-    Daftar D;
     for (int i = 0; i < Order_amount; i++)
     {
         advWord();
@@ -95,11 +87,6 @@ void setup(){
             TimePerish(ord) = 0;
             TimePerish(ord) = TimePerishDefault(ord);
         }
-        enqueue(&D, ord);
-        //TODO: MASUKIN KE QUEUE DAFTAR PESANAN
+        enqueue(DaftarOrder, ord);
     }
 }
-
-// int main(){
-//     setup();
-// }
