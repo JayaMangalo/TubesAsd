@@ -55,6 +55,6 @@ int main(){
         printf("YOU'VE ENDED THIS GAME");
     } else {
         printf("INVALID COMMAND, PLEASE TRY AGAIN");
-    }
+    }  
     return 0;
 }
