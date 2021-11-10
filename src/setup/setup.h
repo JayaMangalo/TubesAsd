@@ -9,6 +9,8 @@
 #include "../matrix/matrix.h"
 #include "../order/order.h"
 #include "../queue/prioqueue.h"
+#include "../command/commandcharmachine.h"
+#include "../command/commandwordmachine.h"
 void setup();
 
 #endif

@@ -5,6 +5,7 @@
 #define CHAR_ENGINE_H
 
 #include "../boolean/boolean.h"
+#include "../command/commandwordmachine.h"
 
 #define MARK '.'
 /* Char Engine State */
