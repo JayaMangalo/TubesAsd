@@ -29,31 +29,7 @@ int main(){
 
     if (isEqualCommand(currentCommand,NEW_GAME)) {
         printf("INPUT NAMA FILE: ");
-        Command FILE_CONFIGURATION_NAME;
-        FILE_CONFIGURATION_NAME.contents[0] = 'c';
-        FILE_CONFIGURATION_NAME.contents[1] = 'o';
-        FILE_CONFIGURATION_NAME.contents[2] = 'n';
-        FILE_CONFIGURATION_NAME.contents[3] = 'f';
-        FILE_CONFIGURATION_NAME.contents[4] = 'i';
-        FILE_CONFIGURATION_NAME.contents[5] = 'g';
-        FILE_CONFIGURATION_NAME.contents[6] = 'u';
-        FILE_CONFIGURATION_NAME.contents[7] = 'r';        
-        FILE_CONFIGURATION_NAME.contents[8] = 'a';
-        FILE_CONFIGURATION_NAME.contents[9] = 't';
-        FILE_CONFIGURATION_NAME.contents[10] = 'i';
-        FILE_CONFIGURATION_NAME.contents[11] = 'o';
-        FILE_CONFIGURATION_NAME.contents[12] = 'n';
-        FILE_CONFIGURATION_NAME.contents[13] = '.';
-        FILE_CONFIGURATION_NAME.contents[14] = 't';
-        FILE_CONFIGURATION_NAME.contents[15] = 'x';
-        FILE_CONFIGURATION_NAME.contents[16] = 't';
-        FILE_CONFIGURATION_NAME.length = 17;
         startCommand();
-        while(!isEqualCommand(currentCommand,FILE_CONFIGURATION_NAME)) {
-            printf("NAMA FILE SALAH, SILAKAN INPUT ULANG!\n");
-            printf("INPUT NAMA FILE: ");
-            startCommand();
-        }
         setupGame(&BarisMap, &KolomMap, &HQ,  &List_bangunan, &m, &DaftarOrder);
     } else if(isEqualCommand(currentCommand,LOAD_GAME)) {
         printf("INPUT NAMA FILE: ");
@@ -65,8 +41,6 @@ int main(){
         printf("INVALID COMMAND, PLEASE TRY AGAIN\n");
     }  
 
-
-    
     boolean endgame = false;
     while(!endgame){
         printf("ENTER COMMAND: ");
