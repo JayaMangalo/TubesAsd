@@ -3,8 +3,70 @@
 #include <stdlib.h>
 #include "setup.h"
 
+Command NEW_GAME;
+Command LOAD_GAME;
+Command EXIT;
+Command MOVE;
+Command PICK_UP;
+Command DROP_OFF;
+Command TO_DO;
+Command MAP;
+Command IN_PROGRESS;
+Command BUY;
+Command INVENTORY;
+Command HELP;
 
-void setup(int *Row,int *Column, POINT *HQ, ListDin *List_bangunan, Matrix *m ,Daftar *DaftarOrder){
+void setupCommand(){
+    char new_game[100] = "NEW GAME";
+    int new_game_length = 8;
+    NEW_GAME = StringtoCommand(new_game,new_game_length);
+
+    char load_game[100] = "LOAD GAME";
+    int load_game_length = 9;
+    LOAD_GAME = StringtoCommand(load_game,load_game_length);
+
+    char exit[100] = "EXIT";
+    int exit_length = 4;
+    EXIT = StringtoCommand(exit,exit_length);
+
+    char move[100] = "MOVE";
+    int move_length = 4;
+    MOVE = StringtoCommand(move,move_length);
+    
+    char pick_up[100] = "PICK_UP";
+    int pick_up_length = 7;
+    PICK_UP = StringtoCommand(pick_up,pick_up_length);
+    
+    char drop_off[100] = "DROP_OFF";
+    int drop_off_length = 8;
+    DROP_OFF = StringtoCommand(drop_off,drop_off_length);
+    
+    char to_do[100] = "TO_DO";
+    int to_do_length = 5;
+    TO_DO = StringtoCommand(to_do,to_do_length);
+
+    char map[100] = "MAP";
+    int map_length = 5;
+     MAP = StringtoCommand(map,map_length);
+    
+    char in_progress[100] = "IN_PROGRESS";
+    int in_progress_length = 11;
+     IN_PROGRESS = StringtoCommand(in_progress,in_progress_length);
+    
+    char buy[100] = "BUY";
+    int buy_length = 3;
+     BUY = StringtoCommand(buy,buy_length);
+    
+    char inventory[100] = "INVENTORY";
+    int inventory_length = 9;
+     INVENTORY = StringtoCommand(inventory,inventory_length);
+    
+    char help[100] = "HELP";
+    int help_length = 4;
+     HELP = StringtoCommand(help,help_length);
+}
+
+void setupGame(int *Row,int *Column, POINT *HQ, ListDin *List_bangunan, Matrix *m ,Daftar *DaftarOrder){
     startWord();
 
     //GET BANYAK ROW&COLUMN AND CHANGE IT

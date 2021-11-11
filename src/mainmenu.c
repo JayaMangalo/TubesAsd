@@ -1,24 +1,21 @@
 #include <stdio.h>
 #include "setup/setup.h"
 
+extern Command NEW_GAME;
+extern Command LOAD_GAME;
+extern Command EXIT;
+extern Command MOVE;
+extern Command PICK_UP;
+extern Command DROP_OFF;
+extern Command TO_DO;
+extern Command MAP;
+extern Command IN_PROGRESS;
+extern Command BUY;
+extern Command INVENTORY;
+extern Command HELP;
+
 int main(){
-
-    Command NEW_GAMES;
-    char new_game[100] = "NEW GAME";
-    int new_game_length = 8;
-    NEW_GAMES = StringtoCommand(new_game,new_game_length);
-
-    Command LOAD_GAMES;
-    char load_game[100] = "LOAD GAME";
-    int load_game_length = 9;
-    LOAD_GAMES = StringtoCommand(load_game,load_game_length);
-
-    Command EXIT;
-    EXIT.contents[0] = 'E';
-    EXIT.contents[1] = 'X';
-    EXIT.contents[2] = 'I';
-    EXIT.contents[3] = 'T';
-    EXIT.length = 4;
+    setupCommand(); //fungsi ini buat ngisi command-command diatas biar gausah diisi disini. 
 
     printf("MAIN MENU\n");
     printf("ENTER COMMAND: ");
@@ -30,7 +27,7 @@ int main(){
     Matrix m;
     Daftar DaftarOrder;
 
-    if (isEqualCommand(currentCommand,NEW_GAMES)) {
+    if (isEqualCommand(currentCommand,NEW_GAME)) {
         printf("INPUT NAMA FILE: ");
         Command FILE_CONFIGURATION_NAME;
         FILE_CONFIGURATION_NAME.contents[0] = 'c';
@@ -57,53 +54,18 @@ int main(){
             printf("INPUT NAMA FILE: ");
             startCommand();
         }
-        setup(&BarisMap, &KolomMap, &HQ,  &List_bangunan, &m, &DaftarOrder);
-    } else if(isEqualCommand(currentCommand,LOAD_GAMES)) {
+        setupGame(&BarisMap, &KolomMap, &HQ,  &List_bangunan, &m, &DaftarOrder);
+    } else if(isEqualCommand(currentCommand,LOAD_GAME)) {
         printf("INPUT NAMA FILE: ");
         startCommand();
-        setup(&BarisMap, &KolomMap, &HQ,  &List_bangunan, &m, &DaftarOrder);     
+        setupGame(&BarisMap, &KolomMap, &HQ,  &List_bangunan, &m, &DaftarOrder);     
     } else if(isEqualCommand(currentCommand,EXIT)) {
         printf("YOU'VE ENDED THIS GAME");
     } else {
-        printf("INVALID COMMAND, PLEASE TRY AGAIN");
+        printf("INVALID COMMAND, PLEASE TRY AGAIN\n");
     }  
 
-    
-    char move[100] = "MOVE";
-    int move_length = 4;
-    Command MOVE = StringtoCommand(move,move_length);
-    
-    char pick_up[100] = "PICK_UP";
-    int pick_up_length = 7;
-    Command PICK_UP = StringtoCommand(pick_up,pick_up_length);
-    
-    char drop_off[100] = "DROP_OFF";
-    int drop_off_length = 8;
-    Command DROP_OFF = StringtoCommand(drop_off,drop_off_length);
-    
-    char to_do[100] = "TO_DO";
-    int to_do_length = 5;
-    Command TO_DO = StringtoCommand(to_do,to_do_length);
 
-    char map[100] = "MAP";
-    int map_length = 5;
-    Command MAP = StringtoCommand(map,map_length);
-    
-    char in_progress[100] = "IN_PROGRESS";
-    int in_progress_length = 11;
-    Command IN_PROGRESS = StringtoCommand(in_progress,in_progress_length);
-    
-    char buy[100] = "BUY";
-    int buy_length = 3;
-    Command BUY = StringtoCommand(buy,buy_length);
-    
-    char inventory[100] = "INVENTORY";
-    int inventory_length = 9;
-    Command INVENTORY = StringtoCommand(inventory,inventory_length);
-    
-    char help[100] = "HELP";
-    int help_length = 4;
-    Command HELP = StringtoCommand(help,help_length);
     
     boolean endgame = false;
     while(!endgame){
