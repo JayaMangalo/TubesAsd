@@ -1,38 +1,17 @@
-// #include "wordmachine/wordmachine.h"
-// #include "charmachine/charmachine.h"
-// #include "listdin/listdin.h"
-// #include "point/point.h"
-// #include "matrix/matrix.h"
-// #include "order/order.h"
 #include <stdio.h>
-// #include <stdbool.h>
-// #include <stdlib.h>
 #include "setup/setup.h"
 
 int main(){
 
     Command NEW_GAMES;
-    NEW_GAMES.contents[0] = 'N';
-    NEW_GAMES.contents[1] = 'E';
-    NEW_GAMES.contents[2] = 'W';
-    NEW_GAMES.contents[3] = ' ';
-    NEW_GAMES.contents[4] = 'G';
-    NEW_GAMES.contents[5] = 'A';
-    NEW_GAMES.contents[6] = 'M';
-    NEW_GAMES.contents[7] = 'E';
-    NEW_GAMES.length = 8;
+    char new_game[100] = "NEW GAME";
+    int new_game_length = 8;
+    NEW_GAMES = StringtoCommand(new_game,new_game_length);
 
     Command LOAD_GAMES;
-    LOAD_GAMES.contents[0] = 'L';
-    LOAD_GAMES.contents[1] = 'O';
-    LOAD_GAMES.contents[2] = 'A';
-    LOAD_GAMES.contents[3] = 'D';
-    LOAD_GAMES.contents[4] = ' ';
-    LOAD_GAMES.contents[5] = 'G';
-    LOAD_GAMES.contents[6] = 'A';
-    LOAD_GAMES.contents[7] = 'M';
-    LOAD_GAMES.contents[8] = 'E';
-    LOAD_GAMES.length = 9;
+    char load_game[100] = "LOAD GAME";
+    int load_game_length = 9;
+    LOAD_GAMES = StringtoCommand(load_game,load_game_length);
 
     Command EXIT;
     EXIT.contents[0] = 'E';
@@ -88,5 +67,62 @@ int main(){
     } else {
         printf("INVALID COMMAND, PLEASE TRY AGAIN");
     }  
+
+    
+    char move[100] = "MOVE";
+    int move_length = 4;
+    Command MOVE = StringtoCommand(move,move_length);
+    
+    char pick_up[100] = "PICK_UP";
+    int pick_up_length = 7;
+    Command PICK_UP = StringtoCommand(pick_up,pick_up_length);
+    
+    char drop_off[100] = "DROP_OFF";
+    int drop_off_length = 8;
+    Command DROP_OFF = StringtoCommand(drop_off,drop_off_length);
+    
+    char to_do[100] = "TO_DO";
+    int to_do_length = 5;
+    Command TO_DO = StringtoCommand(to_do,to_do_length);
+
+    char map[100] = "MAP";
+    int map_length = 5;
+    Command MAP = StringtoCommand(map,map_length);
+    
+    char in_progress[100] = "IN_PROGRESS";
+    int in_progress_length = 11;
+    Command IN_PROGRESS = StringtoCommand(in_progress,in_progress_length);
+    
+    char buy[100] = "BUY";
+    int buy_length = 3;
+    Command BUY = StringtoCommand(buy,buy_length);
+    
+    char inventory[100] = "INVENTORY";
+    int inventory_length = 9;
+    Command INVENTORY = StringtoCommand(inventory,inventory_length);
+    
+    char help[100] = "HELP";
+    int help_length = 4;
+    Command HELP = StringtoCommand(help,help_length);
+    
+    boolean endgame = false;
+    while(!endgame){
+        printf("ENTER COMMAND: ");
+        startCommand();
+        if(isEqualCommand(currentCommand,MOVE))
+        { printf("MOVED\n");}
+        else if(isEqualCommand(currentCommand,PICK_UP)){}
+        else if(isEqualCommand(currentCommand,DROP_OFF)){}
+        else if(isEqualCommand(currentCommand,MAP)){}
+        else if(isEqualCommand(currentCommand,TO_DO)){}
+        else if(isEqualCommand(currentCommand,IN_PROGRESS)){}
+        else if(isEqualCommand(currentCommand,BUY)){}
+        else if(isEqualCommand(currentCommand,INVENTORY)){}
+        else if(isEqualCommand(currentCommand,HELP)){}
+        else{
+            printf("INVALID COMMAND, TRY AGAIN (TYPE 'HELP' FOR LIST OF COMMANDS)\n");
+        }
+    }
+
     return 0;
 }

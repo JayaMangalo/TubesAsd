@@ -86,3 +86,13 @@ boolean isEqualCommand(Command a, Command b) {
     }
     return equal;
 };
+
+Command StringtoCommand(char x[100], int length){
+    Command X;
+    for (int i = 0; i < length; i++)
+    {
+        X.contents[i] = x[i];
+    }
+    X.length = length;
+    return X;
+};

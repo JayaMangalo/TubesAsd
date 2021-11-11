@@ -46,4 +46,6 @@ void copyCommand();
           Jika panjang kata melebihi CAPACITY, maka sisa kata terpotong */
 
 boolean isEqualCommand(Command a, Command b);
+
+Command StringtoCommand(char x[100], int length);
 #endif

@@ -2,4 +2,10 @@ setup_tester:
 compile : gcc setup_tester.c setup//setup.c matrix//matrix.c point//point.c wordmachine//wordmachine.c charmachine//charmachine.c listdin//listdin.c  queue//prioqueue.c command//commandcharmachine.c command//commandwordmachine.c  -o  setup_tester
 run 	: ./setup_tester
 compile and run:  
-if ($?) { gcc setup_tester.c setup//setup.c matrix//matrix.c point//point.c wordmachine//wordmachine.c charmachine//charmachine.c listdin//listdin.c  queue//prioqueue.c command//commandcharmachine.c command//commandwordmachine.c  -o  mainmenu} ; if ($?) { .\setup_tester }
+if ($?) { gcc setup_tester.c setup//setup.c matrix//matrix.c point//point.c wordmachine//wordmachine.c charmachine//charmachine.c listdin//listdin.c  queue//prioqueue.c command//commandcharmachine.c command//commandwordmachine.c  -o  setup_tester} ; if ($?) { .\setup_tester }
+
+mainmenu: 
+compile : gcc mainmenu.c setup//setup.c matrix//matrix.c point//point.c wordmachine//wordmachine.c charmachine//charmachine.c listdin//listdin.c  queue//prioqueue.c command//commandcharmachine.c command//commandwordmachine.c  -o  mainmenu
+run 	: ./mainmenu
+compile and run:  
+if ($?) { gcc mainmenu.c setup//setup.c matrix//matrix.c point//point.c wordmachine//wordmachine.c charmachine//charmachine.c listdin//listdin.c  queue//prioqueue.c command//commandcharmachine.c command//commandwordmachine.c  -o  mainmenu} ; if ($?) { .\mainmenu }

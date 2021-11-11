@@ -89,4 +89,5 @@ void setup(int *Row,int *Column, POINT *HQ, ListDin *List_bangunan, Matrix *m ,D
         }
         enqueue(DaftarOrder, ord);
     }
+    printf("GAME INITIALIZED SUCCESFULLY\n");
 }
