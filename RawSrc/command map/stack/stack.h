@@ -5,8 +5,8 @@
 #ifndef STACK_H
 #define STACK_H
 
-#include "boolean.h"
-#include "order.h"
+#include "../boolean.h"
+#include "../order/order.h"
 
 #define IDX_UNDEF -1
 #define CAPACITY 100
