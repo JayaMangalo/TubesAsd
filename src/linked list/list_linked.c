@@ -374,7 +374,7 @@ void PickUpItem(List *td, List *ip, char lokasi)
         if(PickUp(INFO(current))==lokasi)
         {
             deleteAt(td, i, &val);
-            insertLast(ip, val);
+            insertFirst(ip, val);
             current = FIRST(*td);
             i = 0;
         } else {
