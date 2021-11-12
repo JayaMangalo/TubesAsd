@@ -20,7 +20,7 @@ void CreateList(List *l) {
 };
 
 /****************** TEST LIST KOSONG ******************/
-boolean isEmpty(List l) {
+boolean isEmptyLL(List l) {
 /* Mengirim true jika list kosong */
     /* Kamus Lokal */
     /* Algoritma */
@@ -108,7 +108,7 @@ void insertLast(List *l, node_El val) {
     /* Kamus Lokal */
     Address p, pLast;
     /* Algoritma */
-    if(isEmpty(*l)) {
+    if(isEmptyLL(*l)) {
         insertFirst(l,val);
     } else {
         pLast = newNode(val);
@@ -233,7 +233,7 @@ void deleteAt(List *l, int idx, node_El *val) {
 //     printf("]");
 // };
 
-int length(List l) {
+int lengthLL(List l) {
 /* Mengirimkan banyaknya elemen list; mengirimkan 0 jika list kosong */
     /* Kamus Lokal */
     int ct;
@@ -286,7 +286,8 @@ void displayToDo(List td) {
     Address p;
     int i=1;
     /* Algoritma */
-    if(!isEmpty(td)) {
+    if(!isEmptyLL(td)) {
+        printf("Pesanan pada To Do List:\n");
         p = FIRST(td);
         while(p!=NULL) {
             if(TYPE(INFO(p))=='N') {
@@ -312,7 +313,7 @@ void displayToDo(List td) {
 void displayInProg(List ip) {
     Address p;
     int i=1;
-    if(!isEmpty(ip)) {
+    if(!isEmptyLL(ip)) {
         p = FIRST(ip);
         while(p!=NULL) {
             if(TYPE(INFO(p))=='N') {

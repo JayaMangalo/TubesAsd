@@ -11,7 +11,9 @@
 
 typedef Address List;
 
+#ifndef IDX_UNDEF
 #define IDX_UNDEF (-1)
+#endif
 #define FIRST(l) (l)
 
 /* Definisi List : */
@@ -26,7 +28,7 @@ void CreateList(List *l);
 /* F.S. Terbentuk list kosong */
 
 /****************** TEST LIST KOSONG ******************/
-boolean isEmpty(List l);
+boolean isEmptyLL(List l);
 /* Mengirim true jika list kosong */
 
 /****************** GETTER SETTER ******************/
@@ -89,7 +91,7 @@ void deleteAt(List *l, int idx, node_El *val);
 /* Jika list kosong : menulis [] */
 /* Tidak ada tambahan karakter apa pun di awal, akhir, atau di tengah */
 
-int length(List l);
+int lengthLL(List l);
 /* Mengirimkan banyaknya elemen list; mengirimkan 0 jika list kosong */
 
 /****************** PROSES TERHADAP LIST ******************/

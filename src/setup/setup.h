@@ -9,8 +9,11 @@
 #include "../listdin/listdin.h"
 #include "../order/order.h"
 #include "../queue/prioqueue.h"
+#include "../node/node.h"
+#include "../linked list/list_linked.h"
 #include "../command/commandcharmachine.h"
 #include "../command/commandwordmachine.h"
+#include "../command/command.h"
 
 extern Command NEW_GAME;
 extern Command LOAD_GAME;

@@ -29,7 +29,9 @@ void game_play() {
     else if(isEqualCommand(currentCommand,PICK_UP)){}
     else if(isEqualCommand(currentCommand,DROP_OFF)){}
     else if(isEqualCommand(currentCommand,MAP)){}
-    else if(isEqualCommand(currentCommand,TO_DO)){}
+    else if(isEqualCommand(currentCommand,TO_DO)){
+        toDoCommand();
+    }
     else if(isEqualCommand(currentCommand,IN_PROGRESS)){}
     else if(isEqualCommand(currentCommand,BUY)){}
     else if(isEqualCommand(currentCommand,INVENTORY)){}
