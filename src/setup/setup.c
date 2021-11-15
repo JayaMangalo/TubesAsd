@@ -15,6 +15,17 @@ Command IN_PROGRESS;
 Command BUY;
 Command INVENTORY;
 Command HELP;
+Command EXIT;
+Command Y;
+Command N;
+
+int Row;
+int Column;
+POINT HQ;
+ListDin List_bangunan; 
+Matrix m;
+Daftar DaftarOrder;
+List toDo;
 
 void setupCommand(){
     char new_game[100] = "NEW GAME";
@@ -64,15 +75,23 @@ void setupCommand(){
     char help[100] = "HELP";
     int help_length = 4;
      HELP = StringtoCommand(help,help_length);
+
+    char y[100] = "Y";
+    int y_length = 1;
+    Y = StringtoCommand(y,y_length);
+
+    char n[100] = "N";
+    int n_length = 1;
+    N = StringtoCommand(n,n_length);   
 }
 
-void setupGame(int *Row,int *Column, POINT *HQ, ListDin *List_bangunan, Matrix *m ,Daftar *DaftarOrder){
+void setupGame(){
     startWord();
 
     //GET BANYAK ROW&COLUMN AND CHANGE IT
-    *Row = WordToInt(currentWord);
+    Row = WordToInt(currentWord);
     advWord();
-    *Column = WordToInt(currentWord);
+    Column = WordToInt(currentWord);
 
 
     //GET HQ COORDINATES AND CHANGE IT
@@ -81,7 +100,7 @@ void setupGame(int *Row,int *Column, POINT *HQ, ListDin *List_bangunan, Matrix *
     Absis = WordToInt(currentWord);
     advWord();
     Ordinat = WordToInt(currentWord);
-    *HQ = MakePOINT(Absis,Ordinat);
+    HQ = MakePOINT(Absis,Ordinat);
 
     //GET BANYAK BANGUNAN
     int Bangunan_amount;
@@ -89,13 +108,13 @@ void setupGame(int *Row,int *Column, POINT *HQ, ListDin *List_bangunan, Matrix *
     Bangunan_amount = WordToInt(currentWord);
 
     //MAKE LISTDIN BANGUNAN
-    CreateListDin(List_bangunan,Bangunan_amount);
+    CreateListDin(&List_bangunan,Bangunan_amount);
 
 
     //MAKE POINT OF HQ AND INSERT TO LISTDIN BANGUNAN
     POINT p;
     p = MakePOINT(Absis,Ordinat);
-    insertBangunan(List_bangunan, '8' ,p);
+    insertBangunan(&List_bangunan, '8' ,p);
 
     //MAKE POINT OF BANGUNAN AND INSERT TO LISTDIN BANGUNAN (FOR LOOP BANYAK BANGUNAN)
     char bangunan_nama;
@@ -111,15 +130,15 @@ void setupGame(int *Row,int *Column, POINT *HQ, ListDin *List_bangunan, Matrix *
 
         //MAKE POINT OF BANGUNAN AND INSERT TO LISTDIN BANGUNAN
         p = MakePOINT(Absis,Ordinat);
-        insertBangunan(List_bangunan, bangunan_nama ,p);
+        insertBangunan(&List_bangunan, bangunan_nama ,p);
     }
 
     //GET AND MAKE ADJANCENCY MATRIX
-    CreateMatrix(Bangunan_amount+1,Bangunan_amount+1,m);
-    for(int i=0;i<ROWS(*m);i++) {
-        for(int j=0;j<COLS(*m);j++) {
+    CreateMatrix(Bangunan_amount+1,Bangunan_amount+1,&m);
+    for(int i=0;i<ROWS(m);i++) {
+        for(int j=0;j<COLS(m);j++) {
             advWord();
-            ELMT(*m,i,j) = WordToInt(currentWord);
+            ELMT(m,i,j) = WordToInt(currentWord);
         }
     }
 
@@ -149,7 +168,7 @@ void setupGame(int *Row,int *Column, POINT *HQ, ListDin *List_bangunan, Matrix *
             TimePerish(ord) = 0;
             TimePerish(ord) = TimePerishDefault(ord);
         }
-        enqueue(DaftarOrder, ord);
+        enqueue(&DaftarOrder, ord);
     }
     printf("GAME INITIALIZED SUCCESFULLY\n");
 }

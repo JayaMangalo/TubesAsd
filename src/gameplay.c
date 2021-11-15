@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "setup/setup.h"
+#include "gamecommand/gamecommand.h"
 
 extern Command NEW_GAME;
 extern Command LOAD_GAME;
@@ -13,31 +14,62 @@ extern Command IN_PROGRESS;
 extern Command BUY;
 extern Command INVENTORY;
 extern Command HELP;
+extern Command Exit;
+
+extern int Row;
+extern int Column;
+extern POINT HQ;
+extern ListDin List_bangunan; 
+extern Matrix m;
+extern Daftar DaftarOrder;
+extern List toDo;
 
 void game_play() {
     printf("===================\n");
     printf("WELCOME TO THE GAME\n");
     printf("Mobita berada di posisi\n");
     printf("ENTER COMMAND: ");
-    startCommand();
-    setupCommand(); //fungsi ini buat ngisi command-command diatas biar gausah diisi disini. 
-    if(isEqualCommand(currentCommand,MOVE))
-    { 
-        printf("Waktu:\n");
-        printf("MOVED\n");
-    }
-    else if(isEqualCommand(currentCommand,PICK_UP)){}
-    else if(isEqualCommand(currentCommand,DROP_OFF)){}
-    else if(isEqualCommand(currentCommand,MAP)){}
-    else if(isEqualCommand(currentCommand,TO_DO)){
-        toDoCommand();
-    }
-    else if(isEqualCommand(currentCommand,IN_PROGRESS)){}
-    else if(isEqualCommand(currentCommand,BUY)){}
-    else if(isEqualCommand(currentCommand,INVENTORY)){}
-    else if(isEqualCommand(currentCommand,HELP)){}
-    else{
-        printf("INVALID COMMAND, TRY AGAIN (TYPE 'HELP' FOR LIST OF COMMANDS)\n");
+
+
+    boolean endgame = false;
+    while(endgame == false){
+        startCommand();
+        if(isEqualCommand(currentCommand,MOVE))
+        { 
+            CommandMove();
+        }
+        else if(isEqualCommand(currentCommand,PICK_UP)){
+            CommandPickUp();
+        }
+        else if(isEqualCommand(currentCommand,DROP_OFF)){
+            CommandDropOff();
+        }
+        else if(isEqualCommand(currentCommand,MAP)){
+            CommandMap();
+        }
+        else if(isEqualCommand(currentCommand,TO_DO)){
+            CommandToDo();
+        }
+        else if(isEqualCommand(currentCommand,IN_PROGRESS)){
+            CommandInProgress();
+        }
+        else if(isEqualCommand(currentCommand,BUY)){
+            CommandBuy();
+        }   
+        else if(isEqualCommand(currentCommand,INVENTORY)){
+            CommandInventory();
+        }
+        else if(isEqualCommand(currentCommand,HELP)){
+            CommandHelp();
+        }
+        else if(isEqualCommand(currentCommand,EXIT)){
+            if(CommandExit() == true ){
+                endgame = true;
+            }
+        }
+        else{
+            printf("INVALID COMMAND, TRY AGAIN (TYPE 'HELP' FOR LIST OF COMMANDS)\n");
+        }
     }
 }
 void mainmenu(){
@@ -46,21 +78,15 @@ void mainmenu(){
     printf("ENTER COMMAND: ");
     startCommand();
 
-    int BarisMap,KolomMap;
-    POINT HQ;
-    ListDin List_bangunan;
-    Matrix m;
-    Daftar DaftarOrder;
-
     if (isEqualCommand(currentCommand,NEW_GAME)) {
         printf("INPUT NAMA FILE: ");
         startCommand();
+        setupGame();
         game_play();
-        setupGame(&BarisMap, &KolomMap, &HQ,  &List_bangunan, &m, &DaftarOrder);
     } else if(isEqualCommand(currentCommand,LOAD_GAME)) {
         printf("INPUT NAMA FILE: ");
         startCommand();
-        setupGame(&BarisMap, &KolomMap, &HQ,  &List_bangunan, &m, &DaftarOrder);     
+        setupGame();     
     } else if(isEqualCommand(currentCommand,EXIT)) {
         printf("YOU'VE ENDED THIS GAME");
     } else {

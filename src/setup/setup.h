@@ -11,9 +11,9 @@
 #include "../queue/prioqueue.h"
 #include "../node/node.h"
 #include "../linked list/list_linked.h"
-#include "../command/commandcharmachine.h"
-#include "../command/commandwordmachine.h"
-#include "../command/command.h"
+#include "../commandmachine/commandcharmachine.h"
+#include "../commandmachine/commandwordmachine.h"
+#include "../commandmachine/command.h"
 
 extern Command NEW_GAME;
 extern Command LOAD_GAME;
@@ -27,8 +27,19 @@ extern Command IN_PROGRESS;
 extern Command BUY;
 extern Command INVENTORY;
 extern Command HELP;
+extern Command EXIT;
+extern Command Y;
+extern Command N;
+
+extern int Row;
+extern int Column;
+extern POINT HQ;
+extern ListDin List_bangunan; 
+extern Matrix m;
+extern Daftar DaftarOrder;
+extern List toDo;
 
 void setupCommand();
-void setupGame(int *Row,int *Column, POINT *HQ, ListDin *List_bangunan, Matrix *m, Daftar *DaftarOrder);
+void setupGame();
 
 #endif
