@@ -8,6 +8,7 @@ ListDin List_bangunan;
 Matrix m;
 Daftar DaftarOrder;
 List todo;
+Stack Tas;
 
 Command Y;
 Command N;
@@ -15,13 +16,13 @@ Command N;
 void CommandMove(){
     //donothing
 }
-void CommandPickUp(){           //masi untuk testing
-    printf("Row: %d\n",Row);
-        printf("Column: %d\n",Column);
-        TulisPOINT(HQ);
-        displayList(List_bangunan);
-        displayMatrix(m);
-        displayDaftar(DaftarOrder);
+void CommandPickUp(){           //blomselesai
+    if (isStackFull(Tas)){
+        printf("Tas Sudah Full, Tidak Bisa Melakukan Pick UP.");
+    }
+    else{
+        //
+    }
 }
 
 void CommandDropOff(){

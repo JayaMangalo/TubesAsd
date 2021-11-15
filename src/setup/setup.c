@@ -26,6 +26,7 @@ ListDin List_bangunan;
 Matrix m;
 Daftar DaftarOrder;
 List toDo;
+Stack Tas;
 
 void setupCommand(){
     char new_game[100] = "NEW GAME";
@@ -170,5 +171,6 @@ void setupGame(){
         }
         enqueue(&DaftarOrder, ord);
     }
+    CreateStack(&Tas);
     printf("GAME INITIALIZED SUCCESFULLY\n");
 }

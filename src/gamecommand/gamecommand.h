@@ -11,6 +11,8 @@ extern ListDin List_bangunan;
 extern Matrix m;
 extern Daftar DaftarOrder;
 extern List toDo;
+extern Stack Tas;
+
 extern Command Y;
 extern Command N;
 

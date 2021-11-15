@@ -14,6 +14,7 @@
 #include "../commandmachine/commandcharmachine.h"
 #include "../commandmachine/commandwordmachine.h"
 #include "../commandmachine/command.h"
+#include "../stack/stack.h"
 
 extern Command NEW_GAME;
 extern Command LOAD_GAME;
@@ -38,6 +39,7 @@ extern ListDin List_bangunan;
 extern Matrix m;
 extern Daftar DaftarOrder;
 extern List toDo;
+extern Stack Tas;
 
 void setupCommand();
 void setupGame();
