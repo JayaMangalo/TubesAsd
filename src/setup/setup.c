@@ -29,6 +29,7 @@ List toDo;
 List Inprogress;
 Stack Tas;
 Inventory InventoryGadget;
+Time T;
 
 void setupCommand(){
     char new_game[100] = "NEW GAME";
@@ -176,5 +177,6 @@ void setupGame(){
     CreateStack(&Tas);
     CreateList(&Inprogress);
     CreateInventory(&InventoryGadget);
+    CreateTime(&T);
     printf("GAME INITIALIZED SUCCESFULLY\n");
 }

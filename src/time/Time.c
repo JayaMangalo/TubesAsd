@@ -1,16 +1,5 @@
 #include <stdio.h>
-
-//NOTE: ini masi prototype, kalo perlu bakal diganti.
-
-typedef struct { 
-	float CurrentTime;    //Waktu sekarang
-    int Weight;         //Banyak barang. Kalo gaada -> 0 
-	float SpeedBoost;   //Banyak speedboost yang remaining. Kalo gaada -> 0
-} Time;
-
-#define CurrentTime(P) (P).CurrentTime
-#define Weight(P) (P).Weight
-#define SpeedBoost(P) (P).SpeedBoost
+#include "time.h"
 
 //Create empty time.
 void CreateTime(Time *T){
@@ -50,18 +39,3 @@ int GetCurrentTime(Time T){
     return (int)CurrentTime(T);
 }
 
-//untuk testing.
-int main(){
-    Time x = {0,0,0};
-    AddSpeedBoost(&x);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
-    AddTimeByMove(&x);
-    printf("%.1f\n", x.CurrentTime);
-
-    printf("%d\n",(int)x.CurrentTime);
-    printf("%d\n",GetCurrentTime(x));
-    
-}

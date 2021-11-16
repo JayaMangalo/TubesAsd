@@ -17,6 +17,7 @@
 #include "../stack/stack.h"
 #include "../map/map.h"
 #include "../listpos/listpos.h"
+#include "../time/time.h"
 
 extern Command NEW_GAME;
 extern Command LOAD_GAME;
@@ -44,6 +45,7 @@ extern List toDo;
 extern List Inprogress;
 extern Stack Tas;
 extern Inventory InventoryGadget;
+extern Time T;
 
 void setupCommand();
 void setupGame();

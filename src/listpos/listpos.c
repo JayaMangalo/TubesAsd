@@ -53,6 +53,9 @@ void removeGadget(Inventory *g, char *Gadget)
      }
   }
 }
+boolean isGadgetFull(Inventory *g){
+   return Invlength(*g) == 5;
+}
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create List kosong  */

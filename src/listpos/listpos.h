@@ -7,7 +7,7 @@
 #ifndef LISTPOS_H
 #define LISTPOS_H
 
-#include "../boolean.h"
+#include "../boolean/boolean.h"
 
 /*  Kamus Umum */
 #define CAPACITY 100
@@ -46,6 +46,8 @@ void insertGadget(Inventory *g, char *Gadget);
 void displayInventory(Inventory g);
 
 void removeGadget(Inventory *g, char *Gadget);
+
+boolean isGadgetFull(Inventory *g);
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create List kosong  */
