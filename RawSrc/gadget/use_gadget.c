@@ -14,3 +14,21 @@ void useKainPembungkusWaktu(Stack *tas) {
 void useSenterPembesar(Stack *tas) {
   CurrentCap(*tas) = (2 * CurrentCap(*tas)) % CAPACITY;
 }
+
+//bingung ngeaddress posisi sekarang, jadi sementara pake current point
+void usePintuKemanaSaja(POINT currentP, POINT nextP){
+    /* KAMUS LOKAL */
+  /* ALGORITMA */
+  currentP = nextP;
+}
+
+void useMesinWaktu(Time *T) {
+  /* KAMUS LOKAL */
+  /* ALGORITMA */
+  if (currentTime(*T) >= 50) {
+    currentTime(*T) -= 50;
+  }
+  else {
+    currentTime(*T) = 0;
+  }
+}
