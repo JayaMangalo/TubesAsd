@@ -11,9 +11,12 @@ extern ListDin List_bangunan;
 extern Matrix m;
 extern Daftar DaftarOrder;
 extern List toDo;
+extern List Inprogress;
 extern Stack Tas;
 extern Map map;
 extern char locMobita;
+
+extern int money;
 
 extern Command Y;
 extern Command N;

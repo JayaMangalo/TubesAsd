@@ -24,13 +24,15 @@ extern Matrix m;
 extern Daftar DaftarOrder;
 extern List toDo;
 
+extern int Money;
+
 void game_play() {
     printf("===================\n");
     printf("WELCOME TO THE GAME\n");
     printf("Mobita berada di posisi\n");
     printf("ENTER COMMAND: ");
 
-
+    Money = 0;
     boolean endgame = false;
     while(endgame == false){
         startCommand();

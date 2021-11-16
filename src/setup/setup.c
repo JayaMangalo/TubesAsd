@@ -26,6 +26,7 @@ ListDin List_bangunan;
 Matrix m;
 Daftar DaftarOrder;
 List toDo;
+List Inprogress;
 Stack Tas;
 
 void setupCommand(){
@@ -172,5 +173,6 @@ void setupGame(){
         enqueue(&DaftarOrder, ord);
     }
     CreateStack(&Tas);
+    CreateList(&Inprogress);
     printf("GAME INITIALIZED SUCCESFULLY\n");
 }

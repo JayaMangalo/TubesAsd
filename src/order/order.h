@@ -1,3 +1,6 @@
+
+#include "../boolean/boolean.h"
+
 #ifndef ORDER_H
 #define ORDER_H
 
@@ -21,6 +24,9 @@ typedef struct {
 Order newOrder(int tArrival, char pick_up_point, char drop_off_point, char type, int tPerishDefault);
 int fee(Order ord);
 /* Mengembalikan Upah setelah nganter Order ord */
+
+boolean isOrderEqual(Order ord1, Order ord2);
+/* mengembalikan true jika ord1 sama dengan ord2 */
 
 /*
 Contoh inisialisasi pesanan pertama
