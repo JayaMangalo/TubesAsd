@@ -18,39 +18,45 @@ Command N;
 void CommandMove(){
     //donothing
 }
-void CommandPickUp(){           //blomselesai
-    // if (isStackFull(Tas)){
-    //     printf("Tas Sudah Full, Tidak Bisa Melakukan Pick UP.");
-    // }
-    // else{
-    //     //
-    // }
+void CommandPickUp(){           
+    if(searchPickUp(todo,locMobita)){
+        if (isStackFull(Tas)){
+            printf("Tas Sudah Full, Tidak Bisa Melakukan Pick UP.");
+        }
+        else{
+            PickUpItem(&todo,&Inprogress,locMobita);
+            printf("Item Berhasil di Pick Up.\n");
+        }
+    }
+    else{
+        printf("Tidak ada Order di Bangunan Ini.\n");
+    }
 }
 
 void CommandDropOff(List *inprog, Stack *tas, char loc){
-    /* KAMUS LOKAL */
-    Address current = FIRST(*inprog);
-    int i = 0;
-    Order ord;
-    /* ALGORITMA */
-    while ((current != NULL) && (DropOff(INFO(current)) != loc)) {
-        i += 1;
-        current = NEXT(current);
-    }
+    // /* KAMUS LOKAL */
+    // Address current = FIRST(*inprog);
+    // int i = 0;
+    // Order ord;
+    // /* ALGORITMA */
+    // while ((current != NULL) && (DropOff(INFO(current)) != loc)) {
+    //     i += 1;
+    //     current = NEXT(current);
+    // }
 
-    if (DropOff(INFO(current)) == loc) {
-        if (INFO(current) == TOP(*tas)) { // udah dites, tinggal ngebandingin dua order sama atau ngga
-            popStack(tas,&ord);
-            deleteAt(inprog,i,&ord);
-            printf("Barang berhasil diantarkan pada lokasi %c.\n", loc);
-        }
-        else {
-            printf("Item teratas pada tas tidak sesuai dengan pesanan pada lokasi.\n");
-        }
-    }
-    else {
-        printf("Tidak ada pesanan pada lokasi.\n");
-    }
+    // if (DropOff(INFO(current)) == loc) {
+    //     if (INFO(current) == TOP(*tas)) { // udah dites, tinggal ngebandingin dua order sama atau ngga
+    //         popStack(tas,&ord);
+    //         deleteAt(inprog,i,&ord);
+    //         printf("Barang berhasil diantarkan pada lokasi %c.\n", loc);
+    //     }
+    //     else {
+    //         printf("Item teratas pada tas tidak sesuai dengan pesanan pada lokasi.\n");
+    //     }
+    // }
+    // else {
+    //     printf("Tidak ada pesanan pada lokasi.\n");
+    // }
 }
 
 void CommandMap(){

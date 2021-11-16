@@ -6,6 +6,7 @@
 /* IMplementasi ADT list berkait dengan representasi fisik pointer */
 
 #include "list_linked.h"
+#include "stack.h"
 #include<stdlib.h>
 #include<stdio.h>
 
@@ -363,7 +364,7 @@ void DeliverItem(List *ip, char lokasi)
 
 }
 
-void PickUpItem(List *td, List *ip, char lokasi)
+void PickUpItem(List *td, List *ip, ,  char lokasi)
 {
     Address current;
     current = FIRST(*td);
@@ -382,4 +383,15 @@ void PickUpItem(List *td, List *ip, char lokasi)
             i ++;
         }
     }
+}
+
+boolean searchPickUp(List *td, char lokasi){
+    Address current = FIRST(*td);
+    while (current!= NULL){
+        if(PickUp(INFO(current)) == lokasi){
+            return true;
+        }
+        current = NEXT(current);
+    }
+    return false;
 }
