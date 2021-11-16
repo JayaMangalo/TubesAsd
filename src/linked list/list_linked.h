@@ -8,6 +8,8 @@
 
 #include "../boolean/boolean.h"
 #include "../node/node.h"
+#include "../queue/prioqueue.h"
+#include "../time/time.h"
 
 typedef Address List;
 
@@ -105,6 +107,10 @@ List concat(List l1, List l2) ;
 /****************** PROSES KHUSUS TODO ******************/
 void displayToDo(List td);
 /* Menampilkan isi To Do List */
+
+void updToDo(List *td, Daftar *DaftarOrder, Time *T);
+// I.S. Daftarorder berisi daftar pesanan dengan TimeIn >= CurrentTime(*T)
+// F.S. pesanan dengan TimeIn == GetCurrentTime(*T) telah dimasukkan ke to do list
 
 /****************** PROSES KHUSUS INPROGRESS ******************/
 void displayInProg(List ip);

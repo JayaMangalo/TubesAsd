@@ -310,6 +310,16 @@ void displayToDo(List td) {
     }
 }
 
+void updToDo(List *td, Daftar *DaftarOrder, Time *T) {
+// I.S. Daftarorder berisi daftar pesanan dengan TimeIn >= CurrentTime(*T)
+// F.S. pesanan dengan TimeIn == GetCurrentTime(*T) telah dimasukkan ke to do list
+    Order temp;
+    while(!isEmptyQ(*DaftarOrder) && TimeIn(HEAD(*DaftarOrder))==GetCurrentTime(*T)) {
+        dequeu(DaftarOrder, &temp);
+        insertLast(td, temp);
+    }
+};
+
 /****************** PROSES KHUSUS INPROGRESS ******************/
 void displayInProg(List ip) {
     Address p;
