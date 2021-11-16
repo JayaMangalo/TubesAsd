@@ -17,7 +17,7 @@ void useSenterPembesar(Stack *tas) {
 }
 
 //bingung ngeaddress posisi sekarang, jadi sementara pake current point
-void usePintuKemanaSaja(POINT currentP, POINT nextP){
+void usePintuKemanaSaja(char currentP, char nextP){
     /* KAMUS LOKAL */
   /* ALGORITMA */
   currentP = nextP;

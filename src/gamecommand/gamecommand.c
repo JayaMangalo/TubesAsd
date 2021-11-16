@@ -182,10 +182,10 @@ void CommandInventory(){
         printf("Senter Pembesar berhasil digunakan!\n");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Pintu Kemana Saja"){
         // kurang tau cara kerja lokasi sekarang gimana jadi pake POINT currentP sementara
-        POINT Goal;
-        printf("Lokasi yang ingin dituju ada di poin: ");
-        scanf(" %d %d", &Absis(Goal), &Ordinat(Goal));
-        // usePintuKemanaSaja(currentP, Goal);
+        char Goal;
+        printf("Lokasi yang ingin dituju ada di: ");
+        scanf(" %c", Goal);
+        usePintuKemanaSaja(locMobita, Goal);
         printf("Pintu Kemana Saja berhasil digunakan!\n");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Mesin Waktu"){
         //kurang tau cara kerja waktu sekarang gimana jadi pake TIME T sementara
