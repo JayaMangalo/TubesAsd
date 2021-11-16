@@ -13,7 +13,7 @@ void CreateTime(Time *T){
 // Juga mengurangi speedboost setiap kali gerak
 // Juga mengupdate time remaining on perishable items (Not implemented yet)
 // Maybe update perishable item
-void AddTimeByMove(List *td, Daftar *DaftarOrder, Time *T){          
+void AddTimeByMove(Time *T){          
     if (SpeedBoost(*T) > 0){
         CurrentTime(*T) = CurrentTime(*T) + 0.5;
         SpeedBoost(*T)--;
@@ -21,7 +21,7 @@ void AddTimeByMove(List *td, Daftar *DaftarOrder, Time *T){
     else{
         CurrentTime(*T) = CurrentTime(*T) + 1 + Weight(*T);
     }
-    updToDo(td,DaftarOrder,T);
+    // updToDo(td,DaftarOrder,T);
 }
 
 //fungsi menambahkan time melalui ability speedboost (constant +10 )

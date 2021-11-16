@@ -85,7 +85,7 @@ void setElmt(List *l, int idx, node_El val) {
 
 /****************** PRIMITIF BERDASARKAN NILAI ******************/
 /*** PENAMBAHAN ELEMEN ***/
-void insertFirst(List *l, node_El val) {
+void insertFirstLL(List *l, node_El val) {
 /* I.S. l mungkin kosong */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menambahkan elemen pertama dengan nilai val jika alokasi berhasil. */
@@ -100,7 +100,7 @@ void insertFirst(List *l, node_El val) {
     }
 };
 
-void insertLast(List *l, node_El val) {
+void insertLastLL(List *l, node_El val) {
 /* I.S. l mungkin kosong */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menambahkan elemen list di akhir: elemen terakhir yang baru */
@@ -109,7 +109,7 @@ void insertLast(List *l, node_El val) {
     Address p, pLast;
     /* Algoritma */
     if(isEmptyLL(*l)) {
-        insertFirst(l,val);
+        insertFirstLL(l,val);
     } else {
         pLast = newNode(val);
         if(pLast!=NULL) {
@@ -122,7 +122,7 @@ void insertLast(List *l, node_El val) {
     }
 };
 
-void insertAt(List *l, node_El val, int idx) {
+void insertAtLL(List *l, node_El val, int idx) {
 /* I.S. l tidak mungkin kosong, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menyisipkan elemen dalam list pada indeks ke-idx (bukan menimpa elemen di i) */
@@ -150,7 +150,7 @@ void insertAt(List *l, node_El val, int idx) {
 };
 
 /*** PENGHAPUSAN ELEMEN ***/
-void deleteFirst(List *l, node_El *val) {
+void deleteFirstLL(List *l, node_El *val) {
 /* I.S. List l tidak kosong  */
 /* F.S. Elemen pertama list dihapus: nilai info disimpan pada x */
 /*      dan alamat elemen pertama di-dealokasi */
@@ -162,7 +162,7 @@ void deleteFirst(List *l, node_El *val) {
     FIRST(*l) = NEXT(p);
     free(p);
 };
-void deleteLast(List *l, node_El *val) {
+void deleteLastLL(List *l, node_El *val) {
 /* I.S. list tidak kosong */
 /* F.S. Elemen terakhir list dihapus: nilai info disimpan pada x */
 /*      dan alamat elemen terakhir di-dealokasi */
@@ -184,7 +184,7 @@ void deleteLast(List *l, node_El *val) {
     free(p);
 };
 
-void deleteAt(List *l, int idx, node_El *val) {
+void deleteAtLL(List *l, int idx, node_El *val) {
 /* I.S. list tidak kosong, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. val diset dengan elemen l pada indeks ke-idx. */
 /*      Elemen l pada indeks ke-idx dihapus dari l */
@@ -193,7 +193,7 @@ void deleteAt(List *l, int idx, node_El *val) {
     int i;
     /* Algoritma */
     if(idx==0) {
-        deleteFirst(l,val);
+        deleteFirstLL(l,val);
     } else {
         i=1;
         loc = FIRST(*l);
@@ -270,12 +270,12 @@ List concat(List l1, List l2)  {
     */
     p = FIRST(l1);
     while(p!=NULL) {
-        insertLast(&l3,INFO(p));
+        insertLastLL(&l3,INFO(p));
         p = NEXT(p);
     }
     p = FIRST(l2);
     while(p!=NULL) {
-        insertLast(&l3,INFO(p));
+        insertLastLL(&l3,INFO(p));
         p = NEXT(p);
     }
     return l3;
@@ -355,7 +355,7 @@ void DeliverItem(List *ip, char lokasi)
     {
         if(DropOff(INFO(current))==lokasi)
         {
-            deleteAt(ip, i, &val);
+            deleteAtLL(ip, i, &val);
             current = FIRST(*ip);
             i = 0;
             if(TYPE(val)=='N') {
@@ -383,8 +383,8 @@ void PickUpItem(List *td, List *ip,Stack *Tas,  char lokasi)
     {
         if(PickUp(INFO(current))==lokasi)
         {
-            deleteAt(td, i, &val);
-            insertFirst(ip, val);
+            deleteAtLL(td, i, &val);
+            insertFirstLL(ip, val);
             current = FIRST(*td);
             i = 0;
         } else {
@@ -395,14 +395,20 @@ void PickUpItem(List *td, List *ip,Stack *Tas,  char lokasi)
 }
 
 boolean searchPickUp(List *td, char lokasi){
-    Address current = FIRST(*td);
-    while (current!= NULL){
-        if(PickUp(INFO(current)) == lokasi){
-            return true;
-        }
-        current = NEXT(current);
+    if(isEmptyLL(*td)){
+        return false;
     }
-    return false;
+    else{
+        Address current = FIRST(*td);
+            while (current!= NULL){
+                if(PickUp(INFO(current)) == lokasi){
+                    return true;
+                }
+                current = NEXT(current);
+            }
+            return false;
+    }
+    
 }
 
 void updPerishInProgress(List *ip, int deltaT) {
@@ -420,7 +426,7 @@ void updPerishInProgress(List *ip, int deltaT) {
                 // hapus p
                 del = p;
                 if(del==FIRST(*ip)) {
-                    deleteFirst(ip,&temp);
+                    deleteFirstLL(ip,&temp);
                     p = FIRST(*ip);
                 } else {
                     NEXT(prev) = NEXT(del);

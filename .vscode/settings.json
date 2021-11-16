@@ -3,6 +3,7 @@
         "random": "c",
         "stdio.h": "c",
         "stdlib.h": "c",
-        "setup.h": "c"
+        "setup.h": "c",
+        "commandwordmachine.h": "c"
     }
 }
