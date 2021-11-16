@@ -186,7 +186,23 @@ void CommandInventory(){
         printf("Senter Pengecil berhasil digunakan!\n");
     } else {
         printf("Tidak ada Gadget yang d digunakan.\n");
+
+    printf("Gadget mana yang ingin digunakan? (ketik 0 jika ingin kembali)\n\n");
+    printf("ENTER COMMAND: ");
+    startCommand();
+    int option = CommandToInt(currentCommand);
+    if (option != 0) {
+        if (Invlength(InventoryGadget) == 0) {
+            printf("Tidak ada gadget yang dapat digunakan!\n");
+        } else {
+            if (ELMTListPos(InventoryGadget,option-1) != "-") {
+                printf("%s berhasil digunakan!\n",ELMTListPos(InventoryGadget,option-1));
+            } else {
+                printf("Gadget tidak tersedia!\n");
+            }
+        }
     }
+}
 }
 void CommandHelp(){
     printf(" ----------------------HELP------------------\n");

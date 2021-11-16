@@ -48,4 +48,7 @@ void copyCommand();
 boolean isEqualCommand(Command a, Command b);
 
 Command StringtoCommand(char x[100], int length);
+
+int CommandToInt(Command K);
 #endif
+
