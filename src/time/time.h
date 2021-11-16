@@ -5,7 +5,7 @@
 typedef struct { 
 	float CurrentTime;    //Waktu sekarang
     int Weight;         //Banyak barang. Kalo gaada -> 0 
-	float SpeedBoost;   //Banyak speedboost yang remaining. Kalo gaada -> 0
+	int SpeedBoost;   //Banyak speedboost yang remaining. Kalo gaada -> 0
 } Time;
 
 #define CurrentTime(P) (P).CurrentTime

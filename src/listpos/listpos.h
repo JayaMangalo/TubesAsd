@@ -39,7 +39,7 @@ typedef struct {
 
 void CreateInventory(Inventory *g);
 
-int Invlength(Inventory l);
+int InvlengthLP(Inventory l);
 
 void insertGadget(Inventory *g, char *Gadget);
 
@@ -58,24 +58,24 @@ void CreateListPos(ListPos *l);
 
 /* ********** SELEKTOR (TAMBAHAN) ********** */
 /* *** Banyaknya elemen *** */
-int length(ListPos l);
+int lengthLP(ListPos l);
 /* Mengirimkan banyaknya elemen efektif List */
 /* Mengirimkan nol jika List kosong */
 
 /* ********** Test Indeks yang valid ********** */
-boolean isIdxValid(ListPos l, int i);
+boolean isIdxValidLP(ListPos l, int i);
 /* Mengirimkan true jika i adalah indeks yang valid utk kapasitas List l */
 /* yaitu antara indeks yang terdefinisi utk container*/
-boolean isIdxEff(ListPos l, int i);
+boolean isIdxEffLP(ListPos l, int i);
 /* Mengirimkan true jika i adalah indeks yang terdefinisi utk List l */
-/* yaitu antara 0..length(l)-1 */
+/* yaitu antara 0..lengthLP(l)-1 */
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test List kosong *** */
-boolean isEmpty(ListPos l);
+boolean isEmptyLP(ListPos l);
 /* Mengirimkan true jika List l kosong, mengirimkan false jika tidak */
 /* *** Test List penuh *** */
-boolean isFull(ListPos l);
+boolean isFullLP(ListPos l);
 /* Mengirimkan true jika List l penuh, mengirimkan false jika tidak */
 
 /* ********** BACA dan TULIS dengan INPUT/OUTPUT device ********** */
@@ -90,7 +90,7 @@ void readList(ListPos *l);
 /* 2. Jika 0 < n <= CAPACITY; Lakukan n kali:
           Baca elemen mulai dari indeks 0 satu per satu diakhiri enter */
 /*    Jika n = 0; hanya terbentuk List kosong */
-void displayList(ListPos l);
+void displayListLP(ListPos l);
 /* Proses : Menuliskan isi List dengan traversal, List ditulis di antara kurung
    siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan
    karakter di depan, di tengah, atau di belakang, termasuk spasi dan enter */
@@ -116,7 +116,7 @@ boolean isListEqual(ListPos l1, ListPos l2);
 
 /* ********** SEARCHING ********** */
 /* ***  Perhatian : List boleh kosong!! *** */
-int indexOf(ListPos l, ElType val);
+int indexOfLP(ListPos l, ElType val);
 /* Search apakah ada elemen List l yang bernilai val */
 /* Jika ada, menghasilkan indeks i terkecil, dengan ELMTListPos(l,i) = val */
 /* Jika tidak ada atau jika l kosong, mengirimkan IDX_UNDEF */
@@ -142,12 +142,12 @@ void sort(ListPos *l, boolean asc);
 
 /* ********** MENAMBAH DAN MENGHAPUS ELEMEN DI AKHIR ********** */
 /* *** Menambahkan elemen terakhir *** */
-void insertLast(ListPos *l, ElType val);
+void insertLastLP(ListPos *l, ElType val);
 /* Proses: Menambahkan val sebagai elemen terakhir List */
 /* I.S. List l boleh kosong, tetapi tidak penuh */
 /* F.S. val adalah elemen terakhir l yang baru */
 /* ********** MENGHAPUS ELEMEN ********** */
-void deleteLast(ListPos *l, ElType *val);
+void deleteLastLP(ListPos *l, ElType *val);
 /* Proses : Menghapus elemen terakhir List */
 /* I.S. List tidak kosong */
 /* F.S. val adalah nilai elemen terakhir l sebelum penghapusan, */

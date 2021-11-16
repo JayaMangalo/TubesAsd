@@ -1,23 +1,6 @@
 #include <stdio.h>
 #include "gamecommand.h"
 
-int Row;
-int Column;
-POINT HQ;
-ListDin List_bangunan; 
-Matrix m;
-Daftar DaftarOrder;
-List todo;
-List Inprogress;
-Stack Tas;
-Map map;
-char locMobita;
-Inventory InventoryGadget;
-Time T;
-
-Command Y;
-Command N;
-
 void CommandMove(){
     printf("Posisi yang dapat dicapai:\n");
     accessiblePosition(map,locMobita);
@@ -38,7 +21,7 @@ void CommandMove(){
     printf("Waktu: %.0f\n", CurrentTime(T));
 }
 void CommandPickUp(){           
-    if(searchPickUp(todo,locMobita)){
+    if(searchPickUp(&todo,locMobita)){
         if (isStackFull(Tas)){
             printf("Tas Sudah Full, Tidak Bisa Melakukan Pick UP.");
         }
@@ -87,7 +70,7 @@ void CommandInProgress(){
     displayInProg(Inprogress);
 }
 void CommandBuy(){
-    if(locMobita == "8"){
+    if(locMobita == '8'){
         printf("Uang Anda sekarang: %d Yen\n",money);
         printf("Gadget yang tersedia:\n");
         printf("1. Kain Pembungkus Waktu (800 Yen)\n");
@@ -98,7 +81,7 @@ void CommandBuy(){
 
         
         startCommand();
-        if(currentCommandChar == "1"){
+        if(currentCommandChar == '1'){
             if (money >= 800)
             {
                 if(isGadgetFull(&InventoryGadget)){
@@ -114,7 +97,7 @@ void CommandBuy(){
                 printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
             }
         }
-        else if(currentCommandChar == "2"){
+        else if(currentCommandChar == '2'){
             if (money >= 1200)
             {
                 if(isGadgetFull(&InventoryGadget)){
@@ -130,7 +113,7 @@ void CommandBuy(){
                 printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
             }
         }
-        else if(currentCommandChar == "3"){
+        else if(currentCommandChar == '3'){
             if (money >= 1500)
             {
                 if(isGadgetFull(&InventoryGadget)){
@@ -146,7 +129,7 @@ void CommandBuy(){
                 printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
             }
         }
-        else if(currentCommandChar == "4"){
+        else if(currentCommandChar == '4'){
             if (money >= 3000)
             {
                 if(isGadgetFull(&InventoryGadget)){
@@ -162,7 +145,7 @@ void CommandBuy(){
                 printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
             }
         }
-        else if(currentCommandChar == "0"){
+        else if(currentCommandChar == '0'){
             printf("Cancelling...\n");
         }
         else{

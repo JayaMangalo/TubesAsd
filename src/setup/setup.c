@@ -25,11 +25,14 @@ POINT HQ;
 ListDin List_bangunan; 
 Matrix m;
 Daftar DaftarOrder;
-List toDo;
+List todo;
+Map map;
+char locMobita;
 List Inprogress;
 Stack Tas;
 Inventory InventoryGadget;
 Time T;
+int money;
 
 void setupCommand(){
     char new_game[100] = "NEW GAME";
@@ -150,7 +153,6 @@ void setupGame(){
     int Order_amount;
     advWord();
     Order_amount = WordToInt(currentWord);
-
     Order ord;
     for (int i = 0; i < Order_amount; i++)
     {
@@ -178,5 +180,6 @@ void setupGame(){
     CreateList(&Inprogress);
     CreateInventory(&InventoryGadget);
     CreateTime(&T);
+    money = 0;
     printf("GAME INITIALIZED SUCCESFULLY\n");
 }

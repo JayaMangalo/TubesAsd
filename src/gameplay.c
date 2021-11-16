@@ -16,15 +16,6 @@ extern Command INVENTORY;
 extern Command HELP;
 extern Command Exit;
 
-extern int Row;
-extern int Column;
-extern POINT HQ;
-extern ListDin List_bangunan; 
-extern Matrix m;
-extern Daftar DaftarOrder;
-extern List toDo;
-
-extern int Money;
 
 void game_play() {
     printf("===================\n");
@@ -32,7 +23,6 @@ void game_play() {
     printf("Mobita berada di posisi\n");
     printf("ENTER COMMAND: ");
 
-    Money = 0;
     boolean endgame = false;
     while(endgame == false){
         startCommand();

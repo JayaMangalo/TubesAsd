@@ -11,7 +11,7 @@ compile and run:
 if ($?) { gcc mainmenu.c setup//setup.c matrix//matrix.c point//point.c wordmachine//wordmachine.c charmachine//charmachine.c listdin//listdin.c  queue//prioqueue.c command//commandcharmachine.c command//commandwordmachine.c  -o  mainmenu} ; if ($?) { .\mainmenu }
 
 gameplay: 
-compile : gcc gameplay.c  setup//setup.c gamecommand/gamecommand.c matrix//matrix.c point//point.c wordmachine//wordmachine.c charmachine//charmachine.c listdin//listdin.c order//order.c queue//prioqueue.c node//node.c "linked list/list_linked.c" commandmachine//commandcharmachine.c commandmachine//commandwordmachine.c commandmachine/command.c -o  gameplay
+compile : gcc gameplay.c  charmachine//charmachine.c commandmachine//commandcharmachine.c commandmachine//commandwordmachine.c commandmachine//command.c gadget//gadget.c gamecommand//gamecommand.c list_linked//list_linked.c listdin//listdin.c listpos//listpos.c map//map.c matrix//matrix.c node//node.c order//order.c pcolor//pcolor.c point//point.c queue//prioqueue.c setup//setup.c stack//stack.c time//time.c wordmachine//wordmachine.c -o  gameplay
 run 	: ./gameplay
 compile and run:  
 if ($?) { gcc gameplay.c setup//setup.c matrix//matrix.c point//point.c wordmachine//wordmachine.c charmachine//charmachine.c listdin//listdin.c  queue//prioqueue.c command//commandcharmachine.c command//commandwordmachine.c  -o  mainmenu} ; if ($?) { .\mainmenu }

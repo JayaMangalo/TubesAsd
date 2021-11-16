@@ -17,7 +17,7 @@ void CreateInventory(Inventory *g) {
    }
 };
 
-int Invlength(Inventory l) {
+int InvlengthLP(Inventory l) {
    int last=-1;
    while(last <4 && ELMTListPos(l,last+1)!="-") {
       last = last+1;
@@ -27,9 +27,9 @@ int Invlength(Inventory l) {
 
 void insertGadget(Inventory *g, char *Gadget)
 {
-    if(Invlength(*g)<5)
+    if(InvlengthLP(*g)<5)
     {
-        ELMTListPos(*g, Invlength(*g)) = Gadget;
+        ELMTListPos(*g, InvlengthLP(*g)) = Gadget;
     } else {
         printf("Inventory penuh\n");
     }
@@ -54,7 +54,7 @@ void removeGadget(Inventory *g, char *Gadget)
   }
 }
 boolean isGadgetFull(Inventory *g){
-   return Invlength(*g) == 5;
+   return InvlengthLP(*g) == 5;
 }
 
 /* ********** KONSTRUKTOR ********** */
@@ -73,7 +73,7 @@ void CreateListPos(ListPos *l) {
 
 /* ********** SELEKTOR (TAMBAHAN) ********** */
 /* *** Banyaknya elemen *** */
-int length(ListPos l) {
+int lengthLP(ListPos l) {
 /* Mengirimkan banyaknya elemen efektif List */
 /* Mengirimkan nol jika List kosong */
    /* Kamus Lokal */
@@ -86,35 +86,35 @@ int length(ListPos l) {
 };
 
 /* ********** Test Indeks yang valid ********** */
-boolean isIdxValid(ListPos l, int i) {
+boolean isIdxValidLP(ListPos l, int i) {
 /* Mengirimkan true jika i adalah indeks yang valid utk kapasitas List l */
 /* yaitu antara indeks yang terdefinisi utk container*/
    /* Kamus Lokal */
    /* Algoritma */
     return (i>=0 && i<CAPACITY);
 };
-boolean isIdxEff(ListPos l, int i) {
+boolean isIdxEffLP(ListPos l, int i) {
 /* Mengirimkan true jika i adalah indeks yang terdefinisi utk List l */
-/* yaitu antara 0..length(l)-1 */
+/* yaitu antara 0..lengthLP(l)-1 */
    /* Kamus Lokal */
    /* Algoritma */
-   return (i>=0 && i<length(l));
+   return (i>=0 && i<lengthLP(l));
 };
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test List kosong *** */
-boolean isEmpty(ListPos l) {
+boolean isEmptyLP(ListPos l) {
 /* Mengirimkan true jika List l kosong, mengirimkan false jika tidak */
 /* *** Test List penuh *** */
    /* Kamus Lokal */
    /* Algoritma */
-   return (length(l)==0);
+   return (lengthLP(l)==0);
 };
-boolean isFull(ListPos l) {
+boolean isFullLP(ListPos l) {
 /* Mengirimkan true jika List l penuh, mengirimkan false jika tidak */
    /* Kamus Lokal */
    /* Algoritma */
-    return (length(l)==CAPACITY);
+    return (lengthLP(l)==CAPACITY);
 };
 
 /* ********** BACA dan TULIS dengan INPUT/OUTPUT device ********** */
@@ -147,7 +147,7 @@ void readList(ListPos *l) {
       ELMTListPos(*l,i) = VAL_UNDEF;
    }
 };
-void displayList(ListPos l) {
+void displayListLP(ListPos l) {
 /* Proses : Menuliskan isi List dengan traversal, List ditulis di antara kurung
    siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan
    karakter di depan, di tengah, atau di belakang, termasuk spasi dan enter */
@@ -158,11 +158,11 @@ void displayList(ListPos l) {
    /* Kamus Lokal */
    int i;
    /* Algoritma */
-   if(isEmpty(l)) {
+   if(isEmptyLP(l)) {
       printf("[]");
    } else {
       printf("[%d", ELMTListPos(l,0));
-      for(i=1;i<length(l);i++) {
+      for(i=1;i<lengthLP(l);i++) {
          printf(",%d", ELMTListPos(l,i));
       }
       printf("]");
@@ -182,7 +182,7 @@ ListPos plusMinusTab(ListPos l1, ListPos l2, boolean plus) {
    ListPos l3;
    /* Algoritma */
    CreateListPos(&l3);
-   for(i=0;i<length(l1);i++) {
+   for(i=0;i<lengthLP(l1);i++) {
       if(plus) {
          ELMTListPos(l3,i) = ELMTListPos(l1,i) + ELMTListPos(l2,i);
       } else {
@@ -201,8 +201,8 @@ boolean isListEqual(ListPos l1, ListPos l2) {
    boolean equal=true;
    int i;
    /* Algoritma */
-   if(length(l1)==length(l2)) {
-      for(i=0;i<length(l1) && equal;i++) {
+   if(lengthLP(l1)==lengthLP(l2)) {
+      for(i=0;i<lengthLP(l1) && equal;i++) {
          if(ELMTListPos(l1,i)!=ELMTListPos(l2,i)) equal=false;
       }
    } else {
@@ -213,7 +213,7 @@ boolean isListEqual(ListPos l1, ListPos l2) {
 
 /* ********** SEARCHING ********** */
 /* ***  Perhatian : List boleh kosong!! *** */
-int indexOf(ListPos l, ElType val) {
+int indexOfLP(ListPos l, ElType val) {
 /* Search apakah ada elemen List l yang bernilai val */
 /* Jika ada, menghasilkan indeks i terkecil, dengan ELMTListPos(l,i) = val */
 /* Jika tidak ada atau jika l kosong, mengirimkan IDX_UNDEF */
@@ -222,7 +222,7 @@ int indexOf(ListPos l, ElType val) {
    boolean found=false;
    int i=0, idx=IDX_UNDEF;
    /* Algoritma */
-   while(i<length(l) && !found) {
+   while(i<lengthLP(l) && !found) {
       if(ELMTListPos(l,i)==val) {
          found=true;
          idx = i;
@@ -242,7 +242,7 @@ void extremes(ListPos l, ElType *max, ElType *min) {
    /* Algoritma */
    *max = -1;
    *min = __INT_MAX__;
-   for(i=0;i<length(l);i++) {
+   for(i=0;i<lengthLP(l);i++) {
       if(ELMTListPos(l,i)>*max) *max=ELMTListPos(l,i);
       if(ELMTListPos(l,i)<*min) *min=ELMTListPos(l,i);
    }
@@ -255,7 +255,7 @@ boolean isAllEven(ListPos l) {
    int i;
    boolean even=true;
    /* Algoritma */
-   for(i=0;i<length(l) && even;i++) {
+   for(i=0;i<lengthLP(l) && even;i++) {
       if(ELMTListPos(l,i)%2!=0) even=false;
    }
    return even;
@@ -271,8 +271,8 @@ void sort(ListPos *l, boolean asc) {
    /* Kamus Lokal */
    int j,i, key;
    /* Algoritma */
-   if(!isEmpty(*l)) {
-      for(j=1;j<length(*l);j++) {
+   if(!isEmptyLP(*l)) {
+      for(j=1;j<lengthLP(*l);j++) {
          key = ELMTListPos(*l,j);
          i = j-1;
          if(asc) {
@@ -293,17 +293,17 @@ void sort(ListPos *l, boolean asc) {
 
 /* ********** MENAMBAH DAN MENGHAPUS ELEMEN DI AKHIR ********** */
 /* *** Menambahkan elemen terakhir *** */
-void insertLast(ListPos *l, ElType val) {
+void insertLastLP(ListPos *l, ElType val) {
 /* Proses: Menambahkan val sebagai elemen terakhir List */
 /* I.S. List l boleh kosong, tetapi tidak penuh */
 /* F.S. val adalah elemen terakhir l yang baru */
    /* Kamus Lokal */
    /* Algoritma */
-   ELMTListPos(*l,length(*l)) = val;
+   ELMTListPos(*l,lengthLP(*l)) = val;
 };
 
 /* ********** MENGHAPUS ELEMEN ********** */
-void deleteLast(ListPos *l, ElType *val) {
+void deleteLastLP(ListPos *l, ElType *val) {
 /* Proses : Menghapus elemen terakhir List */
 /* I.S. List tidak kosong */
 /* F.S. val adalah nilai elemen terakhir l sebelum penghapusan, */
@@ -311,7 +311,7 @@ void deleteLast(ListPos *l, ElType *val) {
 /*      List l mungkin menjadi kosong */
    /* Kamus Lokal */
    /* Algoritma */
-   *val = ELMTListPos(*l,length(*l)-1);
-   ELMTListPos(*l,length(*l)-1) = VAL_UNDEF;
+   *val = ELMTListPos(*l,lengthLP(*l)-1);
+   ELMTListPos(*l,lengthLP(*l)-1) = VAL_UNDEF;
 };
 

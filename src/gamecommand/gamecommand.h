@@ -1,5 +1,5 @@
-#ifndef COMMAND_H
-#define COMMAND_H
+#ifndef GAMECOMMAND_H
+#define GAMECOMMAND_H
 
 #include <stdio.h>
 #include "../setup/setup.h"
@@ -10,7 +10,7 @@ extern POINT HQ;
 extern ListDin List_bangunan; 
 extern Matrix m;
 extern Daftar DaftarOrder;
-extern List toDo;
+extern List todo;
 extern List Inprogress;
 extern Stack Tas;
 extern Map map;
@@ -33,6 +33,5 @@ void CommandBuy();
 void CommandInventory();
 void CommandHelp();
 boolean CommandExit();
-
 
 #endif

@@ -8,7 +8,7 @@
 #include "../order/order.h"
 #include "../pcolor/pcolor.h"
 #include "../stack/stack.h"
-#include "../linked list/list_linked.h"
+#include "../list_linked/list_linked.h"
 #include "../node/node.h"
 
 /* Kamus Umum */

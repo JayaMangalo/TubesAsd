@@ -10,7 +10,7 @@
 #include "../order/order.h"
 #include "../queue/prioqueue.h"
 #include "../node/node.h"
-#include "../linked list/list_linked.h"
+#include "../list_linked/list_linked.h"
 #include "../commandmachine/commandcharmachine.h"
 #include "../commandmachine/commandwordmachine.h"
 #include "../commandmachine/command.h"
@@ -18,7 +18,8 @@
 #include "../map/map.h"
 #include "../listpos/listpos.h"
 #include "../time/time.h"
-#include "../gadget/use_gadget.c"
+#include "../gadget/gadget.h"
+#include "../gamecommand/gamecommand.h"
 
 extern Command NEW_GAME;
 extern Command LOAD_GAME;
@@ -42,11 +43,14 @@ extern POINT HQ;
 extern ListDin List_bangunan; 
 extern Matrix m;
 extern Daftar DaftarOrder;
-extern List toDo;
+extern List todo;
+extern Map map;
+extern char locMobita;
 extern List Inprogress;
 extern Stack Tas;
 extern Inventory InventoryGadget;
 extern Time T;
+extern int money;
 
 void setupCommand();
 void setupGame();

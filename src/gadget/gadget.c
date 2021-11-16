@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include "../setup/setup.h"
-#include "../time/time.h"
+#include "gadget.h"
 
 void useKainPembungkusWaktu(Stack *tas) {
   /* KAMUS LOKAL */

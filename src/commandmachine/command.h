@@ -2,7 +2,7 @@
 #define COMMAND_H
 
 #include "../setup/setup.h"
-extern List toDo;
+extern List todo;
 
 /****************** COMMAND TODO ******************/
 void toDoCommand();
