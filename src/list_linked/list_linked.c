@@ -395,12 +395,18 @@ void PickUpItem(List *td, List *ip,Stack *Tas,  char lokasi)
 }
 
 boolean searchPickUp(List *td, char lokasi){
-    Address current = FIRST(*td);
-    while (current!= NULL){
-        if(PickUp(INFO(current)) == lokasi){
-            return true;
-        }
-        current = NEXT(current);
+    if(isEmptyLL(*td)){
+        return false;
     }
-    return false;
+    else{
+        Address current = FIRST(*td);
+            while (current!= NULL){
+                if(PickUp(INFO(current)) == lokasi){
+                    return true;
+                }
+                current = NEXT(current);
+            }
+            return false;
+    }
+    
 }
