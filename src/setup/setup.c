@@ -180,6 +180,7 @@ void setupGame(){
     CreateList(&Inprogress);
     CreateInventory(&InventoryGadget);
     CreateTime(&T);
+    updToDo(&todo, &DaftarOrder, &T);
     money = 0;
     printf("GAME INITIALIZED SUCCESFULLY\n");
 }
