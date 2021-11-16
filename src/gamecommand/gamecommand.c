@@ -27,8 +27,15 @@ void CommandMove(){
     int option = CommandToInt(currentCommand);
     printf("\n");
     AddTimeByMove(&T);
+    ListDin l;
+    l = LOC(map);
+    if (option != 0) {
+        locMobita = ELMTl(l,option).name;
+    }
+    printf("Mobita sekarang berada di titik ");
+    printf("%c ", ELMTl(l,option).name);
+    TulisPOINT(ELMTl(l,option).posisi);
     printf("Waktu: %.0f\n", CurrentTime(T));
-    printf("Mobita sekarang berada di titik");
 }
 void CommandPickUp(){           
     if(searchPickUp(todo,locMobita)){
