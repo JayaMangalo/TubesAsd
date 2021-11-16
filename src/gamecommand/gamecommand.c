@@ -8,7 +8,10 @@ ListDin List_bangunan;
 Matrix m;
 Daftar DaftarOrder;
 List todo;
+List Inprogress;
 Stack Tas;
+
+int Money;
 
 Command Y;
 Command N;

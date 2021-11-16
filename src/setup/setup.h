@@ -39,6 +39,7 @@ extern ListDin List_bangunan;
 extern Matrix m;
 extern Daftar DaftarOrder;
 extern List toDo;
+extern List Inprogress;
 extern Stack Tas;
 
 void setupCommand();
