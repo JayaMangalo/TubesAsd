@@ -64,7 +64,7 @@ void setupCommand(){
     TO_DO = StringtoCommand(to_do,to_do_length);
 
     char map[100] = "MAP";
-    int map_length = 5;
+    int map_length = 3;
      MAP = StringtoCommand(map,map_length);
     
     char in_progress[100] = "IN_PROGRESS";
