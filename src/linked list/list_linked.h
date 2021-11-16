@@ -111,7 +111,7 @@ void displayInProg(List ip);
 
 void DeliverItem(List *ip, char lokasi);
 
-void PickUpItem(List *td, List *ip, char lokasi);
+void PickUpItem(List *td, List *ip,Stack *Tas,  char lokasi);
 
 boolean searchPickUp(List *td, char lokasi); //ngecheck kalo ada yg bisa di pickup di lokasi "lokasi"
 

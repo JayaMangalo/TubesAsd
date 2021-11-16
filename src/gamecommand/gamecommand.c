@@ -11,6 +11,7 @@ List todo;
 Stack Tas;
 Map map;
 char locMobita;
+Inventory InventoryGadget;
 
 Command Y;
 Command N;
@@ -24,7 +25,7 @@ void CommandPickUp(){
             printf("Tas Sudah Full, Tidak Bisa Melakukan Pick UP.");
         }
         else{
-            PickUpItem(&todo,&Inprogress,locMobita);
+            PickUpItem(&todo,&Inprogress,&Tas,locMobita);
             printf("Item Berhasil di Pick Up.\n");
         }
     }
@@ -69,7 +70,71 @@ void CommandInProgress(){
 
 }
 void CommandBuy(){
+    if(locMobita == "8"){
+        printf("Uang Anda sekarang: %d Yen\n",money);
+        printf("Gadget yang tersedia:\n");
+        printf("1. Kain Pembungkus Waktu (800 Yen)\n");
+        printf("2. Senter Pembesar (1200 Yen)\n");
+        printf("3. Pintu Kemana Saja (1500 Yen)\n");
+        printf("4. Mesin Waktu (3000 Yen)\n");
+        printf("Gadget mana yang ingin kau beli? (ketik 0 jika ingin kembali)\n");
 
+        
+        startCommand();
+        if(currentCommandChar == "1"){
+            if (money >= 800)
+            {
+                money -= 800;
+                //masukin ke inventory gadget.
+                printf("Gadget telah dibeli.\n");
+            }
+            else{
+                printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
+            }
+        }
+        else if(currentCommandChar == "2"){
+            if (money >= 1200)
+            {
+                money -= 1200;
+                //masukin ke inventory gadget.
+                printf("Gadget telah dibeli.\n");
+            }
+            else{
+                printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
+            }
+        }
+        else if(currentCommandChar == "3"){
+            if (money >= 1500)
+            {
+                money -= 1500;
+              //masukin ke inventory gadget.
+                printf("Gadget telah dibeli.\n");
+            }
+            else{
+                printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
+            }
+        }
+        else if(currentCommandChar == "4"){
+            if (money >= 3000)
+            {
+                money -= 3000;
+                //masukin ke inventory gadget.
+                printf("Gadget telah dibeli.\n");
+            }
+            else{
+                printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
+            }
+        }
+        else if(currentCommandChar == "0"){
+            printf("Cancelling...\n");
+        }
+        else{
+            printf("Input salah, Cancelling...\n");
+        }
+    }
+    else{
+        printf("Command Buy Hanya Bisa dilakukan di HQ.\n");
+    }
 }
 void CommandInventory(){
     

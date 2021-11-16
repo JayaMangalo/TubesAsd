@@ -15,6 +15,7 @@ extern List Inprogress;
 extern Stack Tas;
 extern Map map;
 extern char locMobita;
+extern Inventory InventoryGadget;
 
 extern int money;
 

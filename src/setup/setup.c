@@ -28,6 +28,7 @@ Daftar DaftarOrder;
 List toDo;
 List Inprogress;
 Stack Tas;
+Inventory InventoryGadget;
 
 void setupCommand(){
     char new_game[100] = "NEW GAME";
@@ -174,5 +175,6 @@ void setupGame(){
     }
     CreateStack(&Tas);
     CreateList(&Inprogress);
+    CreateInventory(&InventoryGadget);
     printf("GAME INITIALIZED SUCCESFULLY\n");
 }

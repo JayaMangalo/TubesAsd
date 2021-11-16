@@ -16,6 +16,7 @@
 #include "../commandmachine/command.h"
 #include "../stack/stack.h"
 #include "../map/map.h"
+#include "../listpos/listpos.h"
 
 extern Command NEW_GAME;
 extern Command LOAD_GAME;
@@ -42,6 +43,7 @@ extern Daftar DaftarOrder;
 extern List toDo;
 extern List Inprogress;
 extern Stack Tas;
+extern Inventory InventoryGadget;
 
 void setupCommand();
 void setupGame();

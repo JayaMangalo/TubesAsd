@@ -364,7 +364,7 @@ void DeliverItem(List *ip, char lokasi)
 
 }
 
-void PickUpItem(List *td, List *ip, ,  char lokasi)
+void PickUpItem(List *td, List *ip,Stack *Tas,  char lokasi)
 {
     Address current;
     current = FIRST(*td);
