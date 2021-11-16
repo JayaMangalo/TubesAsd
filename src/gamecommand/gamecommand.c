@@ -47,8 +47,7 @@ void CommandDropOff(){
     if (DropOff(INFO(current)) == locMobita) {
         if (isOrderEqual(INFO(current), TOP(Tas))) {
             popStack(&Tas,&ord);
-            deleteAt(&Inprogress,i,&ord);
-            printf("Barang berhasil diantarkan pada lokasi %c.\n", loc);
+            DeliverItem(&Inprogress,locMobita);
         }
         else {
             printf("Item teratas pada tas tidak sesuai dengan pesanan pada lokasi.\n");
