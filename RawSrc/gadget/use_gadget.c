@@ -32,3 +32,16 @@ void useMesinWaktu(Time *T) {
     currentTime(*T) = 0;
   }
 }
+
+
+void useSenterPengecil(Stack *tas) {
+  /* KAMUS LOKAL */
+  Order ord = TOP(*tas);
+  /* ALGORITMA */
+  if (TYPE(ord) == 'H') {
+    TYPE(ord) = 'N';
+  }
+  else {
+    printf("Barang di tumpukan teratas tas bukan heavy item\n");
+  }
+}
