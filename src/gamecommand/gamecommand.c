@@ -8,6 +8,7 @@ ListDin List_bangunan;
 Matrix m;
 Daftar DaftarOrder;
 List todo;
+List Inprogress;
 Stack Tas;
 Map map;
 char locMobita;
@@ -67,7 +68,7 @@ void CommandToDo(){
     displayToDo(todo);
 }
 void CommandInProgress(){
-
+    displayInProg(Inprogress);
 }
 void CommandBuy(){
     if(locMobita == "8"){
@@ -157,7 +158,35 @@ void CommandBuy(){
     }
 }
 void CommandInventory(){
-    
+    displayInventory(InventoryGadget);
+    int pilihan;
+    printf("Gadget mana yang ingin digunakan? (ketik 0 jika ingin kembali)\n\n");
+    printf("ENTER COMMAND: ");
+    scanf("%d", &pilihan);
+    pilihan -= 1;
+    if (ELMTListPos(InventoryGadget,pilihan)=="Kain Pembungkus Waktu"){
+        useKainPembungkusWaktu(&Tas);
+        printf("Kain Pembungkus Waktu berhasil digunakan!\n");
+    } else if (ELMTListPos(InventoryGadget,pilihan)=="Senter Pembesar"){
+        useSenterPembesar(&Tas);
+        printf("Senter Pembesar berhasil digunakan!\n");
+    } else if (ELMTListPos(InventoryGadget,pilihan)=="Pintu Kemana Saja"){
+        // kurang tau cara kerja lokasi sekarang gimana jadi pake POINT currentP sementara
+        POINT Goal;
+        printf("Lokasi yang ingin dituju ada di poin: ");
+        scanf(" %d %d", &Absis(Goal), &Ordinat(Goal));
+        // usePintuKemanaSaja(currentP, Goal);
+        printf("Pintu Kemana Saja berhasil digunakan!\n");
+    } else if (ELMTListPos(InventoryGadget,pilihan)=="Mesin Waktu"){
+        //kurang tau cara kerja waktu sekarang gimana jadi pake TIME T sementara
+        useMesinWaktu(&T);
+        printf("Mesin Waktu berhasil digunakan!\n");
+    } else if (ELMTListPos(InventoryGadget,pilihan)=="Mesin Waktu"){
+        useSenterPengecil(&Tas);
+        printf("Senter Pengecil berhasil digunakan!\n");
+    } else {
+        printf("Tidak ada Gadget yang d digunakan.\n");
+    }
 }
 void CommandHelp(){
     printf(" ----------------------HELP------------------\n");

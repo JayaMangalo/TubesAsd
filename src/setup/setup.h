@@ -18,6 +18,7 @@
 #include "../map/map.h"
 #include "../listpos/listpos.h"
 #include "../time/time.h"
+#include "../gadget/use_gadget.c"
 
 extern Command NEW_GAME;
 extern Command LOAD_GAME;
