@@ -34,29 +34,50 @@ void CommandPickUp(){
         printf("Tidak ada Order di Bangunan Ini/Todolist kosong.\n");
     }
 }
+
 void CommandDropOff(){
     /* KAMUS LOKAL */
-    Address current = FIRST(Inprogress);
-    int i = 0;
+    Address current;
     Order ord;
     /* ALGORITMA */
-    while ((current != NULL) && (DropOff(INFO(current)) != locMobita)) {
-        i += 1;
-        current = NEXT(current);
-    }
-
-    if (DropOff(INFO(current)) == locMobita) {
-        if (isOrderEqual(INFO(current), TOP(Tas))) {
-            popStack(&Tas,&ord);
-            DeliverItem(&Inprogress,locMobita);
-        }
-        else {
-            printf("Item teratas pada tas tidak sesuai dengan pesanan pada lokasi.\n");
-        }
+    if (isEmptyLL(Inprogress)) {
+        printf("Tidak ada pesanan yang dapat diantarkan!\n");
     }
     else {
-        printf("Tidak ada pesanan pada lokasi.\n");
+        current = FIRST(Inprogress);
+        while ((current != NULL) && (DropOff(INFO(current)) != locMobita)) {
+            current = NEXT(current);
+        }
+
+        if (DropOff(INFO(current)) == locMobita) {
+            if (isOrderEqual(INFO(current), TOP(Tas))) {
+                if (TYPE(ord) == 'H') {
+                    AddSpeedBoost(&T);
+                    money += 200;
+                    printf("Uang yang didapatkan : 200 Yen\n");
+                }
+                else if (TYPE(ord) == 'P') {
+                    IncreaseCapacity(&Tas);
+                    money += 400;
+                    printf("Uang yang didapatkan : 400 Yen\n");
+                }
+                else {
+                    money += 400;
+                    printf("Uang yang didapatkan : 400 Yen\n");
+                }
+                printf("Jumlah uang sekarang : %d\n", money);
+                popStack(&Tas,&ord);
+                DeliverItem(&Inprogress,locMobita);
+            }
+            else {
+                printf("Item teratas pada tas tidak sesuai dengan pesanan pada lokasi.\n");
+            }
+        }
+        else {
+            printf("Tidak ada pesanan yang dapat diantarkan!\n");
+        }
     }
+
 }
 void CommandMap(){
     displayMap(map,locMobita,Tas,todo,Row,Column);
