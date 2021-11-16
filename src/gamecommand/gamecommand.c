@@ -85,8 +85,8 @@ void CommandHelp(){
 }
 boolean CommandExit(){
     printf("ARE YOU SURE YOU WANT TO EXIT THE GAME? YOUR PROGRESS WILL NOT BE SAVED\n");
-    printf("YES/NO");
-
+    printf("YES/NO\n");
+    printf("Enter Command: ");
     boolean correctinput = true;
     while (correctinput){
         startCommand();
@@ -101,7 +101,7 @@ boolean CommandExit(){
         }
         else{
             printf("Input Invalid: (Y/N)");
+            printf("Enter Command: ");
         }
     }
-    
 }
