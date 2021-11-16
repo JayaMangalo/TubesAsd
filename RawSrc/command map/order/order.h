@@ -18,7 +18,9 @@ typedef struct {
 #define TimePerishDefault(ord) (ord).tPerishDefault
 #define TimePerish(ord) (ord).tPerish
 
-// Order newOrder(int tArrival, char pick_up_point, char drop_off_point, char type, int tPerishDefault);
+Order newOrder(int tArrival, char pick_up_point, char drop_off_point, char type, int tPerishDefault);
+int fee(Order ord);
+/* Mengembalikan Upah setelah nganter Order ord */
 
 /*
 Contoh inisialisasi pesanan pertama
