@@ -19,7 +19,16 @@ Command Y;
 Command N;
 
 void CommandMove(){
-    //donothing
+    printf("Posisi yang dapat dicapai:\n");
+    accessiblePosition(map,locMobita);
+    printf("Posisi yang dipilih? (ketik 0 jika ingin kembali)\n\n");
+    printf("ENTER COMMAND: ");
+    startCommand();
+    int option = CommandToInt(currentCommand);
+    printf("\n");
+    AddTimeByMove(&T);
+    printf("Waktu: %.0f\n", CurrentTime(T));
+    printf("Mobita sekarang berada di titik");
 }
 void CommandPickUp(){           
     if(searchPickUp(todo,locMobita)){
