@@ -50,13 +50,11 @@ void displayPosisi(Map m, int idx);
 /* F.S. Jika elemen list dari m tidak kosong : menampilkan karakter lokasi dan koordinat lokasi
         Jika elemen list dari m kosong : menampilkan pesan kesalahan */
 
-void procedure_accessiblePosition(Map m, char name);
+void accessiblePosition(Map m, char name);
 /* I.S. m tidak kosong */
 /* F.S. Jika m tidak kosong : menampilkan posisi yang dapat dicapai dari suatu lokasi dengan nama 
         name sesuai dengan format pada command MOVE
         Jika m kosong : menampilkan pesan kesalahan */
-
-List function_accessiblePosition(Map m, char name);
 
 /* FUNGSI TAMBAHAN UNTUK DISPLAY MAP */
 char findBangunan(ListDin l, POINT p);

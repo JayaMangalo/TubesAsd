@@ -75,7 +75,7 @@ void displayPosisi(Map m, int idx)
   }
 }
 
-void procedure_accessiblePosition(Map m, char name)
+void accessiblePosition(Map m, char name)
 /* I.S. m tidak kosong */
 /* F.S. Jika m tidak kosong : menampilkan posisi yang dapat dicapai dari suatu lokasi dengan nama 
         name sesuai dengan format pada command MOVE
@@ -96,28 +96,6 @@ void procedure_accessiblePosition(Map m, char name)
       ctr++;
     }
   }
-}
-
-List function_accessiblePosition(Map m, char name)
-/* I.S. m tidak kosong */
-/* F.S. Jika m tidak kosong : mengembalikan list berisi indeks dari posisi
-        yang dapat dicapai dari suatu lokasi dengan nama name */
-{
-  /* KAMUS LOKAL */
-  int idx, i, ctr;
-  Matrix mat;
-  List l;
-  /* ALGORITMA */
-  idx = indexOf(m.lokasi, name);
-  mat = MAT(m);
-  ctr = 1;
-  CreateList(&l);
-  for (i=0; i < COLS(mat); i++) {
-    if (ELMT(mat,idx,i) == 1) {
-      insertLast(&l,i);
-    }
-  }
-  return l;
 }
 
 /* FUNGSI TAMBAHAN UNTUK DISPLAY MAP */
