@@ -37,5 +37,5 @@ int main() {
   printf("Lokasi bangunan yang tersedia:\n");
   displayList(getLokasi(m));
   printf("Posisi yang dapat dicapai dari D\n");
-  accessiblePosition(m, 'D');
+  //accessiblePosition(m, 'D');
 }

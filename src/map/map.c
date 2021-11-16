@@ -75,7 +75,7 @@ void displayPosisi(Map m, int idx)
   }
 }
 
-void accessiblePosition(Map m, char name)
+void accessiblePosition(Map m, char name, int arr[1000])
 /* I.S. m tidak kosong */
 /* F.S. Jika m tidak kosong : menampilkan posisi yang dapat dicapai dari suatu lokasi dengan nama 
         name sesuai dengan format pada command MOVE
@@ -92,6 +92,7 @@ void accessiblePosition(Map m, char name)
     if (ELMT(mat,idx,i) == 1) {
       printf("%d. ", ctr);
       displayPosisi(m, i);
+      arr[ctr] = i;
       printf("\n");
       ctr++;
     }
