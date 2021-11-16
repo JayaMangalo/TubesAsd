@@ -2,6 +2,8 @@
 #define time_H
 
 #include <stdio.h>
+#include "../setup/setup.h"
+#include "../list_linked/list_linked.h"
 typedef struct { 
 	float CurrentTime;    //Waktu sekarang
     int Weight;         //Banyak barang. Kalo gaada -> 0 
@@ -19,7 +21,7 @@ void CreateTime(Time *T);
 // Juga mengurangi speedboost setiap kali gerak
 // Juga mengupdate time remaining on perishable items (Not implemented yet)
 // Maybe update perishable item
-void AddTimeByMove(Time *T);
+void AddTimeByMove(List *td, Daftar *DaftarOrder, Time *T);
 
 //fungsi menambahkan time melalui ability speedboost (constant +10 )
 void AddSpeedBoost(Time *T);

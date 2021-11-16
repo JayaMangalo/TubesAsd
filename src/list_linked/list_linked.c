@@ -6,7 +6,6 @@
 /* IMplementasi ADT list berkait dengan representasi fisik pointer */
 
 #include "list_linked.h"
-#include "stack.h"
 #include<stdlib.h>
 #include<stdio.h>
 

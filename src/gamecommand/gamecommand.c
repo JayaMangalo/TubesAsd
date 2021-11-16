@@ -9,7 +9,7 @@ void CommandMove(){
     startCommand();
     int option = CommandToInt(currentCommand);
     printf("\n");
-    AddTimeByMove(&T);
+    AddTimeByMove(&todo,&DaftarOrder,&T);
     ListDin l;
     l = LOC(map);
     if (option != 0) {

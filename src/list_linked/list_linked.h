@@ -3,13 +3,14 @@
 /* Representasi Address dengan pointer */
 /* ElType adalah integer */
 
-#ifndef LIST_H
-#define LIST_H
+#ifndef LISTLINKED_H
+#define LISTLINKED_H
 
 #include "../boolean/boolean.h"
 #include "../node/node.h"
 #include "../queue/prioqueue.h"
 #include "../time/time.h"
+#include "../stack/stack.h"
 
 typedef Address List;
 
