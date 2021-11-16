@@ -10,16 +10,17 @@ void CommandMove(){
     startCommand();
     int option = CommandToInt(currentCommand);
     printf("\n");
-    AddTimeByMove(&todo,&DaftarOrder,&T);
+    AddTimeByMove(&T);
     ListDin l;
     l = LOC(map);
     if (option != 0) {
         locMobita = ELMTl(l,array[option]).name;
+        printf("Mobita sekarang berada di titik ");
+        printf("%c ", ELMTl(l,array[option]).name);
+        TulisPOINT(ELMTl(l,array[option]).posisi);
+        printf("\n");
+        printf("Waktu: %.0f\n", CurrentTime(T));
     }
-    printf("Mobita sekarang berada di titik ");
-    printf("%c ", ELMTl(l,array[option]).name);
-    TulisPOINT(ELMTl(l,array[option]).posisi);
-    printf("Waktu: %.0f\n", CurrentTime(T));
 }
 void CommandPickUp(){           
     if(searchPickUp(&todo,locMobita)){
