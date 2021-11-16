@@ -12,6 +12,8 @@ extern Matrix m;
 extern Daftar DaftarOrder;
 extern List toDo;
 extern Stack Tas;
+extern Map map;
+extern char locMobita;
 
 extern Command Y;
 extern Command N;

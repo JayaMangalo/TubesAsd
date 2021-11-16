@@ -9,6 +9,8 @@ Matrix m;
 Daftar DaftarOrder;
 List todo;
 Stack Tas;
+Map map;
+char locMobita;
 
 Command Y;
 Command N;
@@ -52,7 +54,7 @@ void CommandDropOff(List *inprog, Stack *tas, char loc){
 }
 
 void CommandMap(){
-
+    displayMap(map,locMobita,Tas,todo,Row,Column);
 }
 void CommandToDo(){
     displayToDo(todo);

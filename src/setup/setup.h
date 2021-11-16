@@ -15,6 +15,7 @@
 #include "../commandmachine/commandwordmachine.h"
 #include "../commandmachine/command.h"
 #include "../stack/stack.h"
+#include "../map/map.h"
 
 extern Command NEW_GAME;
 extern Command LOAD_GAME;
