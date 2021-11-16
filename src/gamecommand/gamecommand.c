@@ -34,30 +34,29 @@ void CommandPickUp(){
     }
 }
 
-void CommandDropOff(List *inprog, Stack *tas, char loc){
-    // /* KAMUS LOKAL */
-    // Address current = FIRST(*inprog);
-    // int i = 0;
-    // Order ord;
-    // /* ALGORITMA */
-    // while ((current != NULL) && (DropOff(INFO(current)) != loc)) {
-    //     i += 1;
-    //     current = NEXT(current);
-    // }
+void CommandDropOff(){
+    /* KAMUS LOKAL */
+    Address current = FIRST(Inprogress);
+    int i = 0;
+    Order ord;
+    /* ALGORITMA */
+    while ((current != NULL) && (DropOff(INFO(current)) != locMobita)) {
+        i += 1;
+        current = NEXT(current);
+    }
 
-    // if (DropOff(INFO(current)) == loc) {
-    //     if (INFO(current) == TOP(*tas)) { // udah dites, tinggal ngebandingin dua order sama atau ngga
-    //         popStack(tas,&ord);
-    //         deleteAt(inprog,i,&ord);
-    //         printf("Barang berhasil diantarkan pada lokasi %c.\n", loc);
-    //     }
-    //     else {
-    //         printf("Item teratas pada tas tidak sesuai dengan pesanan pada lokasi.\n");
-    //     }
-    // }
-    // else {
-    //     printf("Tidak ada pesanan pada lokasi.\n");
-    // }
+    if (DropOff(INFO(current)) == locMobita) {
+        if (isOrderEqual(INFO(current), TOP(Tas))) {
+            popStack(&Tas,&ord);
+            DeliverItem(&Inprogress,locMobita);
+        }
+        else {
+            printf("Item teratas pada tas tidak sesuai dengan pesanan pada lokasi.\n");
+        }
+    }
+    else {
+        printf("Tidak ada pesanan pada lokasi.\n");
+    }
 }
 
 void CommandMap(){
@@ -147,9 +146,10 @@ void CommandHelp(){
     printf("3. DROP_OFF : Mengantarkan item pada lokasi.\n");
     printf("4. MAP : Menampilkan peta.\n");
     printf("5. TO_DO : Menampilkan pesanan yang masuk pada To Do list.\n");
-    printf("6. BUY : Digunakan untuk menampilkan gadget yang dapat dibeli. Hanya dapat dipanggil di HQ.\n");
-    printf("7. INVENTORY : Menampilkan isi list inventory (gadgets) dan bisa memilih menggunakan gadget.\n");
-    printf("8. HELP : Menampilkan list command dan penjelasannya.\n");
+    printf("6. IN_PROGRESS : Menampilkan barang yang sedang diantarkan.\n");
+    printf("7. BUY : Digunakan untuk menampilkan gadget yang dapat dibeli. Hanya dapat dipanggil di HQ.\n");
+    printf("8. INVENTORY : Menampilkan isi list inventory (gadgets) dan bisa memilih menggunakan gadget.\n");
+    printf("9. HELP : Menampilkan list command dan penjelasannya.\n");
     printf("\n");
     printf("----------------------------------------------\n");
 }
