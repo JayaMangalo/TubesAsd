@@ -31,10 +31,9 @@ void CommandPickUp(){
         }
     }
     else{
-        printf("Tidak ada Order di Bangunan Ini.\n");
+        printf("Tidak ada Order di Bangunan Ini/Todolist kosong.\n");
     }
 }
-
 void CommandDropOff(){
     /* KAMUS LOKAL */
     Address current = FIRST(Inprogress);
@@ -59,7 +58,6 @@ void CommandDropOff(){
         printf("Tidak ada pesanan pada lokasi.\n");
     }
 }
-
 void CommandMap(){
     displayMap(map,locMobita,Tas,todo,Row,Column);
 }
