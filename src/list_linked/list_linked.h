@@ -10,7 +10,6 @@
 #include "../node/node.h"
 #include "../queue/prioqueue.h"
 #include "../time/time.h"
-#include "../stack/stack.h"
 
 typedef Address List;
 
@@ -51,35 +50,35 @@ void setElmt(List *l, int idx, node_El val);
 
 /****************** PRIMITIF BERDASARKAN NILAI ******************/
 /*** PENAMBAHAN ELEMEN ***/
-void insertFirstLL(List *l, node_El val);
+void insertFirst(List *l, node_El val);
 /* I.S. l mungkin kosong */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menambahkan elemen pertama dengan nilai val jika alokasi berhasil. */
 /* Jika alokasi gagal: I.S.= F.S. */
 
-void insertLastLL(List *l, node_El val);
+void insertLast(List *l, node_El val);
 /* I.S. l mungkin kosong */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menambahkan elemen list di akhir: elemen terakhir yang baru */
 /* bernilai val jika alokasi berhasil. Jika alokasi gagal: I.S.= F.S. */
 
-void insertAtLL(List *l, node_El val, int idx);
+void insertAt(List *l, node_El val, int idx);
 /* I.S. l tidak mungkin kosong, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menyisipkan elemen dalam list pada indeks ke-idx (bukan menimpa elemen di i) */
 /* yang bernilai val jika alokasi berhasil. Jika alokasi gagal: I.S.= F.S. */
 
 /*** PENGHAPUSAN ELEMEN ***/
-void deleteFirstLL(List *l, node_El *val);
+void deleteFirst(List *l, node_El *val);
 /* I.S. List l tidak kosong  */
 /* F.S. Elemen pertama list dihapus: nilai info disimpan pada x */
 /*      dan alamat elemen pertama di-dealokasi */
-void deleteLastLL(List *l, node_El *val);
+void deleteLast(List *l, node_El *val);
 /* I.S. list tidak kosong */
 /* F.S. Elemen terakhir list dihapus: nilai info disimpan pada x */
 /*      dan alamat elemen terakhir di-dealokasi */
 
-void deleteAtLL(List *l, int idx, node_El *val);
+void deleteAt(List *l, int idx, node_El *val);
 /* I.S. list tidak kosong, idx indeks yang valid dalam l, yaitu 0..length(l) */
 /* F.S. val diset dengan elemen l pada indeks ke-idx. */
 /*      Elemen l pada indeks ke-idx dihapus dari l */
@@ -121,5 +120,9 @@ void DeliverItem(List *ip, char lokasi);
 void PickUpItem(List *td, List *ip,Stack *Tas,  char lokasi);
 
 boolean searchPickUp(List *td, char lokasi); //ngecheck kalo ada yg bisa di pickup di lokasi "lokasi"
+
+void updPerishInProgress(List *ip, int deltaT);
+// Mengurangi tPerish setiap order bertipe perishable dengan deltaT.
+// bila tPerish<=0, order dibuang dari InProgress
 
 #endif

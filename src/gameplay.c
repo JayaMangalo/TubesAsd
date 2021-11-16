@@ -21,10 +21,10 @@ void game_play() {
     printf("===================\n");
     printf("WELCOME TO THE GAME\n");
     printf("Mobita berada di posisi\n");
-    printf("ENTER COMMAND: ");
 
     boolean endgame = false;
     while(endgame == false){
+        printf("ENTER COMMAND: ");
         startCommand();
         if(isEqualCommand(currentCommand,MOVE))
         { 
@@ -66,8 +66,10 @@ void game_play() {
 }
 void mainmenu(){
     setupCommand();
-    printf("MAIN MENU\n");
-    printf("ENTER COMMAND: ");
+    printf(" ----------------------MAIN MENU------------------\n");
+    printf("1. NEW GAME\n");
+    printf("2. LOAD GAME (Incoming Next Update)\n");
+    printf("3. EXIT\n");
     startCommand();
 
     if (isEqualCommand(currentCommand,NEW_GAME)) {
@@ -76,9 +78,11 @@ void mainmenu(){
         setupGame();
         game_play();
     } else if(isEqualCommand(currentCommand,LOAD_GAME)) {
-        printf("INPUT NAMA FILE: ");
-        startCommand();
-        setupGame();     
+        printf("LOAD GAME is Incoming Next Update, PLEASE TRY AGAIN\n"); 
+        mainmenu();
+        // printf("INPUT NAMA FILE: ");
+        // startCommand();
+        // setupGame();     
     } else if(isEqualCommand(currentCommand,EXIT)) {
         printf("YOU'VE ENDED THIS GAME");
     } else {
