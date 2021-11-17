@@ -121,7 +121,7 @@ void CommandBuy(){
         if(currentCommand.contents[0] == '1'){
             if (money >= 800)
             {
-                if(isGadgetFull(&InventoryGadget)){
+                if(!isGadgetFull(&InventoryGadget)){
                     money -= 800;
                     insertGadget(&InventoryGadget, "Kain Pembungkus Waktu");
                     printf("Gadget telah dibeli.\n");
@@ -137,7 +137,7 @@ void CommandBuy(){
         else if(currentCommand.contents[0] == '2'){
             if (money >= 1200)
             {
-                if(isGadgetFull(&InventoryGadget)){
+                if(!isGadgetFull(&InventoryGadget)){
                     money -= 1200;
                     insertGadget(&InventoryGadget, "Senter Pembesar");
                     printf("Gadget telah dibeli.\n");
@@ -153,7 +153,7 @@ void CommandBuy(){
         else if(currentCommand.contents[0] == '3'){
             if (money >= 1500)
             {
-                if(isGadgetFull(&InventoryGadget)){
+                if(!isGadgetFull(&InventoryGadget)){
                     money -= 1500;
                     insertGadget(&InventoryGadget, "Pintu Kemana Saja");
                     printf("Gadget telah dibeli.\n");
@@ -169,7 +169,7 @@ void CommandBuy(){
         else if(currentCommand.contents[0] == '4'){
             if (money >= 3000)
             {
-                if(isGadgetFull(&InventoryGadget)){
+                if(!isGadgetFull(&InventoryGadget)){
                     money -= 3000;
                     insertGadget(&InventoryGadget, "Mesin Waktu");
                     printf("Gadget telah dibeli.\n");
