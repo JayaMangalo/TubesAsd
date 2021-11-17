@@ -116,7 +116,7 @@ void setupGame(){
     Bangunan_amount = WordToInt(currentWord);
 
     //MAKE LISTDIN BANGUNAN
-    CreateListDin(&List_bangunan,Bangunan_amount);
+    CreateListDin(&List_bangunan,Bangunan_amount+1);
 
     //MAKE POINT OF HQ AND INSERT TO LISTDIN BANGUNAN
     POINT p;
