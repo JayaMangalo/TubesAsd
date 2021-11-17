@@ -5,6 +5,7 @@
         "stdlib.h": "c",
         "setup.h": "c",
         "commandwordmachine.h": "c",
+        "*.tcc": "c"
         "commandcharmachine.h": "c"
     }
 }
