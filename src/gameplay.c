@@ -29,7 +29,8 @@ void game_play() {
         printf("Headquarters ");
     }
     TulisPOINT(ELMTl(l,0).posisi);
-
+    printf("\n");
+    printf("Waktu: %.0f\n", CurrentTime(T));
     boolean endgame = false;
     while(endgame == false){
         printf("\n");
