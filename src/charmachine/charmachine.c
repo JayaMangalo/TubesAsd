@@ -20,7 +20,15 @@ void start() {
 
 	/* Algoritma */
        tape = fopen(currentCommand.contents,"r");
-	adv();
+       while  (tape == NULL)
+       {
+            printf("The action cannot be completed because the file is not found.\n");
+            printf("Try again with another file.\n");
+            printf("INPUT NAMA FILE: ");
+            startCommand();
+            tape = fopen(currentCommand.contents,"r");
+       }
+       adv();
 }
 
 void adv() {
