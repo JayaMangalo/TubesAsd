@@ -20,7 +20,13 @@ extern Command Exit;
 void game_play() {
     printf("===================\n");
     printf("WELCOME TO THE GAME\n");
-    printf("Mobita berada di posisi\n");
+    printf("Mobita berada di posisi ");
+
+    /* TAMBAHAN DISPLAY LOKASI TERKINI MOBITA */
+    ListDin l;
+    l = LOC(map);
+    printf("%c ", ELMTl(l,0).name);
+    TulisPOINT(ELMTl(l,0).posisi);
 
     boolean endgame = false;
     while(endgame == false){
