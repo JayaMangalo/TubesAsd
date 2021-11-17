@@ -9,7 +9,7 @@
 #include "../map/map.h"
 #include "../time/time.h"
 
-void useKainPembungkusWaktu(Stack *tas);
+void useKainPembungkusWaktu(Order *ord);
 
 void useSenterPembesar(Stack *tas);
 
