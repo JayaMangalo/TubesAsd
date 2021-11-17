@@ -56,7 +56,7 @@ void advWord() {
             endWord=true;
         }*/
     }
-    ignoreBlank();
+    // ignoreBlank();
     // if(currentChar==MARK) endWord=true;
 };
 
