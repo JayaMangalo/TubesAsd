@@ -205,9 +205,11 @@ void CommandInventory(){
     if (ELMTListPos(InventoryGadget,pilihan)=="Kain Pembungkus Waktu"){
         useKainPembungkusWaktu(&Tas);
         printf("Kain Pembungkus Waktu berhasil digunakan!\n");
+        removeGadget(&InventoryGadget,"Kain Pembungkus Waktu");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Senter Pembesar"){
         useSenterPembesar(&Tas);
         printf("Senter Pembesar berhasil digunakan!\n");
+        removeGadget(&InventoryGadget,"Senter Pembesar");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Pintu Kemana Saja"){
         // kurang tau cara kerja lokasi sekarang gimana jadi pake POINT currentP sementara
         char Goal;
@@ -215,13 +217,16 @@ void CommandInventory(){
         scanf(" %c", Goal);
         usePintuKemanaSaja(locMobita, Goal);
         printf("Pintu Kemana Saja berhasil digunakan!\n");
+        removeGadget(&InventoryGadget,"Pintu Kemana Saja");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Mesin Waktu"){
         //kurang tau cara kerja waktu sekarang gimana jadi pake TIME T sementara
         useMesinWaktu(&T);
         printf("Mesin Waktu berhasil digunakan!\n");
-    } else if (ELMTListPos(InventoryGadget,pilihan)=="Mesin Waktu"){
+        removeGadget(&InventoryGadget,"Mesin Waktu");
+    } else if (ELMTListPos(InventoryGadget,pilihan)=="Senter Pengecil"){
         useSenterPengecil(&Tas);
         printf("Senter Pengecil berhasil digunakan!\n");
+        removeGadget(&InventoryGadget,"Senter Pengecil");
     } else {
         printf("Tidak ada Gadget yang dapat digunakan.\n");
     }
