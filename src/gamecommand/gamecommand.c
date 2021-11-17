@@ -223,7 +223,7 @@ void CommandInventory(){
         useSenterPengecil(&Tas);
         printf("Senter Pengecil berhasil digunakan!\n");
     } else {
-        printf("Tidak ada Gadget yang d digunakan.\n");
+        printf("Tidak ada Gadget yang dapat digunakan.\n");
     }
 }
 void CommandHelp(){
