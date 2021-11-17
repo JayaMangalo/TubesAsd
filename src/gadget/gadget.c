@@ -1,23 +1,20 @@
 #include <stdio.h>
 #include "gadget.h"
 
-void useKainPembungkusWaktu(Stack *tas) {
+void useKainPembungkusWaktu(Order *ord) {
   /* KAMUS LOKAL */
-  Order ord;
   /* ALGORITMA */
-  ord = TOP(*tas);
-  TimePerish(ord) = TimePerishDefault(ord);
+  TimePerish(*ord) = TimePerishDefault(*ord);
 }
 
 void useSenterPembesar(Stack *tas) {
   CurrentCap(*tas) = (2 * CurrentCap(*tas)) % CAPACITY;
 }
 
-//bingung ngeaddress posisi sekarang, jadi sementara pake current point
-void usePintuKemanaSaja(char currentP, char nextP){
+void usePintuKemanaSaja(char *currentP, char nextP){
     /* KAMUS LOKAL */
   /* ALGORITMA */
-  currentP = nextP;
+  *currentP = nextP;
 }
 
 void useMesinWaktu(Time *T) {
@@ -32,10 +29,12 @@ void useMesinWaktu(Time *T) {
 }
 
 
-void useSenterPengecil(Stack *tas) {
+void useSenterPengecil(Order *ord, List *inprog) {
   /* KAMUS LOKAL */
-  Order ord = TOP(*tas);
-  /* ALGORITMA */
-  TYPE(ord) = 'N';
-
+  Address p = *inprog;
+  while (!isOrderEqual(*ord,INFO(p))) {
+    p = NEXT(p);
+  }
+  TYPE(*ord) = 'N';
+  TYPE(INFO(p)) = 'N';
 }
