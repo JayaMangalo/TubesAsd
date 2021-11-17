@@ -1,9 +1,9 @@
 /* Filename: map_driver.c (driver of map.h) */
 
 #include "map.h"
-#include "matrix.h"
-#include "listdin.h"
-#include "point.h"
+#include "../matrix/matrix.h"
+#include "../listdin/listdin.h"
+#include "../point/point.h"
 #include <stdio.h>
 
 int main() {
@@ -38,4 +38,5 @@ int main() {
   displayList(getLokasi(m));
   printf("Posisi yang dapat dicapai dari D\n");
   //accessiblePosition(m, 'D');
+  return 0;
 }
