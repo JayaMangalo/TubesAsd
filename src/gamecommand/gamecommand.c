@@ -1,27 +1,28 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "gamecommand.h"
 
 void CommandMove(){
-    printf("Posisi yang dapat dicapai:\n");
-    int array[1000];
-    accessiblePosition(map,locMobita,array);
-    printf("Posisi yang dipilih? (ketik 0 jika ingin kembali)\n\n");
-    printf("ENTER COMMAND: ");
-    startCommand();
-    int option = CommandToInt(currentCommand);
-    printf("\n");
+    // printf("Posisi yang dapat dicapai:\n");
+    // // int array[1000];
+    // accessiblePosition(map,locMobita,array);
+    // printf("Posisi yang dipilih? (ketik 0 jika ingin kembali)\n\n");
+    // printf("ENTER COMMAND: ");
+    // startCommand();
+    // int option = CommandToInt(currentCommand);
+    // printf("\n");
     AddTimeByMove(&T);
-    updToDo(&todo, &DaftarOrder, &T);
-    ListDin l;
-    l = LOC(map);
-    if (option != 0) {
-        locMobita = ELMTl(l,array[option]).name;
-        printf("Mobita sekarang berada di titik ");
-        printf("%c ", ELMTl(l,array[option]).name);
-        TulisPOINT(ELMTl(l,array[option]).posisi);
-        printf("\n");
-        printf("Waktu: %.0f\n", CurrentTime(T));
-    }
+    updToDo(&todo, &DaftarOrder, &T) ;
+    // ListDin l;
+    // l = LOC(map);
+    // if (option != 0) {
+    //     locMobita = ELMTl(l,array[option]).name;
+    //     printf("Mobita sekarang berada di titik ");
+    //     printf("%c ", ELMTl(l,array[option]).name);
+    //     TulisPOINT(ELMTl(l,array[option]).posisi);
+    //     printf("\n");
+    //     printf("Waktu: %.0f\n", CurrentTime(T));
+    // }
 }
 void CommandPickUp(){           
     if(searchPickUp(&todo,locMobita)){
@@ -30,6 +31,9 @@ void CommandPickUp(){
         }
         else{
             PickUpItem(&todo,&Inprogress,&Tas,locMobita);
+            if(TYPE(TOP(Tas)) == 'H'){
+                Weight(T) += 1;
+            }
             printf("Item Berhasil di Pick Up.\n");
         }
     }
@@ -55,6 +59,7 @@ void CommandDropOff(){
         if (DropOff(INFO(current)) == locMobita) {
             if (isOrderEqual(INFO(current), TOP(Tas))) {
                 if (TYPE(ord) == 'H') {
+                    Weight(T)-=1;
                     AddSpeedBoost(&T);
                     money += 200;
                     printf("Uang yang didapatkan : 200 Yen\n");

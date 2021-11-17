@@ -44,6 +44,4 @@ Q 10 3
 5 C D N 
 3 F E N 
 10 P Q P 20 
-5 G N P 10 .
-8 O P V 
-8 Q L V .
+5 G N P 10.

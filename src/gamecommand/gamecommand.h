@@ -2,6 +2,7 @@
 #define GAMECOMMAND_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "../setup/setup.h"
 
 extern int Row;

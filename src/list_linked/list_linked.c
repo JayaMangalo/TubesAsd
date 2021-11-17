@@ -313,20 +313,13 @@ void updToDo(List *td, Daftar *DaftarOrder, Time *T) {
 // I.S. Daftarorder berisi daftar pesanan dengan TimeIn >= CurrentTime(*T)
 // F.S. pesanan dengan TimeIn == GetCurrentTime(*T) telah dimasukkan ke to do list
     Order temp;
-    displayDaftar(*DaftarOrder);
-    displayToDo(*td);
     while(!isQEmpty(*DaftarOrder) && TimeIn(HEAD(*DaftarOrder))<=GetCurrentTime(*T)) {
         dequeue(DaftarOrder, &temp);
-        
-        printf("%c\n",temp.drop_off_point);
-        printf("%c\n",temp.pick_up_point);
-        printf("%c\n",temp.type);
-        printf("%d\n",temp.tArrival);
-        printf("%d\n",temp.tPerish);
-        printf("%d\n",temp.tPerishDefault);
         insertLastLL(td, temp);
     }
 };
+
+
 
 /****************** PROSES KHUSUS INPROGRESS ******************/
 void displayInProg(List ip) {

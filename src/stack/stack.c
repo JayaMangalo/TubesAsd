@@ -2,6 +2,7 @@
 /* implementasi ADT Stack dengan representasi array secara eksplisit dan alokasi statik */
 /* TOP adalah alamat elemen puncak */
 
+#include <stdio.h>
 #include "stack.h"
 
 /* *** Konstruktor/Kreator *** */

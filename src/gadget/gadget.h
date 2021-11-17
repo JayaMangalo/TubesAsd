@@ -2,7 +2,11 @@
 #define GADGET_H
 
 #include <stdio.h>
-#include "../setup/setup.h"
+
+#include "../matrix/matrix.h"
+#include "../point/point.h"
+#include "../stack/stack.h"
+#include "../map/map.h"
 #include "../time/time.h"
 
 void useKainPembungkusWaktu(Stack *tas);

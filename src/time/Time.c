@@ -21,12 +21,13 @@ void AddTimeByMove(Time *T){
     else{
         CurrentTime(*T) = CurrentTime(*T) + 1 + Weight(*T);
     }
-    // updToDo(td,DaftarOrder,T);
 }
 
 //fungsi menambahkan time melalui ability speedboost (constant +10 )
 void AddSpeedBoost(Time *T){
-    SpeedBoost(*T) = SpeedBoost(*T) +10;
+    if (Weight(*T) == 0 ){ 
+        SpeedBoost(*T) = SpeedBoost(*T) +10;
+    }
 }
 
 //fungsi meremove time (jika pickup heavy item)
