@@ -25,7 +25,9 @@ void game_play() {
     /* TAMBAHAN DISPLAY LOKASI TERKINI MOBITA */
     ListDin l;
     l = LOC(map);
-    printf("%c ", ELMTl(l,0).name);
+    if(ELMTl(l,0).name == '8') {
+        printf("Headquarters ");
+    }
     TulisPOINT(ELMTl(l,0).posisi);
 
     boolean endgame = false;
