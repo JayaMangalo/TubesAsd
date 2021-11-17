@@ -14,11 +14,11 @@ void useKainPembungkusWaktu(Stack *tas);
 void useSenterPembesar(Stack *tas);
 
 //bingung ngeaddress posisi sekarang, jadi sementara pake current point
-void usePintuKemanaSaja(char currentP, char nextP);
+void usePintuKemanaSaja(char *currentP, char nextP);
 
 void useMesinWaktu(Time *T);
 
 
-void useSenterPengecil(Stack *tas);
+void useSenterPengecil(Order *ord, List *inprog) ;
 
 #endif 
