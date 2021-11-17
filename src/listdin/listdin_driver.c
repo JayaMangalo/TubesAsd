@@ -1,7 +1,7 @@
 /* Filename: listdin_driver.c (driver of listdin.h) */
 
 #include "listdin.h"
-#include "point.h"
+#include "../point/point.h"
 #include <stdio.h>
 
 int main() {
