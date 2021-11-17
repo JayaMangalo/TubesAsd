@@ -152,6 +152,7 @@ void setupGame(){
     //GET BANYAK ORDER
     int Order_amount;
     advWord();
+    CreatePrioQueue(&DaftarOrder);
     Order_amount = WordToInt(currentWord);
     Order ord;
     for (int i = 0; i < Order_amount; i++)
@@ -184,5 +185,6 @@ void setupGame(){
     printf("test1");
     updToDo(&todo, &DaftarOrder, &T);
     money = 0;
+    locMobita = '8';
     printf("GAME INITIALIZED SUCCESFULLY\n");
 }

@@ -24,6 +24,7 @@ void game_play() {
 
     boolean endgame = false;
     while(endgame == false){
+        printf("\n");
         printf("ENTER COMMAND: ");
         startCommand();
         if(isEqualCommand(currentCommand,MOVE))
@@ -70,6 +71,7 @@ void mainmenu(){
     printf("1. NEW GAME\n");
     printf("2. LOAD GAME (Incoming Next Update)\n");
     printf("3. EXIT\n");
+    printf("ENTER COMMAND: ");
     startCommand();
 
     if (isEqualCommand(currentCommand,NEW_GAME)) {

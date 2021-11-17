@@ -99,10 +99,10 @@ void CommandBuy(){
         printf("3. Pintu Kemana Saja (1500 Yen)\n");
         printf("4. Mesin Waktu (3000 Yen)\n");
         printf("Gadget mana yang ingin kau beli? (ketik 0 jika ingin kembali)\n");
-
         
         startCommand();
-        if(currentCommandChar == '1'){
+        printf("ENTER COMMAND: ");
+        if(currentCommand.contents[0] == '1'){
             if (money >= 800)
             {
                 if(isGadgetFull(&InventoryGadget)){
@@ -118,7 +118,7 @@ void CommandBuy(){
                 printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
             }
         }
-        else if(currentCommandChar == '2'){
+        else if(currentCommand.contents[0] == '2'){
             if (money >= 1200)
             {
                 if(isGadgetFull(&InventoryGadget)){
@@ -134,7 +134,7 @@ void CommandBuy(){
                 printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
             }
         }
-        else if(currentCommandChar == '3'){
+        else if(currentCommand.contents[0] == '3'){
             if (money >= 1500)
             {
                 if(isGadgetFull(&InventoryGadget)){
@@ -150,7 +150,7 @@ void CommandBuy(){
                 printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
             }
         }
-        else if(currentCommandChar == '4'){
+        else if(currentCommand.contents[0] == '4'){
             if (money >= 3000)
             {
                 if(isGadgetFull(&InventoryGadget)){
@@ -166,7 +166,7 @@ void CommandBuy(){
                 printf("Uang tidak cukup untuk membeli gadget tersebut.\n");
             }
         }
-        else if(currentCommandChar == '0'){
+        else if(currentCommand.contents[0] == '0'){
             printf("Cancelling...\n");
         }
         else{
@@ -226,7 +226,8 @@ void CommandHelp(){
 }
 boolean CommandExit(){
     printf("ARE YOU SURE YOU WANT TO EXIT THE GAME? YOUR PROGRESS WILL NOT BE SAVED\n");
-    printf("YES/NO");
+    printf("(Y/N)\n");
+    printf("ENTER COMMAND: ");
 
     boolean correctinput = true;
     while (correctinput){

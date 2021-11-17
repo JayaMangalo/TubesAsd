@@ -313,15 +313,9 @@ void updToDo(List *td, Daftar *DaftarOrder, Time *T) {
 // I.S. Daftarorder berisi daftar pesanan dengan TimeIn >= CurrentTime(*T)
 // F.S. pesanan dengan TimeIn == GetCurrentTime(*T) telah dimasukkan ke to do list
     Order temp;
-    while(!isQEmpty(*DaftarOrder)) {
-        printf("test2");
-        if(TimeIn(HEAD(*DaftarOrder))<=GetCurrentTime(*T)){
-            printf("test3");
-            dequeue(DaftarOrder, &temp);
-            printf("test3.5");
-            insertLastLL(td, temp);
-            printf("test4");
-        }
+    while(!isQEmpty(*DaftarOrder) && TimeIn(HEAD(*DaftarOrder))<=GetCurrentTime(*T)) {
+        dequeue(DaftarOrder, &temp);
+        insertLastLL(td, temp);
     }
 };
 
