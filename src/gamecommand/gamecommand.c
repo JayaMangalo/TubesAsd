@@ -239,6 +239,7 @@ void CommandHelp(){
     printf("7. BUY : Digunakan untuk menampilkan gadget yang dapat dibeli. Hanya dapat dipanggil di HQ.\n");
     printf("8. INVENTORY : Menampilkan isi list inventory (gadgets) dan bisa memilih menggunakan gadget.\n");
     printf("9. HELP : Menampilkan list command dan penjelasannya.\n");
+    printf("10. EXIT : Keluar dari game Mobilita Delivery Services.\n");
     printf("\n");
 }
 boolean CommandExit(){

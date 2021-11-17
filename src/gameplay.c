@@ -76,6 +76,9 @@ void game_play() {
 }
 void mainmenu(){
     setupCommand();
+    printf("--------------------------------------------------\n\n");
+    printf("            GAME MOBILITA DELIVERY SERVICES       \n");
+    printf("                 BY GROUP 04 CLASS 01             \n\n");
     printf(" ----------------------MAIN MENU------------------\n\n");
     printf("1. NEW GAME\n");
     printf("2. LOAD GAME (Incoming Next Update)\n");
