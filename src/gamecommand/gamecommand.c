@@ -11,6 +11,7 @@ void CommandMove(){
     int option = CommandToInt(currentCommand);
     printf("\n");
     AddTimeByMove(&T);
+    updToDo(&todo, &DaftarOrder, &T);
     ListDin l;
     l = LOC(map);
     if (option != 0) {

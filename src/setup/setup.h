@@ -19,7 +19,6 @@
 #include "../listpos/listpos.h"
 #include "../time/time.h"
 #include "../gadget/gadget.h"
-#include "../gamecommand/gamecommand.h"
 
 extern Command NEW_GAME;
 extern Command LOAD_GAME;
