@@ -3,6 +3,7 @@
 #include "gamecommand.h"
 
 void CommandMove(){
+    int tAwal, tAkhir;
     printf(" -------------------------MOVE--------------------\n\n");
     printf("Posisi yang dapat dicapai:\n");
     int array[100];
@@ -12,8 +13,11 @@ void CommandMove(){
     startCommand();
     int option = CommandToInt(currentCommand);
     printf("\n");
+    tAwal = GetCurrentTime(T);
     AddTimeByMove(&T);
+    tAkhir = GetCurrentTime(T);
     updToDo(&todo, &DaftarOrder, &T) ;
+    if(tAkhir-tAwal>0) updPerishInProgress(&Inprogress, tAkhir-tAwal);
     ListDin l;
     l = LOC(map);
     if (option != 0) {

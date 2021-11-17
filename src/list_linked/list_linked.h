@@ -123,4 +123,8 @@ void PickUpItem(List *td, List *ip,Stack *Tas,  char lokasi);
 
 boolean searchPickUp(List *td, char lokasi); //ngecheck kalo ada yg bisa di pickup di lokasi "lokasi"
 
+void updPerishInProgress(List *ip, int deltaT);
+// Mengurangi tPerish setiap order bertipe perishable dengan deltaT.
+// bila tPerish<=0, order dibuang dari InProgress
+
 #endif
