@@ -3,6 +3,7 @@
 #include "gamecommand.h"
 
 void CommandMove(){
+    printf(" -------------------------MOVE--------------------\n");
     printf("Posisi yang dapat dicapai:\n");
     int array[100];
     accessiblePosition(map,locMobita,array);
@@ -22,9 +23,13 @@ void CommandMove(){
         TulisPOINT(ELMTl(l,array[option]).posisi);
         printf("\n");
         printf("Waktu: %.0f\n", CurrentTime(T));
+    } else {
+        printf("Invalid command.\n");
+        CommandMove();
     }
 }
-void CommandPickUp(){           
+void CommandPickUp(){   
+    printf(" -----------------------PICK_UP-------------------\n");        
     if(searchPickUp(&todo,locMobita)){
         if (isStackFull(Tas)){
             printf("Tas Sudah Full, Tidak Bisa Melakukan Pick UP.");
@@ -47,6 +52,7 @@ void CommandDropOff(){
     Address current;
     Order ord;
     /* ALGORITMA */
+    printf(" -----------------------DROP_OFF------------------\n");
     if (isEmptyLL(Inprogress)) {
         printf("Tidak ada pesanan yang dapat diantarkan!\n");
     }
@@ -89,15 +95,19 @@ void CommandDropOff(){
 
 }
 void CommandMap(){
+    printf(" --------------------------MAP--------------------\n");
     displayMap(map,locMobita,Tas,todo,Row,Column);
 }
 void CommandToDo(){
+    printf(" ------------------------TO_DO--------------------\n");
     displayToDo(todo);
 }
 void CommandInProgress(){
+    printf(" ---------------------IN_PROGRESS-----------------\n");
     displayInProg(Inprogress);
 }
 void CommandBuy(){
+    printf(" -------------------------BUY---------------------\n");
     if(locMobita == '8'){
         printf("Uang Anda sekarang: %d Yen\n",money);
         printf("Gadget yang tersedia:\n");
@@ -185,6 +195,7 @@ void CommandBuy(){
     }
 }
 void CommandInventory(){
+    printf(" ----------------------INVENTORY------------------\n");
     displayInventory(InventoryGadget);
 
     printf("Gadget mana yang ingin digunakan? (ketik 0 jika ingin kembali)\n\n");
@@ -217,7 +228,7 @@ void CommandInventory(){
     }
 }
 void CommandHelp(){
-    printf(" ----------------------HELP------------------\n");
+    printf(" -------------------------HELP--------------------\n");
     printf("\n");
     printf("1. MOVE : Menampilkan pilihan lokasi yang dapat dicapai dan berpindah ke tempat pilihan\n");
     printf("2. PICK_UP : Mengambil item pada lokasi dan menghapusnya dari To-Do list.\n");
@@ -229,9 +240,9 @@ void CommandHelp(){
     printf("8. INVENTORY : Menampilkan isi list inventory (gadgets) dan bisa memilih menggunakan gadget.\n");
     printf("9. HELP : Menampilkan list command dan penjelasannya.\n");
     printf("\n");
-    printf("----------------------------------------------\n");
 }
 boolean CommandExit(){
+    printf(" -------------------------EXIT--------------------\n");
     printf("ARE YOU SURE YOU WANT TO EXIT THE GAME? YOUR PROGRESS WILL NOT BE SAVED\n");
     printf("(Y/N)\n");
     printf("ENTER COMMAND: ");
