@@ -120,7 +120,7 @@ void CommandBuy(){
         printf("4. Mesin Waktu (3000 Yen)\n");
         printf("5. Senter Pengecil (800 Yen)\n");
         printf("Gadget mana yang ingin kau beli? (ketik 0 jika ingin kembali)\n");
-        
+        money += 3000;
         printf("ENTER COMMAND: ");
         startCommand();
         if(currentCommand.contents[0] == '1'){
@@ -226,9 +226,11 @@ void CommandInventory(){
     if (ELMTListPos(InventoryGadget,pilihan)=="Kain Pembungkus Waktu"){
         useKainPembungkusWaktu(&TOP(Tas));
         printf("Kain Pembungkus Waktu berhasil digunakan!\n");
+        removeGadget(&InventoryGadget,"Kain Pembungkus Waktu");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Senter Pembesar"){
         useSenterPembesar(&Tas);
         printf("Senter Pembesar berhasil digunakan!\n");
+        removeGadget(&InventoryGadget,"Senter Pembesar");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Pintu Kemana Saja"){
         // kurang tau cara kerja lokasi sekarang gimana jadi pake POINT currentP sementara
         printf("Lokasi yang ingin dituju ada di: ");
@@ -236,13 +238,16 @@ void CommandInventory(){
         usePintuKemanaSaja(&locMobita, currentCommand.contents[0]);
         printf("Pintu Kemana Saja berhasil digunakan!\n");
         printf("Lokasi Mobita sekarang adalah : %c\n", locMobita);
+        removeGadget(&InventoryGadget,"Pintu Kemana Saja");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Mesin Waktu"){
         //kurang tau cara kerja waktu sekarang gimana jadi pake TIME T sementara
         useMesinWaktu(&T);
         printf("Mesin Waktu berhasil digunakan!\n");
+        removeGadget(&InventoryGadget,"Mesin Waktu");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Senter Pengecil"){
         useSenterPengecil(&TOP(Tas),&Inprogress);
         printf("Senter Pengecil berhasil digunakan!\n");
+        removeGadget(&InventoryGadget,"Senter Pengecil");
     } else {
         printf("Tidak ada Gadget yang dapat digunakan.\n");
     }
