@@ -51,4 +51,9 @@ void popStack(Stack *s, Order *val);
 void IncreaseCapacity(Stack *s);
 //Meningkatkan Capacity dengan 1 asalkan blom 100
 
+/* ************ Update Perish ************** */
+void updPerishStack(Stack *s, int deltaT);
+// mengurangi tPerish setiap order bertipe perishable dengan deltaT.
+// bila tPerish<=0, order dibuang dari Tas
+
 #endif

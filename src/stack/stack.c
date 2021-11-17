@@ -70,3 +70,29 @@ void IncreaseCapacity(Stack *s){
         CurrentCap(*s)++;
     }
 }
+
+/* ************ Update Perish ************** */
+void updPerishStack(Stack *s, int deltaT) {
+// mengurangi tPerish setiap order bertipe perishable dengan deltaT.
+// bila tPerish<=0, order dibuang dari Tas
+    /* Kamus Lokal */
+    Stack sInv;
+    Order temp;
+    /* Algoritma */
+    CreateStack(&sInv);
+    while(!isStackEmpty(*s)) {
+        popStack(s,&temp);
+        if(TYPE(temp)=='P') {
+            TimePerish(temp) -= deltaT;
+            if(TimePerish(temp)>0) {
+                pushStack(&sInv, temp);
+            }
+        } else {
+            pushStack(&sInv, temp);
+        }
+    }
+    while(!isStackEmpty(sInv)) {
+        popStack(&sInv,&temp);
+        pushStack(s, temp);
+    }
+};

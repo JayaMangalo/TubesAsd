@@ -344,7 +344,7 @@ void displayInProg(List ip) {
                 i++;
                 p = NEXT(p);
             } else if(TYPE(INFO(p))=='P') {
-                printf("%d. Perishable Item (Tujuan: %c)\n", i,DropOff(INFO(p)));
+                printf("%d. Perishable Item (Tujuan: %c, Sisa waktu: %d)\n", i,DropOff(INFO(p)),TimePerish(INFO(p)));
                 i++;
                 p = NEXT(p);
             }
@@ -430,13 +430,14 @@ void updPerishInProgress(List *ip, int deltaT) {
     prev = NULL;
     p = FIRST(*ip);
     while(p!=NULL) {
-        if(TYPE(INFO(p))='P') {
+        if(TYPE(INFO(p))=='P') {
             TimePerish(INFO(p)) -= deltaT;
             if(TimePerish(INFO(p))<=0) {
                 // hapus p
                 del = p;
                 if(del==FIRST(*ip)) {
                     deleteFirstLL(ip,&temp);
+                    prev = NULL;
                     p = FIRST(*ip);
                 } else {
                     NEXT(prev) = NEXT(del);
@@ -444,9 +445,11 @@ void updPerishInProgress(List *ip, int deltaT) {
                     p = NEXT(prev);
                 }
             } else {
+                prev = p;
                 p = NEXT(p);
             }
         } else {
+            prev = p;
             p = NEXT(p);
         }
     }

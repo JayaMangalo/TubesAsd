@@ -17,7 +17,16 @@ void CommandMove(){
     AddTimeByMove(&T);
     tAkhir = GetCurrentTime(T);
     updToDo(&todo, &DaftarOrder, &T) ;
-    if(tAkhir-tAwal>0) updPerishInProgress(&Inprogress, tAkhir-tAwal);
+    if(tAkhir-tAwal>0) {
+        updPerishInProgress(&Inprogress, tAkhir-tAwal);
+        // printf("Selesai update perish in prog\n");
+        updPerishStack(&Tas, tAkhir-tAwal);
+        // printf("Selesai update perish tas\n");
+        // displayInProg(Inprogress);
+        // if(!isStackEmpty(Tas)) {
+        //     printf("%c %c %c %d\n", PickUp(TOP(Tas)), DropOff(TOP(Tas)), TYPE(TOP(Tas)), TimePerish(TOP(Tas)));
+        // }
+    }
     ListDin l;
     l = LOC(map);
     if (option != 0) {
