@@ -23,10 +23,7 @@ void CommandMove(){
         TulisPOINT(ELMTl(l,array[option]).posisi);
         printf("\n");
         printf("Waktu: %.0f\n", CurrentTime(T));
-    } else {
-        printf("Invalid command.\n");
-        CommandMove();
-    }
+    } 
 }
 void CommandPickUp(){   
     printf(" -----------------------PICK_UP-------------------\n\n");        
