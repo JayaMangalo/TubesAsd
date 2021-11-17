@@ -46,10 +46,12 @@ void displayInventory(Inventory g)
 
 void removeGadget(Inventory *g, char *Gadget)
 {
+  boolean gone = false;
   for(int i=0;i<5;i++) {
-     if (ELMTListPos(*g,i)==Gadget)
+     if (ELMTListPos(*g,i)==Gadget&&gone==false)
      {
          ELMTListPos(*g,i) = "-";
+         gone = true;
      }
   }
 }
