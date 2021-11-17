@@ -3,26 +3,26 @@
 #include "gamecommand.h"
 
 void CommandMove(){
-    // printf("Posisi yang dapat dicapai:\n");
-    // // int array[1000];
-    // accessiblePosition(map,locMobita,array);
-    // printf("Posisi yang dipilih? (ketik 0 jika ingin kembali)\n\n");
-    // printf("ENTER COMMAND: ");
-    // startCommand();
-    // int option = CommandToInt(currentCommand);
-    // printf("\n");
+    printf("Posisi yang dapat dicapai:\n");
+    int array[100];
+    accessiblePosition(map,locMobita,array);
+    printf("Posisi yang dipilih? (ketik 0 jika ingin kembali)\n\n");
+    printf("ENTER COMMAND: ");
+    startCommand();
+    int option = CommandToInt(currentCommand);
+    printf("\n");
     AddTimeByMove(&T);
     updToDo(&todo, &DaftarOrder, &T) ;
-    // ListDin l;
-    // l = LOC(map);
-    // if (option != 0) {
-    //     locMobita = ELMTl(l,array[option]).name;
-    //     printf("Mobita sekarang berada di titik ");
-    //     printf("%c ", ELMTl(l,array[option]).name);
-    //     TulisPOINT(ELMTl(l,array[option]).posisi);
-    //     printf("\n");
-    //     printf("Waktu: %.0f\n", CurrentTime(T));
-    // }
+    ListDin l;
+    l = LOC(map);
+    if (optio0n != ) {
+        locMobita = ELMTl(l,array[option]).name;
+        printf("Mobita sekarang berada di titik ");
+        printf("%c ", ELMTl(l,array[option]).name);
+        TulisPOINT(ELMTl(l,array[option]).posisi);
+        printf("\n");
+        printf("Waktu: %.0f\n", CurrentTime(T));
+    }
 }
 void CommandPickUp(){           
     if(searchPickUp(&todo,locMobita)){

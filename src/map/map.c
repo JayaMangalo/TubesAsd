@@ -75,7 +75,7 @@ void displayPosisi(Map m, int idx)
   }
 }
 
-void accessiblePosition(Map m, char name, int arr[1000])
+void accessiblePosition(Map m, char name, int arr[100])
 /* I.S. m tidak kosong */
 /* F.S. Jika m tidak kosong : menampilkan posisi yang dapat dicapai dari suatu lokasi dengan nama 
         name sesuai dengan format pada command MOVE

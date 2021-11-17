@@ -187,5 +187,6 @@ void setupGame(){
     updToDo(&todo, &DaftarOrder, &T);
     money = 0;
     locMobita = '8';
+
     printf("GAME INITIALIZED SUCCESFULLY\n");
 }

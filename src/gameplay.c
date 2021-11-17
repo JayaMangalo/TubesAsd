@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "setup/setup.h"
 #include "gamecommand/gamecommand.h"
 
 extern Command NEW_GAME;

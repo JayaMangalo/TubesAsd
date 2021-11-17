@@ -18,7 +18,6 @@ extern Map map;
 extern char locMobita;
 extern Inventory InventoryGadget;
 extern Time T;
-
 extern int money;
 
 extern Command Y;

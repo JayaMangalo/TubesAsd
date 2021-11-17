@@ -14,7 +14,7 @@ void CreateListDin(ListDin *l, int capacity)
 {
     /* Kamus Lokal */
     /* Algoritma */
-    BUFFER(*l) = (ElTypel*) malloc((capacity)*sizeof(int));
+    BUFFER(*l) = (ElTypel*) malloc((capacity)*sizeof(ElTypel));
     LISTDINCAPACITY(*l) = capacity;
     (*l).nEff = 0;
 }
