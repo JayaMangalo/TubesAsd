@@ -15,6 +15,7 @@ Command IN_PROGRESS;
 Command BUY;
 Command INVENTORY;
 Command HELP;
+Command SAVE_GAME;
 Command EXIT;
 Command Y;
 Command N;
@@ -84,6 +85,10 @@ void setupCommand(){
     int help_length = 4;
      HELP = StringtoCommand(help,help_length);
 
+    char save_game[100] = "SAVE_GAME";
+    int save_game_length = 9;
+     SAVE_GAME = StringtoCommand(save_game,save_game_length);
+     
     char y[100] = "Y";
     int y_length = 1;
     Y = StringtoCommand(y,y_length);

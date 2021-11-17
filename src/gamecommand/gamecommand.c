@@ -235,6 +235,132 @@ void CommandInventory(){
         printf("Tidak ada Gadget yang dapat digunakan.\n");
     }
 }
+void CommandSave() {
+    printf(" ----------------------SAVE_GAME------------------\n");
+    printf("Masukkan nama save file permainan: ");
+    startCommand();
+    FILE *save_file;
+    save_file = fopen(currentCommand.contents, "w");
+    char duadigit[2];
+    char satudigit;
+    char blank = ' ';
+    char newline = '\n';
+    /* ROW */
+    duadigit[0] = Row/10 + '0';
+    duadigit[1] = Row%10 + '0';
+    fwrite(&duadigit,1,2,save_file);
+    fwrite(&blank,1,1,save_file);
+    /* COLUMN */
+    duadigit[0] = Column/10 + '0';
+    duadigit[1] = Column%10 + '0';
+    fwrite(&duadigit,1,2,save_file);
+    fwrite(&newline,1,1,save_file); 
+    /* HEADQUARTERS */
+    if (HQ.X / 10 < 1) {
+        satudigit = HQ.X + '0';
+        fwrite(&satudigit,1,1,save_file);
+    } else {
+        duadigit[0] = HQ.X/10 + '0';
+        duadigit[1] = HQ.X%10 + '0';
+        fwrite(&duadigit,1,2,save_file);
+    }
+    fwrite(&blank,1,1,save_file);
+    if (HQ.Y / 10 < 1) {
+        satudigit = HQ.Y + '0';
+        fwrite(&satudigit,1,1,save_file);
+    } else {
+        duadigit[0] = HQ.Y/10 + '0';
+        duadigit[1] = HQ.Y%10 + '0';
+        fwrite(&duadigit,1,2,save_file);
+    }
+    fwrite(&newline,1,1,save_file); 
+    if ((List_bangunan.nEff-1)/10 < 1) {
+        satudigit = List_bangunan.nEff-1 + '0';
+        fwrite(&satudigit,1,1,save_file); 
+    }  else {
+        duadigit[0] = (List_bangunan.nEff-1)/10 + '0';
+        duadigit[1] = (List_bangunan.nEff-1)%10 + '0';
+        fwrite(&duadigit,1,2,save_file);
+    }
+    fwrite(&newline,1,1,save_file);
+    for (int i = 0; i < List_bangunan.nEff; i++) {
+        fwrite(&ELMTl(List_bangunan,i).name,1,1,save_file);
+        fwrite(&blank,1,1,save_file);
+        if(ELMTl(List_bangunan,i).posisi.X/10 < 1) {
+            satudigit = ELMTl(List_bangunan,i).posisi.X + '0';
+            fwrite(&satudigit,1,1,save_file);
+        } else {
+            duadigit[0] = ELMTl(List_bangunan,i).posisi.X/10 + '0';
+            duadigit[1] = ELMTl(List_bangunan,i).posisi.X%10 + '0';
+            fwrite(&duadigit,1,2,save_file);
+        }
+        fwrite(&blank,1,1,save_file);
+        if(ELMTl(List_bangunan,i).posisi.Y/10 < 1) {
+            satudigit = ELMTl(List_bangunan,i).posisi.Y + '0';
+            fwrite(&satudigit,1,1,save_file);
+        } else {
+            duadigit[0] = ELMTl(List_bangunan,i).posisi.Y/10 + '0';
+            duadigit[1] = ELMTl(List_bangunan,i).posisi.Y%10 + '0';
+            fwrite(&duadigit,1,2,save_file);
+        }
+        fwrite(&newline,1,1,save_file);
+    }
+    for(int i=0;i<ROWS(m);i++) {
+        for(int j=0;j<COLS(m);j++) {
+            satudigit = ELMT(m,i,j) + '0';
+            fwrite(&satudigit,1,1,save_file);
+            if (j < COLS(m) - 1) {
+                fwrite(&blank,1,1,save_file);
+            }
+        }
+        fwrite(&newline,1,1,save_file);
+    }
+    if((DaftarOrder.idxTail - DaftarOrder.idxHead + 1)/10 < 1) {
+        satudigit = (DaftarOrder.idxTail - DaftarOrder.idxHead + 1) + '0';
+        fwrite(&satudigit,1,1,save_file);
+    } else {
+        duadigit[0] = (DaftarOrder.idxTail - DaftarOrder.idxHead + 1)/10 + '0';
+        duadigit[1] = (DaftarOrder.idxTail - DaftarOrder.idxHead + 1)%10 + '0';
+        fwrite(&duadigit,1,2,save_file);
+    }
+    fwrite(&newline,1,1,save_file);
+    // punten ini kenapa cuman 8 biji yak yg kedetectnya? :(
+    for(int i = 0; i < DaftarOrder.idxTail - DaftarOrder.idxHead + 1; i++) {
+        if(DaftarOrder.buffer[i].tArrival/10 < 1) {
+            satudigit = DaftarOrder.buffer[i].tArrival + '0';
+            fwrite(&satudigit,1,1,save_file);
+        } else if(DaftarOrder.buffer[i].tArrival/100 < 1) {
+            duadigit[0] = DaftarOrder.buffer[i].tArrival/10 + '0';
+            duadigit[1] = DaftarOrder.buffer[i].tArrival%10 + '0';
+            fwrite(&duadigit,1,2,save_file);
+        }
+        fwrite(&blank,1,1,save_file);
+        fwrite(&DaftarOrder.buffer[i].pick_up_point,1,1,save_file);
+        fwrite(&blank,1,1,save_file);
+        fwrite(&DaftarOrder.buffer[i].drop_off_point,1,1,save_file);
+        fwrite(&blank,1,1,save_file);
+        fwrite(&DaftarOrder.buffer[i].type,1,1,save_file);
+        if(DaftarOrder.buffer[i].type == 'P') {
+            fwrite(&blank,1,1,save_file);
+            if(DaftarOrder.buffer[i].tPerish / 10 < 1) {
+                satudigit = DaftarOrder.buffer[i].tPerish + '0';
+                fwrite(&satudigit,1,1,save_file);
+            } else {
+                duadigit[0] = DaftarOrder.buffer[i].tPerish/10 + '0';
+                duadigit[1] = DaftarOrder.buffer[i].tPerish%10 + '0';
+                fwrite(&duadigit,1,2,save_file);
+            }
+        }
+        if (i < DaftarOrder.idxTail - DaftarOrder.idxHead) {
+            fwrite(&newline,1,1,save_file);
+        }
+    }
+    char mark = '.';
+    fwrite(&mark,1,1,save_file);
+    fwrite(&newline,1,1,save_file);
+    fclose(save_file);
+    printf("Save file berhasil dibuat!\n\n");
+}
 void CommandHelp(){
     printf(" -------------------------HELP--------------------\n");
     printf("\n");
@@ -247,7 +373,8 @@ void CommandHelp(){
     printf("7. BUY : Digunakan untuk menampilkan gadget yang dapat dibeli. Hanya dapat dipanggil di HQ.\n");
     printf("8. INVENTORY : Menampilkan isi list inventory (gadgets) dan bisa memilih menggunakan gadget.\n");
     printf("9. HELP : Menampilkan list command dan penjelasannya.\n");
-    printf("10. EXIT : Keluar dari game Mobilita Delivery Services.\n");
+    printf("10. SAVE : Menyimpan file konfigurasi permainan.\n");
+    printf("11. EXIT : Keluar dari game Mobilita Delivery Services.\n");
     printf("\n");
 }
 boolean CommandExit(){

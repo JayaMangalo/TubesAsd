@@ -32,6 +32,7 @@ extern Command IN_PROGRESS;
 extern Command BUY;
 extern Command INVENTORY;
 extern Command HELP;
+extern Command SAVE_GAME;
 extern Command EXIT;
 extern Command Y;
 extern Command N;

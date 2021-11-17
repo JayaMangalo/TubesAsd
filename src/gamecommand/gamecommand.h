@@ -33,6 +33,7 @@ void CommandInProgress();
 void CommandBuy();
 void CommandInventory();
 void CommandHelp();
+void CommandSave();
 boolean CommandExit();
 
 #endif

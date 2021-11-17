@@ -12,6 +12,7 @@ extern Command MAP;
 extern Command IN_PROGRESS;
 extern Command BUY;
 extern Command INVENTORY;
+extern Command SAVE_GAME;
 extern Command HELP;
 extern Command Exit;
 
@@ -70,6 +71,9 @@ void game_play() {
             }
             else if(isEqualCommand(currentCommand,HELP)){
                 CommandHelp();
+            }
+            else if(isEqualCommand(currentCommand,SAVE_GAME)) {
+                CommandSave();
             }
             else if(isEqualCommand(currentCommand,EXIT)){
                 if(CommandExit() == true ){
