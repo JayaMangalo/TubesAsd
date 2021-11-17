@@ -4,6 +4,7 @@
         "stdio.h": "c",
         "stdlib.h": "c",
         "setup.h": "c",
-        "commandwordmachine.h": "c"
+        "commandwordmachine.h": "c",
+        "commandcharmachine.h": "c"
     }
 }
