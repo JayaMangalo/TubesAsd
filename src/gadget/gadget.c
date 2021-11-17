@@ -6,9 +6,7 @@ void useKainPembungkusWaktu(Stack *tas) {
   Order ord;
   /* ALGORITMA */
   ord = TOP(*tas);
-  if (TYPE(ord) == 'P') {
-    TimePerish(ord) = TimePerishDefault(ord);
-  }
+  TimePerish(ord) = TimePerishDefault(ord);
 }
 
 void useSenterPembesar(Stack *tas) {
@@ -38,10 +36,6 @@ void useSenterPengecil(Stack *tas) {
   /* KAMUS LOKAL */
   Order ord = TOP(*tas);
   /* ALGORITMA */
-  if (TYPE(ord) == 'H') {
-    TYPE(ord) = 'N';
-  }
-  else {
-    printf("Barang di tumpukan teratas tas bukan heavy item\n");
-  }
+  TYPE(ord) = 'N';
+
 }
