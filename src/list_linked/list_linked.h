@@ -6,6 +6,7 @@
 #ifndef LISTLINKED_H
 #define LISTLINKED_H
 
+#include <stdlib.h>
 #include "../boolean/boolean.h"
 #include "../node/node.h"
 #include "../queue/prioqueue.h"

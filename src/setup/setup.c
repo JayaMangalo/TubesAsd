@@ -173,7 +173,7 @@ void setupGame(){
         }
         else{
             TimePerish(ord) = 0;
-            TimePerish(ord) = TimePerishDefault(ord);
+            TimePerishDefault(ord) = TimePerish(ord);
         }
         enqueue(&DaftarOrder, ord);
     }
