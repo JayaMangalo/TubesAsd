@@ -19,6 +19,7 @@ extern char locMobita;
 extern Inventory InventoryGadget;
 extern Time T;
 extern int money;
+extern int counter;
 
 extern Command Y;
 extern Command N;

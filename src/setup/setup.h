@@ -50,6 +50,7 @@ extern Stack Tas;
 extern Inventory InventoryGadget;
 extern Time T;
 extern int money;
+extern int counter;
 
 void setupCommand();
 void setupGame();

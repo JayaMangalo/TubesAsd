@@ -15,7 +15,7 @@ void CommandMove(){
     updToDo(&todo, &DaftarOrder, &T) ;
     ListDin l;
     l = LOC(map);
-    if (optio0n != ) {
+    if (option != 0) {
         locMobita = ELMTl(l,array[option]).name;
         printf("Mobita sekarang berada di titik ");
         printf("%c ", ELMTl(l,array[option]).name);
@@ -76,6 +76,7 @@ void CommandDropOff(){
                 printf("Jumlah uang sekarang : %d\n", money);
                 popStack(&Tas,&ord);
                 DeliverItem(&Inprogress,locMobita);
+                counter++;
             }
             else {
                 printf("Item teratas pada tas tidak sesuai dengan pesanan pada lokasi.\n");

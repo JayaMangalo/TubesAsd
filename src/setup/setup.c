@@ -33,6 +33,7 @@ Stack Tas;
 Inventory InventoryGadget;
 Time T;
 int money;
+int counter;
 
 void setupCommand(){
     char new_game[100] = "NEW GAME";
@@ -117,7 +118,6 @@ void setupGame(){
     //MAKE LISTDIN BANGUNAN
     CreateListDin(&List_bangunan,Bangunan_amount);
 
-
     //MAKE POINT OF HQ AND INSERT TO LISTDIN BANGUNAN
     POINT p;
     p = MakePOINT(Absis,Ordinat);
@@ -186,6 +186,7 @@ void setupGame(){
     CreateList(&todo);
     updToDo(&todo, &DaftarOrder, &T);
     money = 0;
+    counter = 0;
     locMobita = '8';
 
     printf("GAME INITIALIZED SUCCESFULLY\n");
