@@ -33,13 +33,6 @@ void game_play() {
     while(endgame == false){
         printf("\n");
         printf(" ----------------MOBITA DELIVERY SERVICE----------\n\n");
-        if (isEmptyLL(Inprogress) && isEmptyLL(todo)) {
-            endgame = true;
-            printf("CONGRATULATIONS! YOU HAVE COMPLETED THE GAME!\n");
-            printf("Uang yang didapatkan : %d Yen\n", money);
-            printf("Jumlah pesanan yang berhasil diantarkan : %d \n", counter);
-        }
-        else {
             printf("ENTER COMMAND: ");
             startCommand();
             printf("\n");
@@ -79,7 +72,6 @@ void game_play() {
             else{
                 printf("INVALID COMMAND, TRY AGAIN (TYPE 'HELP' FOR LIST OF COMMANDS)\n");
             }
-        }
         
     }
 }
