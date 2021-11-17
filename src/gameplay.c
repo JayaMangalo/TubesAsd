@@ -17,7 +17,7 @@ extern Command Exit;
 
 
 void game_play() {
-    printf(" ----------------WELCOME TO THE GAME--------------\n");
+    printf(" ----------------WELCOME TO THE GAME--------------\n\n");
     printf("Mobita berada di posisi ");
 
     /* TAMBAHAN DISPLAY LOKASI TERKINI MOBITA */
@@ -32,7 +32,7 @@ void game_play() {
     boolean endgame = false;
     while(endgame == false){
         printf("\n");
-        printf(" ----------------MOBITA DELIVERY SERVICE----------\n");
+        printf(" ----------------MOBITA DELIVERY SERVICE----------\n\n");
         printf("ENTER COMMAND: ");
         startCommand();
         printf("\n");
@@ -76,15 +76,15 @@ void game_play() {
 }
 void mainmenu(){
     setupCommand();
-    printf(" ----------------------MAIN MENU------------------\n");
+    printf(" ----------------------MAIN MENU------------------\n\n");
     printf("1. NEW GAME\n");
     printf("2. LOAD GAME (Incoming Next Update)\n");
-    printf("3. EXIT\n");
+    printf("3. EXIT\n\n");
     printf("ENTER COMMAND: ");
     startCommand();
     printf("\n");
     if (isEqualCommand(currentCommand,NEW_GAME)) {
-        printf(" ----------------------NEW GAME-------------------\n");
+        printf(" ----------------------NEW GAME-------------------\n\n");
         printf("INPUT NAMA FILE: ");
         startCommand();
         setupGame();

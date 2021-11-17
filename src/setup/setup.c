@@ -189,5 +189,5 @@ void setupGame(){
     counter = 0;
     locMobita = '8';
 
-    printf("GAME INITIALIZED SUCCESFULLY\n");
+    printf("GAME INITIALIZED SUCCESFULLY\n\n");
 }

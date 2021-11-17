@@ -23,7 +23,7 @@ void start() {
        while  (tape == NULL)
        {
             printf("The action cannot be completed because the file is not found.\n");
-            printf("Try again with another file.\n");
+            printf("Try again with another file.\n\n");
             printf("INPUT NAMA FILE: ");
             startCommand();
             tape = fopen(currentCommand.contents,"r");
