@@ -79,6 +79,7 @@ void mainmenu(){
         startCommand();
         setupGame();
         game_play();
+        endCommand =true;
     } else if(isEqualCommand(currentCommand,LOAD_GAME)) {
         printf("LOAD GAME is Incoming Next Update, PLEASE TRY AGAIN\n"); 
         mainmenu();

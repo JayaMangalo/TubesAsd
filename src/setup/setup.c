@@ -177,12 +177,13 @@ void setupGame(){
         }
         enqueue(&DaftarOrder, ord);
     }
+    map.mat = m;
+    map.lokasi = List_bangunan;
     CreateStack(&Tas);
     CreateList(&Inprogress);
     CreateInventory(&InventoryGadget);
     CreateTime(&T);
     CreateList(&todo);
-    printf("test1");
     updToDo(&todo, &DaftarOrder, &T);
     money = 0;
     locMobita = '8';
