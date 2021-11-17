@@ -52,6 +52,8 @@ void CommandDropOff(){
     printf(" -----------------------DROP_OFF------------------\n\n");
     if (isEmptyLL(Inprogress)) {
         printf("Tidak ada pesanan yang dapat diantarkan!\n");
+    }else if (isStackEmpty(Tas)) {
+        printf("Tas kosong! Tidak ada baran yang bisa diantar!\n");
     }
     else {
         current = FIRST(Inprogress);
@@ -74,11 +76,11 @@ void CommandDropOff(){
                 }
                 else {
                     money += 400;
-                    printf("Uang yang didapatkan : 400 Yen\n");
+                    printf("Uang yang didapatkan : 400 Yen!\n");
                 }
-                printf("Jumlah uang sekarang : %d\n", money);
                 popStack(&Tas,&ord);
                 DeliverItem(&Inprogress,locMobita);
+                printf("Jumlah uang sekarang : %d\n Yen", money);
                 counter++;
             }
             else {
