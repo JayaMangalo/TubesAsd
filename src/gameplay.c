@@ -33,45 +33,54 @@ void game_play() {
     while(endgame == false){
         printf("\n");
         printf(" ----------------MOBITA DELIVERY SERVICE----------\n\n");
-        printf("ENTER COMMAND: ");
-        startCommand();
-        printf("\n");
-        if(isEqualCommand(currentCommand,MOVE))
-        { 
-            CommandMove();
+        if (isEmptyLL(Inprogress) && isEmptyLL(todo)) {
+            endgame = true;
+            printf("CONGRATULATIONS! YOU HAVE COMPLETED THE GAME!\n");
+            printf("Uang yang didapatkan : %d Yen\n", money);
+            printf("Jumlah pesanan yang berhasil diantarkan : %d \n", counter);
         }
-        else if(isEqualCommand(currentCommand,PICK_UP)){
-            CommandPickUp();
-        }
-        else if(isEqualCommand(currentCommand,DROP_OFF)){
-            CommandDropOff();
-        }
-        else if(isEqualCommand(currentCommand,MAP)){
-            CommandMap();
-        }
-        else if(isEqualCommand(currentCommand,TO_DO)){
-            CommandToDo();
-        }
-        else if(isEqualCommand(currentCommand,IN_PROGRESS)){
-            CommandInProgress();
-        }
-        else if(isEqualCommand(currentCommand,BUY)){
-            CommandBuy();
-        }   
-        else if(isEqualCommand(currentCommand,INVENTORY)){
-            CommandInventory();
-        }
-        else if(isEqualCommand(currentCommand,HELP)){
-            CommandHelp();
-        }
-        else if(isEqualCommand(currentCommand,EXIT)){
-            if(CommandExit() == true ){
-                endgame = true;
+        else {
+            printf("ENTER COMMAND: ");
+            startCommand();
+            printf("\n");
+            if(isEqualCommand(currentCommand,MOVE))
+            { 
+                CommandMove();
+            }
+            else if(isEqualCommand(currentCommand,PICK_UP)){
+                CommandPickUp();
+            }
+            else if(isEqualCommand(currentCommand,DROP_OFF)){
+                CommandDropOff();
+            }
+            else if(isEqualCommand(currentCommand,MAP)){
+                CommandMap();
+            }
+            else if(isEqualCommand(currentCommand,TO_DO)){
+                CommandToDo();
+            }
+            else if(isEqualCommand(currentCommand,IN_PROGRESS)){
+                CommandInProgress();
+            }
+            else if(isEqualCommand(currentCommand,BUY)){
+                CommandBuy();
+            }   
+            else if(isEqualCommand(currentCommand,INVENTORY)){
+                CommandInventory();
+            }
+            else if(isEqualCommand(currentCommand,HELP)){
+                CommandHelp();
+            }
+            else if(isEqualCommand(currentCommand,EXIT)){
+                if(CommandExit() == true ){
+                    endgame = true;
+                }
+            }
+            else{
+                printf("INVALID COMMAND, TRY AGAIN (TYPE 'HELP' FOR LIST OF COMMANDS)\n");
             }
         }
-        else{
-            printf("INVALID COMMAND, TRY AGAIN (TYPE 'HELP' FOR LIST OF COMMANDS)\n");
-        }
+        
     }
 }
 void mainmenu(){
