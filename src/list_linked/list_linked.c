@@ -393,6 +393,7 @@ void PickUpItem(List *td, List *ip,Stack *Tas,  char lokasi)
         if(PickUp(INFO(current))==lokasi)
         {
             deleteAtLL(td, i, &val);
+            pushStack(Tas,val);
             insertFirstLL(ip, val);
             current = FIRST(*td);
             i = 0;
