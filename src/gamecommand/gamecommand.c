@@ -76,24 +76,24 @@ void CommandDropOff(){
 
         if (DropOff(INFO(current)) == locMobita) {
             if (isOrderEqual(INFO(current), TOP(Tas))) {
-                if (TYPE(ord) == 'H') {
+                if (TYPE(INFO(current)) == 'H') {
                     Weight(T)-=1;
                     AddSpeedBoost(&T);
-                    money += 200;
-                    printf("Uang yang didapatkan : 200 Yen\n");
+                    money += 400;
+                    printf("Uang yang didapatkan : 400 Yen\n");
                 }
-                else if (TYPE(ord) == 'P') {
+                else if (TYPE(INFO(current)) == 'P') {
                     IncreaseCapacity(&Tas);
                     money += 400;
                     printf("Uang yang didapatkan : 400 Yen\n");
                 }
                 else {
                     money += 400;
-                    printf("Uang yang didapatkan : 400 Yen!\n");
+                    printf("Uang yang didapatkan : 200 Yen!\n");
                 }
                 popStack(&Tas,&ord);
                 DeliverItem(&Inprogress,locMobita);
-                printf("Jumlah uang sekarang : %d\n Yen", money);
+                printf("Jumlah uang sekarang : %d Yen\n", money);
                 counter++;
             }
             else {
