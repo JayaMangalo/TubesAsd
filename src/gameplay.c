@@ -26,10 +26,13 @@ void game_play() {
     l = LOC(map);
     if(ELMTl(l,0).name == '8') {
         printf("Headquarters ");
+    } else {
+        printf("%c ", locMobita);
     }
     TulisPOINT(ELMTl(l,0).posisi);
     printf("\n");
     printf("Waktu: %.0f\n", CurrentTime(T));
+    printf("Uang yang dimiliki: %d Yen\n", money);
     boolean endgame = false;
     while(endgame == false){
         printf("\n");
