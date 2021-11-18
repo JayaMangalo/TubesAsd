@@ -13,7 +13,6 @@
 #include "../list_linked/list_linked.h"
 #include "../commandmachine/commandcharmachine.h"
 #include "../commandmachine/commandwordmachine.h"
-#include "../commandmachine/command.h"
 #include "../stack/stack.h"
 #include "../map/map.h"
 #include "../listpos/listpos.h"
