@@ -7,9 +7,14 @@ Karena Program menggunakan bahasa pemograman C maka diperlukan untuk mengunduh t
 Setelah mengikuti instruksi pada video tersebut repository ini dapat di clone dengan command 'git clone https://github.com/JayaMangalo/TubesAsd.git' pada git BASH di folder tujuan anda
 ### Cara Menjalankan Program
 1. Buka cmd lalu change directory hingga ke folder src pada repository ini
-2. Jalankan command berikut 
+2. Jalankan command berikut
+# Untuk Windows
 ```
 gcc gameplay.c  charmachine//charmachine.c commandmachine//commandcharmachine.c commandmachine//commandwordmachine.c gadget//gadget.c gamecommand//gamecommand.c list_linked//list_linked.c listdin//listdin.c listpos//listpos.c map//map.c matrix//matrix.c node//node.c order//order.c pcolor//pcolor.c point//point.c queue//prioqueue.c setup//setup.c stack//stack.c time//time.c wordmachine//wordmachine.c -o  gameplay
+```
+# Untuk Linux
+```
+gcc gameplay.c  charmachine//charmachine.c commandmachine//commandcharmachine.c commandmachine//commandwordmachine.c gadget//gadget.c gamecommand//gamecommand.c list_linked//list_linked.c listdin//listdin.c listpos//listpos.c map//map.c matrix//matrix.c node//node.c order//order.c pcolor//pcolor.c point//point.c queue//prioqueue.c setup//setup.c stack//stack.c time//time.c wordmachine//wordmachine.c -o  gameplay -lm
 ```
 3. Jalankan command berikut 
 ```
