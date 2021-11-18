@@ -359,8 +359,9 @@ void DeliverItem(List *ip, char lokasi)
     Address current;
     current = FIRST(*ip);
     Order val;
+    boolean found = false;
     int i = 0;
-    while(current!=NULL)
+    while(current!=NULL && !found)
     {
         if(DropOff(INFO(current))==lokasi)
         {
@@ -374,6 +375,7 @@ void DeliverItem(List *ip, char lokasi)
             } else if(TYPE(val)=='P') {
                 printf("Perishable Item telah diantar ke %c\n", lokasi);
             }
+            found = true;
         } else {
             current = NEXT(current);
             i ++;
