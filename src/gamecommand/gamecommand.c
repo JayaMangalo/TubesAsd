@@ -35,7 +35,7 @@ void CommandMove(){
         printf("%c ", ELMTl(l,array[option]).name);
         TulisPOINT(ELMTl(l,array[option]).posisi);
         printf("\n");
-        printf("Waktu: %.0f\n", CurrentTime(T));
+        printf("Waktu: %d\n", GetCurrentTime(T));
     } 
 }
 void CommandPickUp(){   
