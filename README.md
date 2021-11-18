@@ -9,7 +9,7 @@ Setelah mengikuti instruksi pada video tersebut repository ini dapat di clone de
 1. Buka cmd lalu change directory hingga ke folder src pada repository ini
 2. Jalankan command berikut 
 ```
-gcc gameplay.c  charmachine//charmachine.c commandmachine//commandcharmachine.c commandmachine//commandwordmachine.c commandmachine//command.c gadget//gadget.c gamecommand//gamecommand.c list_linked//list_linked.c listdin//listdin.c listpos//listpos.c map//map.c matrix//matrix.c node//node.c order//order.c pcolor//pcolor.c point//point.c queue//prioqueue.c setup//setup.c stack//stack.c time//time.c wordmachine//wordmachine.c -o  gameplay
+gcc gameplay.c  charmachine//charmachine.c commandmachine//commandcharmachine.c commandmachine//commandwordmachine.c gadget//gadget.c gamecommand//gamecommand.c list_linked//list_linked.c listdin//listdin.c listpos//listpos.c map//map.c matrix//matrix.c node//node.c order//order.c pcolor//pcolor.c point//point.c queue//prioqueue.c setup//setup.c stack//stack.c time//time.c wordmachine//wordmachine.c -o  gameplay
 ```
 3. Jalankan command berikut 
 ```
