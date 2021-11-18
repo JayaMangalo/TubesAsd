@@ -46,11 +46,14 @@ void CommandPickUp(){
         }
         else{
             PickUpItem(&todo,&Inprogress,&Tas,locMobita);
+            printf("Item Berhasil di Pick Up.\n");
             if(TYPE(TOP(Tas)) == 'H'){
                 Weight(T) += 1;
+                if(SpeedBoost(T)>0) {
+                    printf("Anda kehilangan ability Speed Boost !\n");
+                }
                 RemoveSpeedBoost(&T); //reset speedboost
             }
-            printf("Item Berhasil di Pick Up.\n");
         }
     }
     else{
@@ -70,13 +73,23 @@ void CommandDropOff(){
     }
     else {
         if (DropOff(TOP(Tas)) == locMobita) {
-                if (TYPE(TOP(Tas)) == 'H') {
+                popStack(&Tas,&ord);
+                DeliverItem(&Inprogress,locMobita);            
+                if (TYPE(ord) == 'H') {
                     Weight(T)-=1;
                     AddSpeedBoost(&T);
+                    if(SpeedBoost(T)>0) {
+                        printf("Ability Speed Boost aktif !\n");
+                        printf("Anda bergerak dua kali lebih cepat untuk %d lokasi berikutnya\n", SpeedBoost(T));
+                    }
                     money += 400;
                     printf("Uang yang didapatkan : 400 Yen\n\n");
                 }
-                else if (TYPE(TOP(Tas)) == 'P') {
+                else if (TYPE(ord) == 'P') {
+                    if(CurrentCap(Tas)<100) {
+                        printf("Ability Increase Capacity aktif !\n");
+                        printf("Kapasitas Tas menjadi %d\n", CurrentCap(Tas)+1);
+                    }
                     IncreaseCapacity(&Tas);
                     money += 400;
                     printf("Uang yang didapatkan : 400 Yen!\n\n");
@@ -85,8 +98,6 @@ void CommandDropOff(){
                     money += 200;
                     printf("Uang yang didapatkan : 200 Yen!\n\n");
                 }
-                popStack(&Tas,&ord);
-                DeliverItem(&Inprogress,locMobita);
                 printf("\n");
                 printf("Jumlah uang sekarang : %d Yen!\n\n", money);
                 counter++;
@@ -228,6 +239,7 @@ void CommandInventory(){
         removeGadget(&InventoryGadget,"Kain Pembungkus Waktu");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Senter Pembesar"){
         useSenterPembesar(&Tas);
+        printf("Kapasitas Tas menjadi %d\n", CurrentCap(Tas));
         printf("Senter Pembesar berhasil digunakan!\n");
         removeGadget(&InventoryGadget,"Senter Pembesar");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Pintu Kemana Saja"){
