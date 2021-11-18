@@ -4,7 +4,7 @@
 #ifndef COMMANDWORDMACHINE_ENGINE_H
 #define COMMANDWORDMACHINE_ENGINE_H
 
-#include "..\boolean\boolean.h"
+#include "../boolean/boolean.h"
 #include "commandcharmachine.h"
 
 #define CAPACITYCOMMAND 50

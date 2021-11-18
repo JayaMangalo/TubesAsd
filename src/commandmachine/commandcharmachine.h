@@ -4,7 +4,7 @@
 #ifndef COMMANDCHARMACHINE_ENGINE_H
 #define COMMANDCHARMACHINE_ENGINE_H
 
-#include "..\boolean\boolean.h"
+#include "../boolean/boolean.h"
 
 #define MARKCOMMAND '\n'
 /* Char Engine State */
