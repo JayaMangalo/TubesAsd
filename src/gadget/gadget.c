@@ -8,7 +8,10 @@ void useKainPembungkusWaktu(Order *ord) {
 }
 
 void useSenterPembesar(Stack *tas) {
-  CurrentCap(*tas) = (2 * CurrentCap(*tas)) % CAPACITY;
+  CurrentCap(*tas) = (2 * CurrentCap(*tas));
+  if (CurrentCap(*tas) > 100) {
+    CurrentCap(*tas) = 100;
+  }
 }
 
 void usePintuKemanaSaja(char *currentP, char nextP){
