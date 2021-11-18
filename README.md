@@ -25,3 +25,12 @@ gcc gameplay.c  charmachine//charmachine.c commandmachine//commandcharmachine.c 
 * 13520025	Fransiskus Davin Anwari 
 * 13520047	Hana Fathiyah 
 * 13520051	Flavia Beatrix Leoni A. S. 
+
+## Pembagian Tugas
+* Ahmad Romy Zahran	                Command, To do list, jenis item
+* Ilham Prasetyo Wibowo	            Command, gadget
+* Jaya Mangalo Soegeng Rahardjo	    Command, Mekanisme waktu, tas, ability
+* Fransiskus Davin Anwari	        Command, Daftar pesanan, in progress list, inventory gadget
+* Hana Fathiyah	                    Command, Main menu
+* Flavia Beatrix Leoni A.S.	        Command, Map, gadget	
+
