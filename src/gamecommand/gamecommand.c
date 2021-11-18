@@ -59,7 +59,6 @@ void CommandPickUp(){
 
 void CommandDropOff(){
     /* KAMUS LOKAL */
-    Address current;
     Order ord;
     /* ALGORITMA */
     printf(" -----------------------DROP_OFF------------------\n\n");
@@ -69,39 +68,30 @@ void CommandDropOff(){
         printf("Tas kosong! Tidak ada baran yang bisa diantar!\n");
     }
     else {
-        current = FIRST(Inprogress);
-        while ((current != NULL) && (DropOff(INFO(current)) != locMobita)) {
-            current = NEXT(current);
-        }
-
-        if (DropOff(INFO(current)) == locMobita) {
-            if (isOrderEqual(INFO(current), TOP(Tas))) {
-                if (TYPE(INFO(current)) == 'H') {
+        if (DropOff(TOP(Tas)) == locMobita) {
+                if (TYPE(TOP(Tas)) == 'H') {
                     Weight(T)-=1;
                     AddSpeedBoost(&T);
                     money += 400;
-                    printf("Uang yang didapatkan : 400 Yen\n");
+                    printf("Uang yang didapatkan : 400 Yen\n\n");
                 }
-                else if (TYPE(INFO(current)) == 'P') {
+                else if (TYPE(TOP(Tas)) == 'P') {
                     IncreaseCapacity(&Tas);
                     money += 400;
-                    printf("Uang yang didapatkan : 400 Yen\n");
+                    printf("Uang yang didapatkan : 400 Yen!\n\n");
                 }
                 else {
-                    money += 400;
-                    printf("Uang yang didapatkan : 200 Yen!\n");
+                    money += 200;
+                    printf("Uang yang didapatkan : 200 Yen!\n\n");
                 }
                 popStack(&Tas,&ord);
                 DeliverItem(&Inprogress,locMobita);
-                printf("Jumlah uang sekarang : %d Yen\n", money);
+                printf("\n");
+                printf("Jumlah uang sekarang : %d Yen!\n\n", money);
                 counter++;
-            }
-            else {
-                printf("Item teratas pada tas tidak sesuai dengan pesanan pada lokasi.\n");
-            }
         }
         else {
-            printf("Tidak ada pesanan yang dapat diantarkan!\n");
+            printf("Barang di tumpukan teratas tas tidak sesuai dengan lokasi sekarang!\n");
         }
     }
 
