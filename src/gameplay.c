@@ -37,13 +37,17 @@ void game_play() {
     while(endgame == false){
         printf("\n");
         printf(" ----------------MOBITA DELIVERY SERVICE----------\n\n");
-        if (isEmptyLL(Inprogress) && isEmptyLL(todo) && GetCurrentTime(T) > 0) {
+        if (isQEmpty(DaftarOrder) && isEmptyLL(Inprogress) && isEmptyLL(todo) && GetCurrentTime(T) > 0 && locMobita=='8') {
             endgame = true;
             printf("CONGRATULATIONS! YOU HAVE COMPLETED THE GAME!\n");
             printf("Uang yang didapatkan : %d Yen\n", money);
             printf("Jumlah pesanan yang berhasil diantarkan : %d \n", counter);
+            printf("Waktu akhir: %d\n", GetCurrentTime(T));
         }
         else {
+            if(isQEmpty(DaftarOrder) && isEmptyLL(Inprogress) && isEmptyLL(todo) && GetCurrentTime(T) > 0) {
+                printf("Pesanan sudah habis, segera kembali ke Headquarters!\n");
+            }
             printf("ENTER COMMAND: ");
             startCommand();
             printf("\n");
