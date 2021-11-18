@@ -1,6 +1,3 @@
-/* NIM: 13520009 */
-/* Nama: Ahmad Romy Zahran */
-/* Tanggal : 22 September 2021 */
 /* Topik Praktikum : ADT Matrix */
 /* File : matrix.c */
 /* Berisi implementasi primitif matrix dengan elemen integer */

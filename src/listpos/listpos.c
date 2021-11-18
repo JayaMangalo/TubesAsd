@@ -1,6 +1,3 @@
-/* NIM: 13520009 */
-/* Nama: Ahmad Romy Zahran */
-/* Tanggal : 8 September 2021 */
 /* Topik Praktikum : ADT List */
 /* File : listpos.c */
 /* Berisi implementasi primitif pemrosesan list integer dengan elemen

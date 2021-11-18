@@ -1,6 +1,3 @@
-/* NIM: 13520009 */
-/* Nama: Ahmad Romy Zahran */
-/* Tanggal : 7 Oktober 2021 */
 /* Topik Praktikum : ADT Queue */
 /* File : prioqueue.c */
 /* implementasi ADT Priority Queue dengan representasi array secara eksplisit dan alokasi statik */

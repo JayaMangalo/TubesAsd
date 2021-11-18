@@ -1,6 +1,3 @@
-/* NIM: 13520009 */
-/* Nama: Ahmad Romy Zahran */
-/* Tanggal : 30 September 2021 */
 /* Topik Praktikum : ADT Mesin Kata */
 /* File : wordmachine.c */
 /* Berisi implementasi word engine */

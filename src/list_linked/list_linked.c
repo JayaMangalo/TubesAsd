@@ -1,6 +1,3 @@
-/* NIM: 13520009 */
-/* Nama: Ahmad Romy Zahran */
-/* Tanggal : 25 Oktober 2021 */
 /* Topik Praktikum : ADT Linked List */
 /* File : list_linked.c */
 /* IMplementasi ADT list berkait dengan representasi fisik pointer */
