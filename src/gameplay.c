@@ -97,7 +97,7 @@ void mainmenu(){
     printf("                 BY GROUP 04 CLASS 01             \n\n");
     printf(" ----------------------MAIN MENU------------------\n\n");
     printf("1. NEW GAME\n");
-    printf("2. LOAD GAME\n");
+    printf("2. LOAD GAME (Incoming Next Update)\n");
     printf("3. EXIT\n\n");
     printf("ENTER COMMAND: ");
     startCommand();
@@ -110,10 +110,12 @@ void mainmenu(){
         game_play();
     } else if(isEqualCommand(currentCommand,LOAD_GAME)) {
         printf(" ---------------------LOAD GAME-------------------\n\n");
-        printf("INPUT NAMA FILE: ");
+        /* printf("INPUT NAMA FILE: ");
         startCommand();
         setupGame();
-        game_play();  
+        game_play(); */  
+        printf("LOAD GAME is Incoming Next Update, PLEASE TRY AGAIN\n"); 
+        mainmenu();
     } else if(isEqualCommand(currentCommand,EXIT)) {
         printf("YOU'VE ENDED THIS GAME");
     } else {
