@@ -120,7 +120,6 @@ void CommandBuy(){
         printf("4. Mesin Waktu (3000 Yen)\n");
         printf("5. Senter Pengecil (800 Yen)\n");
         printf("Gadget mana yang ingin kau beli? (ketik 0 jika ingin kembali)\n");
-        money += 3000;
         printf("ENTER COMMAND: ");
         startCommand();
         if(currentCommand.contents[0] == '1'){
