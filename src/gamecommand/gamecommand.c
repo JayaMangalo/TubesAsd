@@ -240,7 +240,7 @@ void CommandInventory(){
         removeGadget(&InventoryGadget,"Pintu Kemana Saja");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Mesin Waktu"){
         //kurang tau cara kerja waktu sekarang gimana jadi pake TIME T sementara
-        useMesinWaktu(&T);
+        useMesinWaktu(&T, &Inprogress, &Tas);
         printf("Mesin Waktu berhasil digunakan!\n");
         removeGadget(&InventoryGadget,"Mesin Waktu");
     } else if (ELMTListPos(InventoryGadget,pilihan)=="Senter Pengecil"){
