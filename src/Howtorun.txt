@@ -1,3 +1,0 @@
-gameplay: 
-compile :  gcc gameplay.c  charmachine//charmachine.c commandmachine//commandcharmachine.c commandmachine//commandwordmachine.c gadget//gadget.c gamecommand//gamecommand.c list_linked//list_linked.c listdin//listdin.c listpos//listpos.c map//map.c matrix//matrix.c node//node.c order//order.c pcolor//pcolor.c point//point.c queue//prioqueue.c setup//setup.c stack//stack.c time//time.c wordmachine//wordmachine.c -o  gameplay
-run 	: ./gameplay
