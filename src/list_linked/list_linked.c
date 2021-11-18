@@ -387,16 +387,18 @@ void DeliverItem(List *ip, char lokasi)
 void PickUpItem(List *td, List *ip,Stack *Tas,  char lokasi)
 {
     Address current;
+    boolean found=false;
     current = FIRST(*td);
     Order val;
     int i = 0;
-    while(current!=NULL)
+    while(current!=NULL && !found)
     {
         if(PickUp(INFO(current))==lokasi)
         {
             deleteAtLL(td, i, &val);
             pushStack(Tas,val);
             insertFirstLL(ip, val);
+            found = true; // item yang diambil adalah yang masuk duluan
             current = FIRST(*td);
             i = 0;
         } else {

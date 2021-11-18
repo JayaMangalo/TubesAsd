@@ -48,6 +48,7 @@ void CommandPickUp(){
             PickUpItem(&todo,&Inprogress,&Tas,locMobita);
             if(TYPE(TOP(Tas)) == 'H'){
                 Weight(T) += 1;
+                RemoveSpeedBoost(&T); //reset speedboost
             }
             printf("Item Berhasil di Pick Up.\n");
         }
